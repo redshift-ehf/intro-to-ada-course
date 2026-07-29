@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/imp_condexpr_parity.adb
+    visible: true

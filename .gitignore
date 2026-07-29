@@ -1,0 +1,19 @@
+obj/
+bin/
+.idea/
+
+# Course archives, written by Create Course Archive. Build output.
+.coursecreator/
+
+# Item ids, assigned locally by the course creator and flushed on a later save --
+# the section id was already inside an archive built twenty minutes before these
+# files appeared on disk. They are marketplace identity, and this course is not on
+# the Marketplace (see LICENSE), so here they identify nothing and would differ per
+# machine. If this course is ever published, commit them: they are how an update
+# lands on the existing entry instead of creating a second one.
+*-remote-info.yaml
+__pycache__/
+*.pyc
+
+# JetBrains Junie agent config. Local tooling, not course content.
+.junie/

@@ -1,0 +1,57 @@
+--  The whole course is one GNAT project.
+--
+--  Every exercise shares this file rather than carrying a crate of its own, which is not a
+--  compromise: `gprbuild -P course.gpr <one_main>.adb` compiles that main's closure and nothing
+--  else, so an exercise you have not finished yet cannot break the ones you have. And because
+--  there is a single project, the language server keeps every lesson navigable at once —
+--  go-to-definition works from any file to any other, which it would not with a project per task.
+--
+--  Source_Dirs names each section explicitly. A single "**" at the root also works (measured), but
+--  listing the sections says what belongs to the course and what is incidental, and it means a
+--  stray directory cannot quietly become course content.
+--
+--  The directory names carry spaces because they are also the section titles the student sees —
+--  JetBrains Academy takes lesson and section titles from the directory name, and only tasks can
+--  override it. GPR accepts them; that was measured before this file was written.
+project Course is
+
+   --  One entry per section, added as each section lands. gprbuild rejects a directory that does
+   --  not exist, so this list cannot drift ahead of the course -- adding a section means adding it
+   --  here, and forgetting is a build failure rather than a mystery.
+   for Source_Dirs use
+     ("harness",
+      "Imperative Language/**");
+
+   for Object_Dir use "obj";
+   for Exec_Dir use "bin";
+
+   --  Every task source that is a runnable program: the theory examples, and any exercise whose
+   --  subprogram takes no arguments. Ada's rule for a main is a parameterless library-level
+   --  subprogram, and the IDE puts a Run button beside exactly those -- so a file that is one and
+   --  is missing here gets a button that fails. Imp_Hello_Say is precisely that case, and
+   --  check_course.py now refuses to pass if this list and that rule ever disagree again.
+   --
+   --  The exercises that DO take arguments are absent because they cannot be mains, which is also
+   --  why they get no Run button, only Check.
+   --
+   --  Declaring these does not cost the per-exercise isolation described above. That comes from
+   --  naming one main on the command line, which works whatever this list says; all this changes
+   --  is what a bare `gprbuild -P course.gpr` builds. Checked with an unfinished exercise in the
+   --  tree: the bare build succeeds and produces exactly these six, because an exercise is not a
+   --  main and nothing here withs it.
+   for Main use
+     ("imp_hello_greet.adb",
+      "imp_hello_say.adb",
+      "imp_ifelse_check.adb",
+      "imp_loops_count.adb",
+      "imp_case_compass.adb",
+      "imp_decl_scope.adb",
+      "imp_condexpr_parity.adb");
+
+   package Compiler is
+      --  -gnatwa: warn about everything worth warning about. A course should teach the habit of
+      --  reading warnings, and Ada's are unusually good.
+      for Default_Switches ("Ada") use ("-g", "-gnatwa");
+   end Compiler;
+
+end Course;

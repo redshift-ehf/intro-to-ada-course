@@ -1,0 +1,12 @@
+type: edu
+custom_name: "Exercise: Numbers"
+files:
+  - name: src/imp_loops_numbers.adb
+    visible: true
+    placeholders:
+      - offset: 192
+        length: 79
+        # Quoted, not a |- block: a block scalar strips the indentation common to its lines.
+        placeholder_text: "   --  Implement the loop here!\n   null;"
+  - name: tests/test_imp_loops_numbers.adb
+    visible: false

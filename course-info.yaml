@@ -1,0 +1,19 @@
+type: marketplace
+title: Introduction to Ada
+language: English
+summary: "<p>An adaptation of AdaCore's <a href=\"https://learn.adacore.com/courses/intro-to-ada/\">Introduction to Ada</a> for JetBrains IDEs, with the exercises adapted from its companion <a href=\"https://learn.adacore.com/labs/intro-to-ada/\">Introduction to Ada: Laboratories</a>.</p> <p>You read a little, then write a little, and the IDE checks your work as you go — the whole course compiles and runs with the same GNAT toolchain you would use for real Ada.</p> <p>Requires the Ada and SPARK plugin, which provides the language server, the build integration and the test runner this course is checked with.</p> <p><strong>Attribution.</strong> Every lesson and exercise in this course is adapted from <em>Introduction to Ada</em> and <em>Introduction to Ada: Laboratories</em> by Raphaël Amiard and Gustavo A. Hoffmann, © 2018–2026 AdaCore, used under <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a>. Changes were made throughout: restructured as a JetBrains Academy course, examples rewritten to run without keyboard input, and exercises rewritten as checkable tasks with automated tests. This adaptation is released under the same licence.</p>"
+programming_language: Plain text
+environment: Ada
+content:
+  - Imperative Language
+tags:
+  - Ada
+  - SPARK
+  - Beginner-friendly
+additional_files:
+  - name: course.gpr
+  - name: harness/ada_check.ads
+  - name: harness/ada_check.adb
+  - name: LICENSE
+  - name: README.md
+yaml_version: 5

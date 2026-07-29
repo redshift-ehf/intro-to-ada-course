@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/imp_loops_count.adb
+    visible: true
