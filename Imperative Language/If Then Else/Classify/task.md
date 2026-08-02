@@ -1,4 +1,4 @@
-## Exercise: Positive Or Negative
+## Exercise: Classify
 
 **Goal**: say whether a number is positive, negative, or zero.
 

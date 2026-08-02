@@ -4,7 +4,7 @@ with Classify;
 
 procedure Test_Classify is
 begin
-   Ada_Check.Suite ("Positive Or Negative");
+   Ada_Check.Suite ("Classify");
 
    Ada_Check.Equal
      (Name     => "a positive number",
