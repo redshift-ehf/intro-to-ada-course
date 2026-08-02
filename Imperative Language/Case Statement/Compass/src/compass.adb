@@ -1,6 +1,6 @@
 with Ada.Text_IO; use Ada.Text_IO;
 
-procedure Imp_Case_Compass is
+procedure Compass is
    --  Change this and press Run again.
    N : constant Integer := 135;
 begin
@@ -17,4 +17,4 @@ begin
       when 271 .. 359 => Put_Line (" is in the northwest quadrant");
       when others    => Put_Line (" is not a compass bearing");
    end case;
-end Imp_Case_Compass;
+end Compass;

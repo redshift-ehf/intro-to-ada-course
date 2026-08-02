@@ -1,4 +1,4 @@
 type: theory
 files:
-  - name: src/imp_decl_scope.adb
+  - name: src/scope.adb
     visible: true

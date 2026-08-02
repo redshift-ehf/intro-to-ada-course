@@ -1,6 +1,6 @@
 with Ada.Text_IO; use Ada.Text_IO;
 
-procedure Imp_Loops_Count is
+procedure Counting is
    I : Integer := 1;
 begin
    Put_Line ("A for loop, counting up:");
@@ -31,4 +31,4 @@ begin
       Put_Line ("  Hello, World!" & Integer'Image (I));
       I := I + 1;
    end loop;
-end Imp_Loops_Count;
+end Counting;

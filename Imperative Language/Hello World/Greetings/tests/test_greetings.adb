@@ -1,8 +1,8 @@
 with Ada.Command_Line;
 with Ada_Check;
-with Imp_Hello_Greetings;
+with Greetings;
 
-procedure Test_Imp_Hello_Greetings is
+procedure Test_Greetings is
 begin
    Ada_Check.Suite ("Greetings");
 
@@ -12,21 +12,21 @@ begin
    --  the second case instead of passing.
    Ada_Check.Equal
      (Name     => "greets John",
-      Actual   => Ada_Check.Output_Of (Imp_Hello_Greetings'Access, "John"),
+      Actual   => Ada_Check.Output_Of (Greetings'Access, "John"),
       Expected => "Hello John!");
 
    Ada_Check.Equal
      (Name     => "greets Ada",
-      Actual   => Ada_Check.Output_Of (Imp_Hello_Greetings'Access, "Ada"),
+      Actual   => Ada_Check.Output_Of (Greetings'Access, "Ada"),
       Expected => "Hello Ada!");
 
    --  A name with a space in it, which catches a solution that tries to be clever about words.
    Ada_Check.Equal
      (Name     => "greets a full name",
-      Actual   => Ada_Check.Output_Of (Imp_Hello_Greetings'Access, "Ada Lovelace"),
+      Actual   => Ada_Check.Output_Of (Greetings'Access, "Ada Lovelace"),
       Expected => "Hello Ada Lovelace!");
 
    Ada_Check.Finish;
    Ada.Command_Line.Set_Exit_Status
      (Ada.Command_Line.Exit_Status (Ada_Check.Failures));
-end Test_Imp_Hello_Greetings;
+end Test_Greetings;

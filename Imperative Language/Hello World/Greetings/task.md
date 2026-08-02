@@ -4,7 +4,7 @@
 
 **Steps**:
 
-1. Complete the `Imp_Hello_Greetings` procedure.
+1. Complete the `Greetings` procedure.
 
 **Requirements**:
 
@@ -13,7 +13,7 @@
 This one is different from the last in a way worth noticing: the procedure takes an argument.
 
 ```adasnippet
-procedure Imp_Hello_Greetings (Name : String) is
+procedure Greetings (Name : String) is
 ```
 
 `Name : String` says this procedure needs a string to do its job, and inside the body `Name` stands

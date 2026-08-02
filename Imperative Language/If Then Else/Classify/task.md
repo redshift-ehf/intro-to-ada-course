@@ -4,7 +4,7 @@
 
 **Steps**:
 
-1. Complete the `Imp_Ifelse_Classify` procedure.
+1. Complete the `Classify` procedure.
 
 **Requirements**:
 

@@ -71,7 +71,7 @@ The Run button appears beside any subprogram that takes no arguments, which is A
 main program — a program has to be startable with nothing.
 
 So some later exercises have a Run button and some do not, and the difference is exactly that rule.
-`Imp_Hello_Say` in the next task takes no arguments, so you can run it and watch it print. The one
+`Say_Hello` in the next task takes no arguments, so you can run it and watch it print. The one
 after takes a name to greet, which makes it a subprogram rather than a program, and it is checked
 rather than run.
 </div>

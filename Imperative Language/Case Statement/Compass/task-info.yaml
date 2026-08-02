@@ -1,4 +1,4 @@
 type: theory
 files:
-  - name: src/imp_case_compass.adb
+  - name: src/compass.adb
     visible: true

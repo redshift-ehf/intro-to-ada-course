@@ -1,6 +1,6 @@
 with Ada.Text_IO; use Ada.Text_IO;
 
-procedure Imp_Ifelse_Classify (X : Integer) is
+procedure Classify (X : Integer) is
 begin
    if X > 0 then
       Put_Line ("Positive");
@@ -9,4 +9,4 @@ begin
    else
       Put_Line ("Zero");
    end if;
-end Imp_Ifelse_Classify;
+end Classify;

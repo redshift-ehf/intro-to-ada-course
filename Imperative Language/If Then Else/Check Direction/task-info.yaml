@@ -1,4 +1,4 @@
 type: theory
 files:
-  - name: src/imp_ifelse_check.adb
+  - name: src/check_direction.adb
     visible: true

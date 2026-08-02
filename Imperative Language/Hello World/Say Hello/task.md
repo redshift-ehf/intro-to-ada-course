@@ -4,7 +4,7 @@
 
 **Steps**:
 
-1. Complete the `Imp_Hello_Say` procedure.
+1. Complete the `Say_Hello` procedure.
 
 **Requirements**:
 

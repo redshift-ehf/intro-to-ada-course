@@ -1,13 +1,13 @@
 type: edu
 custom_name: "Exercise: Hello World"
 files:
-  - name: src/imp_hello_say.adb
+  - name: src/say_hello.adb
     visible: true
     placeholders:
-      - offset: 69
+      - offset: 65
         length: 29
         placeholder_text: |2-
              --  Implement the application here!
              null;
-  - name: tests/test_imp_hello_say.adb
+  - name: tests/test_say_hello.adb
     visible: false

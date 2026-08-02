@@ -1,6 +1,6 @@
 with Ada.Text_IO; use Ada.Text_IO;
 
-procedure Imp_Hello_Say is
+procedure Say_Hello is
 begin
    Put_Line ("Hello World!");
-end Imp_Hello_Say;
+end Say_Hello;

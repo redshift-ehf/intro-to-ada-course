@@ -1,13 +1,13 @@
 type: edu
-custom_name: "Exercise: Positive Or Negative"
+custom_name: "Exercise: Classify"
 files:
-  - name: src/imp_ifelse_classify.adb
+  - name: src/classify.adb
     visible: true
     placeholders:
-      - offset: 89
+      - offset: 78
         length: 138
         placeholder_text: |2-
              --  Implement the classification here!
              null;
-  - name: tests/test_imp_ifelse_classify.adb
+  - name: tests/test_classify.adb
     visible: false

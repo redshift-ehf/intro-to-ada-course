@@ -1,6 +1,6 @@
 with Ada.Text_IO; use Ada.Text_IO;
 
-procedure Imp_Condexpr_Parity is
+procedure Parity is
    N : constant Integer := 7;
 
    --  An if EXPRESSION, which has a value, rather than an if statement, which does something.
@@ -21,4 +21,4 @@ begin
                       when 2      => "the second",
                       when others => "further along"));
    end loop;
-end Imp_Condexpr_Parity;
+end Parity;

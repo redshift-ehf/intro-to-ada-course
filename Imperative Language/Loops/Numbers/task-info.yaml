@@ -1,13 +1,13 @@
 type: edu
 custom_name: "Exercise: Numbers"
 files:
-  - name: src/imp_loops_numbers.adb
+  - name: src/numbers.adb
     visible: true
     placeholders:
-      - offset: 192
+      - offset: 182
         length: 79
         placeholder_text: |2-
              --  Implement the loop here!
              null;
-  - name: tests/test_imp_loops_numbers.adb
+  - name: tests/test_numbers.adb
     visible: false

@@ -1,13 +1,13 @@
 type: edu
 custom_name: "Exercise: Greetings"
 files:
-  - name: src/imp_hello_greetings.adb
+  - name: src/greetings.adb
     visible: true
     placeholders:
-      - offset: 91
+      - offset: 81
         length: 36
         placeholder_text: |2-
              --  Implement the greeting here!
              null;
-  - name: tests/test_imp_hello_greetings.adb
+  - name: tests/test_greetings.adb
     visible: false

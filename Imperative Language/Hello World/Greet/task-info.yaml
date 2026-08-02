@@ -1,4 +1,4 @@
 type: theory
 files:
-  - name: src/imp_hello_greet.adb
+  - name: src/greet.adb
     visible: true

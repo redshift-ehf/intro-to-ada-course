@@ -1,6 +1,6 @@
 with Ada.Text_IO; use Ada.Text_IO;
 
-procedure Imp_Ifelse_Check is
+procedure Check_Direction is
    --  Change this and press Run again.
    N : constant Integer := 45;
 begin
@@ -19,4 +19,4 @@ begin
    else
       Put_Line (" is somewhere in the west");
    end if;
-end Imp_Ifelse_Check;
+end Check_Direction;

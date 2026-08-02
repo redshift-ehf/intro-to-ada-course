@@ -5,11 +5,11 @@ Ada keeps declarations and statements apart. Everything between `is` and `begin`
 one since the first task without it being named.
 
 ```adasnippet
-procedure Imp_Decl_Scope is
+procedure Scope is
    X : Integer;          --  declarations go here
 begin
    X := 0;               --  statements go here
-end Imp_Decl_Scope;
+end Scope;
 ```
 
 There is no mixing the two, which means that reading any subprogram tells you what it works with
@@ -19,14 +19,14 @@ where you will not notice it.
 Subprograms are declarations too, so one can be declared inside another:
 
 ```adasnippet
-procedure Imp_Decl_Scope is
+procedure Scope is
    procedure Nested is
    begin
       Put_Line ("Hello");
    end Nested;
 begin
    Nested;
-end Imp_Decl_Scope;
+end Scope;
 ```
 
 `Nested` exists only inside its parent. Nothing outside can call it, so nothing outside needs to

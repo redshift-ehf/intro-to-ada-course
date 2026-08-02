@@ -4,7 +4,7 @@
 
 **Steps**:
 
-1. Complete the `Imp_Loops_Numbers` procedure.
+1. Complete the `Numbers` procedure.
 
 **Requirements**:
 

@@ -1,6 +1,6 @@
 with Ada.Text_IO; use Ada.Text_IO;
 
-procedure Imp_Decl_Scope is
+procedure Scope is
    --  Everything between `is` and `begin` is the declarative region.
    X : Integer;
 
@@ -29,4 +29,4 @@ begin
 
    --  Person does not exist out here. Uncomment the next line to watch the compiler say so.
    --  Put_Line (Person);
-end Imp_Decl_Scope;
+end Scope;

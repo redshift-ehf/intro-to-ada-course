@@ -40,7 +40,7 @@ an unfinished exercise in the tree, where the bare build succeeds because an exe
 compiles.
 
 **Every Ada compilation unit needs a globally unique name.** They all share one project, so
-`imp_hello_greet` rather than `main`. This is enforced rather than trusted: gprbuild refuses the
+`greet` rather than `main`. This is enforced rather than trusted: gprbuild refuses the
 whole project with `duplicate unit "..."` if two ever collide, so a mistake here fails loudly on
 the next build rather than silently building the wrong file.
 
@@ -61,8 +61,8 @@ Imperative Language/            section  — title comes from this name
     Greet/                      task     — task-info.yaml may override with custom_name
       task-info.yaml
       task.md                   description, with the attribution note
-      src/imp_hello_greet.adb   visible; for an exercise, this is the SOLUTION
-      tests/test_imp_hello_greet.adb   invisible; built on the Ada_Check harness
+      src/greet.adb   visible; for an exercise, this is the SOLUTION
+      tests/test_greet.adb   invisible; built on the Ada_Check harness
 ```
 
 For an exercise, **the file committed here is the finished answer**. The IDE cuts out the span
@@ -80,7 +80,7 @@ refuses to run on a form it cannot read rather than skipping the task.
 is a parameterless library-level subprogram, and that is exactly the rule the IDE's gutter marker
 uses — so `for Main use` in `course.gpr` must name every task source that satisfies it, or the
 button appears and then fails with no executable to run. `check_course.py` enforces the agreement
-in both directions; it was added after `Imp_Hello_Say` slipped through.
+in both directions; it was added after `Say_Hello` slipped through.
 
 Most exercises do take parameters and so are checked rather than run — which is the better trade:
 the original labs read a single value from the command line, and a parameter can be supplied as
@@ -113,13 +113,13 @@ nothing to download: a test is a main that calls `Ada_Check.Check` and returns
 with Ada.Command_Line;
 with Ada_Check;
 
-procedure Test_Imp_Hello_Greet is
+procedure Test_Greet is
 begin
    Ada_Check.Suite ("Hello World");
    Ada_Check.Equal ("greeting", Greeting, "Hello, World!");
    Ada_Check.Finish;
    Ada.Command_Line.Set_Exit_Status (Ada.Command_Line.Exit_Status (Ada_Check.Failures));
-end Test_Imp_Hello_Greet;
+end Test_Greet;
 ```
 
 A test program that does not compile prints nothing at all, and the IDE reports that as a

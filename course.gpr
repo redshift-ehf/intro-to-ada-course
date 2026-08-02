@@ -28,7 +28,7 @@ project Course is
    --  Every task source that is a runnable program: the theory examples, and any exercise whose
    --  subprogram takes no arguments. Ada's rule for a main is a parameterless library-level
    --  subprogram, and the IDE puts a Run button beside exactly those -- so a file that is one and
-   --  is missing here gets a button that fails. Imp_Hello_Say is precisely that case, and
+   --  is missing here gets a button that fails. Say_Hello is precisely that case, and
    --  check_course.py now refuses to pass if this list and that rule ever disagree again.
    --
    --  The exercises that DO take arguments are absent because they cannot be mains, which is also
@@ -40,13 +40,13 @@ project Course is
    --  tree: the bare build succeeds and produces exactly these six, because an exercise is not a
    --  main and nothing here withs it.
    for Main use
-     ("imp_hello_greet.adb",
-      "imp_hello_say.adb",
-      "imp_ifelse_check.adb",
-      "imp_loops_count.adb",
-      "imp_case_compass.adb",
-      "imp_decl_scope.adb",
-      "imp_condexpr_parity.adb");
+     ("greet.adb",
+      "say_hello.adb",
+      "check_direction.adb",
+      "counting.adb",
+      "compass.adb",
+      "scope.adb",
+      "parity.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of
