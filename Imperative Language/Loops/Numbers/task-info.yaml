@@ -6,7 +6,8 @@ files:
     placeholders:
       - offset: 192
         length: 79
-        # Quoted, not a |- block: a block scalar strips the indentation common to its lines.
-        placeholder_text: "   --  Implement the loop here!\n   null;"
+        placeholder_text: |2-
+             --  Implement the loop here!
+             null;
   - name: tests/test_imp_loops_numbers.adb
     visible: false

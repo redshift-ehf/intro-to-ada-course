@@ -6,9 +6,8 @@ files:
     placeholders:
       - offset: 69
         length: 29
-        # Quoted, not a |- block: a block scalar strips the indentation common to its lines, so
-        # the leading spaces below would vanish, and the student's first view of the only
-        # exercise in the course would be unindented Ada one task after being shown indented Ada.
-        placeholder_text: "   --  Implement the application here!\n   null;"
+        placeholder_text: |2-
+             --  Implement the application here!
+             null;
   - name: tests/test_imp_hello_say.adb
     visible: false

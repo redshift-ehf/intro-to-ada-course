@@ -75,7 +75,22 @@ class Task:
 
 
 def read_placeholders(lines: list[str], start: int, stop: int) -> list[Placeholder]:
-    """Read every placeholder between two line indices, honouring YAML block-scalar scoping."""
+    """Read every placeholder between two line indices, honouring YAML block-scalar scoping.
+
+    A note on how `placeholder_text` is written, kept here because `task-info.yaml` cannot keep it.
+    The text is indented Ada and the indentation is load-bearing -- it is the student's first sight
+    of the exercise. A bare `|-` block scalar strips the indentation common to its lines and would
+    flatten it. Two forms survive: a quoted scalar with `\\n`, and a block scalar with an explicit
+    indentation indicator (`|2-`), which is what the IDE writes.
+
+    The IDE is why this note is here rather than beside what it describes. Opening the course in
+    the JetBrains Academy editor rewrites these files -- quoted scalars become `|2-` blocks -- and
+    strips any comment it passes on the way. The explanation was lost every time the course was
+    opened, so it lives in the checker, which the editor never touches.
+
+    Nothing rests on remembering it. A flattened or misplaced placeholder makes the unsolved
+    exercise stop compiling, or stop failing, and the two assertions per exercise catch that.
+    """
     placeholders: list[Placeholder] = []
     index = start
     while index < stop:
