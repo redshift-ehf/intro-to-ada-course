@@ -341,6 +341,54 @@ def check_mains(root: Path) -> list[str]:
     return problems
 
 
+def check_unit_names(root: Path) -> list[str]:
+    """A task's unit is its directory name, spaces to underscores, and its file is that lowercased.
+
+    This exists in place of a prefix. Exercises used to be named `Imp_Hello_Greet` --
+    section, lesson, task -- because the whole course is one GNAT project, so every library-level
+    unit shares one namespace and two tasks called `Greet` would collide. That bought safety at the
+    cost of teaching beginners, by example on page one, a naming style no Ada programmer uses.
+
+    The names are canonical now, and the collision the prefix prevented is caught here instead: a
+    duplicate is a named failure while the author is looking at it, rather than something a mangled
+    name quietly made impossible forever. Deriving the expected name rather than merely checking
+    for duplicates also catches the likelier mistake -- a file renamed without its unit, or a task
+    directory renamed without either.
+
+    Reported both ways round, as `check_structure` does, because a unit that disagrees with its
+    file fails at compile time and loudly, while a unit that disagrees with its directory does not
+    fail at all -- it just leaves the student opening `classify.adb` from a task called something
+    else.
+    """
+    problems: list[str] = []
+    seen: dict[str, Path] = {}
+    for source in sorted(root.glob("*/*/*/src/*.adb")):
+        expected = source.parent.parent.name.replace(" ", "_")
+        unit = source.stem
+
+        if unit.lower() != expected.lower():
+            problems.append(
+                f"{source.name} sits in the task '{source.parent.parent.name}', so its unit should "
+                f"be {expected} in {expected.lower()}.adb -- a student opening this task gets a "
+                f"file named after something else"
+            )
+        if unit.lower() in seen:
+            # By task, not by file name: a collision means the file names are identical, so
+            # printing those twice says nothing about where either of them is.
+            here = source.parent.parent
+            there = seen[unit.lower()].parent.parent
+            problems.append(
+                f"'{here.parent.name}/{here.name}' and '{there.parent.name}/{there.name}' are both "
+                f"unit {unit} -- the course is one GNAT project, so they share a namespace and "
+                f"gprbuild will refuse it. Rename one of the tasks"
+            )
+        seen[unit.lower()] = source
+
+    if not seen:
+        problems.append("no task sources found at all, so this check proves nothing")
+    return problems
+
+
 def check_structure(root: Path) -> list[str]:
     """Every directory listed must exist, and every directory present must be listed.
 
@@ -395,12 +443,13 @@ def main() -> int:
         print("run this from the course root", file=sys.stderr)
         return 2
 
-    structure = check_structure(root) + check_mains(root)
+    structure = check_structure(root) + check_mains(root) + check_unit_names(root)
     if structure:
         for problem in structure:
             print(f"  STRUCTURE  {problem}", file=sys.stderr)
         return 1
-    print("  ok       structure: content lists match directories, and `for Main use` matches\n           the sources that are runnable programs")
+    print("  ok       structure: content lists match directories, `for Main use` matches the\n"
+          "           sources that are runnable programs, and every unit is named for its task")
 
     failures: list[str] = []
     tasks = [read_task(p) for p in sorted(root.glob("*/*/*/task-info.yaml"))]
