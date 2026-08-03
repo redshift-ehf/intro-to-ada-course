@@ -8,9 +8,13 @@ files:
     placeholders:
       - offset: 91
         length: 559
-        placeholder_text: "      --  Return the hexadecimal code for each colour!\n      return 0;"
+        placeholder_text: |2-
+                --  Return the hexadecimal code for each colour!
+                return 0;
       - offset: 1017
         length: 139
-        placeholder_text: "      --  Return the HTML colour of the same name!\n      return Salmon;"
+        placeholder_text: |2-
+                --  Return the HTML colour of the same name!
+                return Salmon;
   - name: tests/test_colors.adb
     visible: false

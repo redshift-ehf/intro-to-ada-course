@@ -8,9 +8,13 @@ files:
     placeholders:
       - offset: 536
         length: 150
-        placeholder_text: "      --  Saturate: under 10 becomes 10, over 50 becomes 50!\n      return D_50'First;"
+        placeholder_text: |2-
+                --  Saturate: under 10 becomes 10, over 50 becomes 50!
+                return D_50'First;
       - offset: 760
         length: 222
-        placeholder_text: "      --  Saturate: under 10 becomes 10, over 50 becomes 50!\n      return S_50'First;"
+        placeholder_text: |2-
+                --  Saturate: under 10 becomes 10, over 50 becomes 50!
+                return S_50'First;
   - name: tests/test_integers.adb
     visible: false
