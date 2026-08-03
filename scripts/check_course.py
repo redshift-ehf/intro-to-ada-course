@@ -342,18 +342,24 @@ def check_mains(root: Path) -> list[str]:
 
 
 def check_unit_names(root: Path) -> list[str]:
-    """A task's unit is its directory name, spaces to underscores, and its file is that lowercased.
+    """A task's unit ends with its directory name, and every unit in the course is distinct.
 
-    This exists in place of a prefix. Exercises used to be named `Imp_Hello_Greet` --
-    section, lesson, task -- because the whole course is one GNAT project, so every library-level
-    unit shares one namespace and two tasks called `Greet` would collide. That bought safety at the
-    cost of teaching beginners, by example on page one, a naming style no Ada programmer uses.
+    This exists in place of a prefix. Exercises used to be named `Imp_Hello_Greet` -- section,
+    lesson, task -- because the whole course is one GNAT project, so every library-level unit shares
+    one namespace and two tasks called `Greet` would collide. That bought safety at the cost of
+    teaching beginners, by example on page one, a naming style no Ada programmer uses.
 
-    The names are canonical now, and the collision the prefix prevented is caught here instead: a
-    duplicate is a named failure while the author is looking at it, rather than something a mangled
-    name quietly made impossible forever. Deriving the expected name rather than merely checking
-    for duplicates also catches the likelier mistake -- a file renamed without its unit, or a task
-    directory renamed without either.
+    So the collision the prefix prevented is caught here instead, and only the tasks that actually
+    collide pay for it. `Colors` is three separate exercises in the original labs -- Strongly Typed
+    Language, Records, Privacy -- and `Directions`, `List of Names`, `Simple todo list`,
+    `Price list` and `List of events` are each two. One keeps the plain name and the others take a
+    chapter qualifier: `Record_Colors`, `Private_Colors`. Which one goes plain is the author's
+    choice, deliberately: fixing it to "whichever comes first" would make inserting a chapter
+    rename tasks in chapters nobody touched.
+
+    Hence *ends with* rather than *equals*. It still pins the name to the task -- `Foo_Bar` in a
+    task called Colors fails -- while leaving the qualifier free. Uniqueness is checked separately,
+    and is the half that gprbuild would otherwise enforce with a less helpful message.
 
     Reported both ways round, as `check_structure` does, because a unit that disagrees with its
     file fails at compile time and loudly, while a unit that disagrees with its directory does not
@@ -362,31 +368,53 @@ def check_unit_names(root: Path) -> list[str]:
     """
     problems: list[str] = []
     seen: dict[str, Path] = {}
-    for source in sorted(root.glob("*/*/*/src/*.adb")):
-        expected = source.parent.parent.name.replace(" ", "_")
-        unit = source.stem
+    # A package is two files -- `foo.ads` and `foo.adb` -- and one unit. Grouping by stem before
+    # checking is what keeps a package task from reporting itself as a duplicate of itself.
+    for task, units in sorted(task_units(root).items()):
+        expected = task.name.replace(" ", "_")
 
-        if unit.lower() != expected.lower():
-            problems.append(
-                f"{source.name} sits in the task '{source.parent.parent.name}', so its unit should "
-                f"be {expected} in {expected.lower()}.adb -- a student opening this task gets a "
-                f"file named after something else"
-            )
-        if unit.lower() in seen:
-            # By task, not by file name: a collision means the file names are identical, so
-            # printing those twice says nothing about where either of them is.
-            here = source.parent.parent
-            there = seen[unit.lower()].parent.parent
-            problems.append(
-                f"'{here.parent.name}/{here.name}' and '{there.parent.name}/{there.name}' are both "
-                f"unit {unit} -- the course is one GNAT project, so they share a namespace and "
-                f"gprbuild will refuse it. Rename one of the tasks"
-            )
-        seen[unit.lower()] = source
+        for unit, source in sorted(units.items()):
+            if not unit.lower().endswith(expected.lower()):
+                problems.append(
+                    f"{source.name} sits in the task '{task.name}', so its unit should be "
+                    f"{expected}, or {expected} behind a qualifier where that name is taken -- a "
+                    f"student opening this task gets a file named after something else"
+                )
+            if unit.lower() in seen:
+                # By task, not by file name: a collision means the file names are identical, so
+                # printing those twice says nothing about where either of them is.
+                there = seen[unit.lower()]
+                problems.append(
+                    f"'{task.parent.name}/{task.name}' and '{there.parent.name}/{there.name}' are "
+                    f"both unit {unit} -- the course is one GNAT project, so they share a namespace "
+                    f"and gprbuild will refuse it. Qualify one with its chapter, as in "
+                    f"Record_{expected}"
+                )
+            seen[unit.lower()] = task
 
     if not seen:
         problems.append("no task sources found at all, so this check proves nothing")
     return problems
+
+
+def task_units(root: Path) -> dict[Path, dict[str, Path]]:
+    """Every task's source directory, as unit name to one representative file.
+
+    A unit is a file stem, so a package's spec and body collapse to one entry -- which is the whole
+    reason this exists rather than a glob at the call site. From Modular Programming onward an
+    exercise is a package, and a two-file task checked file by file reports itself colliding with
+    itself.
+
+    The body is preferred as the representative when a task has both, because it is the file a
+    student opens: a spec of an exercise is usually given, and the body is the part with the hole
+    in it.
+    """
+    tasks: dict[Path, dict[str, Path]] = {}
+    for source in sorted(root.glob("*/*/*/src/*.ad[sb]")):
+        units = tasks.setdefault(source.parent.parent, {})
+        if source.suffix == ".adb" or source.stem not in units:
+            units[source.stem] = source
+    return tasks
 
 
 def check_structure(root: Path) -> list[str]:
