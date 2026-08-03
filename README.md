@@ -49,9 +49,15 @@ from the directory name — only tasks can override it, with `custom_name`. So d
 `Imperative Language`, spaces and all. GPR accepts spaces in `Source_Dirs`; that was checked before
 the layout was chosen.
 
-**Every test main also shares one `bin/`**, so test program names must be unique too. The naming
-scheme is `<section>_<lesson>_<task>` reduced to an Ada identifier, and `test_` in front for the
-test main.
+**Every test main also shares one `bin/`**, so test program names must be unique too. A task's unit
+is its directory name with spaces as underscores — `Say Hello` is `Say_Hello` in `say_hello.adb` —
+and `Test_` in front for the test main.
+
+That keeps task names unique across the whole course, which the single project requires. It used to
+be bought with a `<section>_<lesson>_<task>` prefix, so a student's first line of Ada read
+`procedure Imp_Hello_Greet`. `check_unit_names` in `scripts/check_course.py` holds the same
+invariant without teaching a style no Ada programmer uses: a collision is now a named failure while
+the author is looking at it, rather than something a mangled name made impossible in advance.
 
 ### One task
 
