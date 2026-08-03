@@ -21,7 +21,8 @@ project Course is
    for Source_Dirs use
      ("harness",
       "Imperative Language/**",
-      "Subprograms/**");
+      "Subprograms/**",
+      "Modular Programming/**");
 
    for Object_Dir use "obj";
    for Exec_Dir use "bin";
@@ -50,7 +51,9 @@ project Course is
       "parity.adb",
       "increment.adb",
       "swap.adb",
-      "show_renaming.adb");
+      "show_renaming.adb",
+      "show_week.adb",
+      "show_package_renaming.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of

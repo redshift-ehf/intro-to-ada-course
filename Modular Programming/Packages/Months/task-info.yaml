@@ -1,0 +1,13 @@
+type: edu
+custom_name: "Exercise: Months"
+files:
+  - name: src/months.ads
+    visible: true
+  - name: src/months.adb
+    visible: true
+    placeholders:
+      - offset: 100
+        length: 375
+        placeholder_text: "      --  Implement the display here!\n      null;"
+  - name: tests/test_months.adb
+    visible: false

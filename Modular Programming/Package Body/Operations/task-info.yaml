@@ -1,0 +1,21 @@
+type: edu
+custom_name: "Exercise: Operations"
+files:
+  - name: src/operations.ads
+    visible: true
+  - name: src/operations.adb
+    visible: true
+    placeholders:
+      - offset: 28
+        length: 396
+        placeholder_text: "   --  Implement the four operations here!\n   function Add (A, B : Integer) return Integer is (0);\n   function Subtract (A, B : Integer) return Integer is (0);\n   function Multiply (A, B : Integer) return Integer is (0);\n   function Divide (A, B : Integer) return Integer is (0);"
+  - name: src/operations-test.ads
+    visible: true
+  - name: src/operations-test.adb
+    visible: true
+    placeholders:
+      - offset: 223
+        length: 467
+        placeholder_text: "      --  Implement the display here!\n      null;"
+  - name: tests/test_operations.adb
+    visible: false

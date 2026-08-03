@@ -1,0 +1,6 @@
+type: theory
+files:
+  - name: src/week_child.ads
+    visible: true
+  - name: src/week_child.adb
+    visible: true

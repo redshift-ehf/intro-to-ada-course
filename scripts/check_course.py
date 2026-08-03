@@ -361,6 +361,10 @@ def check_unit_names(root: Path) -> list[str]:
     task called Colors fails -- while leaving the qualifier free. Uniqueness is checked separately,
     and is the half that gprbuild would otherwise enforce with a less helpful message.
 
+    Only the parent of a child unit is checked, because `Operations.Test` lives in
+    `operations-test.ads` and nothing about `test` should have to name the task. Uniqueness still
+    considers the whole stem, so a parent and its child are two units and not a collision.
+
     Reported both ways round, as `check_structure` does, because a unit that disagrees with its
     file fails at compile time and loudly, while a unit that disagrees with its directory does not
     fail at all -- it just leaves the student opening `classify.adb` from a task called something
@@ -374,7 +378,12 @@ def check_unit_names(root: Path) -> list[str]:
         expected = task.name.replace(" ", "_")
 
         for unit, source in sorted(units.items()):
-            if not unit.lower().endswith(expected.lower()):
+            # A child unit is `parent-child` on disk -- `Operations.Test` is `operations-test.ads`
+            # -- and it is the parent that has to be named for the task. Checking the whole stem
+            # would reject every child package in the course, starting with the one the Modular
+            # Programming lab asks for.
+            root = unit.split("-", 1)[0]
+            if not root.lower().endswith(expected.lower()):
                 problems.append(
                     f"{source.name} sits in the task '{task.name}', so its unit should be "
                     f"{expected}, or {expected} behind a qualifier where that name is taken -- a "

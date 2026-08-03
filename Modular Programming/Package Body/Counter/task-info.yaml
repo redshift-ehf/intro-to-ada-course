@@ -1,0 +1,6 @@
+type: theory
+files:
+  - name: src/counter.ads
+    visible: true
+  - name: src/counter.adb
+    visible: true
