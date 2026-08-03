@@ -6,6 +6,8 @@ files:
     placeholders:
       - offset: 77
         length: 19
-        placeholder_text: "   --  Implement the subtraction here!\n   Result := 0;"
+        placeholder_text: |2-
+             --  Implement the subtraction here!
+             Result := 0;
   - name: tests/test_subtract_procedure.adb
     visible: false

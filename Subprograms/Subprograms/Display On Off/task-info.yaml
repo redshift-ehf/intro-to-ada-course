@@ -6,6 +6,10 @@ files:
     placeholders:
       - offset: 83
         length: 292
-        placeholder_text: "   --  Declare Is_On here, then use it below!\n\nbegin\n   null;"
+        placeholder_text: |2-
+             --  Declare Is_On here, then use it below!
+        
+          begin
+             null;
   - name: tests/test_display_on_off.adb
     visible: false

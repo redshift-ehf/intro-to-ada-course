@@ -6,6 +6,8 @@ files:
     placeholders:
       - offset: 59
         length: 16
-        placeholder_text: "   --  Implement the comparison here!\n   return False;"
+        placeholder_text: |2-
+             --  Implement the comparison here!
+             return False;
   - name: tests/test_is_equal.adb
     visible: false

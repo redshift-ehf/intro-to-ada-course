@@ -6,6 +6,8 @@ files:
     placeholders:
       - offset: 87
         length: 211
-        placeholder_text: "   --  Implement the display here!\n   null;"
+        placeholder_text: |2-
+             --  Implement the display here!
+             null;
   - name: tests/test_display_state.adb
     visible: false

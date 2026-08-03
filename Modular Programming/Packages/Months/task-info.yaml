@@ -8,6 +8,8 @@ files:
     placeholders:
       - offset: 100
         length: 375
-        placeholder_text: "      --  Implement the display here!\n      null;"
+        placeholder_text: |2-
+                --  Implement the display here!
+                null;
   - name: tests/test_months.adb
     visible: false

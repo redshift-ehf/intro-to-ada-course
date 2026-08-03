@@ -6,6 +6,8 @@ files:
     placeholders:
       - offset: 60
         length: 204
-        placeholder_text: "   --  Implement the lookup here!\n   return \"\";"
+        placeholder_text: |2-
+             --  Implement the lookup here!
+             return "";
   - name: tests/test_get_state.adb
     visible: false
