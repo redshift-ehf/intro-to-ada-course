@@ -59,6 +59,15 @@ be bought with a `<section>_<lesson>_<task>` prefix, so a student's first line o
 invariant without teaching a style no Ada programmer uses: a collision is now a named failure while
 the author is looking at it, rather than something a mangled name made impossible in advance.
 
+**The first IDE open after adding a section will delete it from `course-info.yaml`.** Write a
+chapter while the IDE is closed and its file cache still predates those directories; the course
+model it builds on open therefore lacks them, and it serialises that model back over the tree about
+three seconds in. Measured: adding two chapters and opening left `content:` naming only the first,
+with the two new `section-info.yaml` files never touched. Quit, `git checkout -- course-info.yaml`,
+open again — the second open sees all of it and rewrites the file to identical content. It happens
+once per chapter and `check_structure` names the dropped sections, so the cost is one restore, not a
+silent loss. Do not resolve it by deleting the chapter directory the file no longer mentions.
+
 ### One task
 
 ```
@@ -81,6 +90,11 @@ covers the indentation as well as the statement, so the replacement has to carry
 `|-` block scalar strips the indentation common to its lines, which means indenting the content of
 one changes nothing at all. Write `placeholder_text: "   --  …\n   null;"`. `check_course.py`
 refuses to run on a form it cannot read rather than skipping the task.
+
+Expect the IDE to rewrite what you wrote as `|2-` the first time it opens the task. That is not the
+`|-` above but the explicit-indentation form, which keeps the leading whitespace, so it is the same
+string — verified by the whole suite passing on the rewritten files. Take its version and commit it;
+arguing with it only produces the same diff again on the next open.
 
 **A Run button appears on whatever is a runnable program, exercise or not.** Ada's rule for a main
 is a parameterless library-level subprogram, and that is exactly the rule the IDE's gutter marker
