@@ -1,0 +1,11 @@
+type: edu
+custom_name: "Exercise: Equality function"
+files:
+  - name: src/is_equal.adb
+    visible: true
+    placeholders:
+      - offset: 59
+        length: 16
+        placeholder_text: "   --  Implement the comparison here!\n   return False;"
+  - name: tests/test_is_equal.adb
+    visible: false

@@ -20,6 +20,7 @@ programming_language: Plain text
 environment: Ada
 content:
   - Imperative Language
+  - Subprograms
 tags:
   - Ada
   - SPARK

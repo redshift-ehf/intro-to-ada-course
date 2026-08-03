@@ -20,7 +20,8 @@ project Course is
    --  here, and forgetting is a build failure rather than a mystery.
    for Source_Dirs use
      ("harness",
-      "Imperative Language/**");
+      "Imperative Language/**",
+      "Subprograms/**");
 
    for Object_Dir use "obj";
    for Exec_Dir use "bin";
@@ -46,7 +47,10 @@ project Course is
       "counting.adb",
       "compass.adb",
       "scope.adb",
-      "parity.adb");
+      "parity.adb",
+      "increment.adb",
+      "swap.adb",
+      "show_renaming.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of

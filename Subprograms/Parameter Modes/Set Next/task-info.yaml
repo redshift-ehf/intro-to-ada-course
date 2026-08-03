@@ -1,0 +1,11 @@
+type: edu
+custom_name: "Exercise: States #4"
+files:
+  - name: src/set_next.adb
+    visible: true
+    placeholders:
+      - offset: 53
+        length: 83
+        placeholder_text: "   --  Implement the state change here!\n   null;"
+  - name: tests/test_set_next.adb
+    visible: false

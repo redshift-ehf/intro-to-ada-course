@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_renaming.adb
+    visible: true

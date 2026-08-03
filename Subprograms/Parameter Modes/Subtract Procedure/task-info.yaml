@@ -1,0 +1,11 @@
+type: edu
+custom_name: "Exercise: Subtract procedure"
+files:
+  - name: src/subtract_procedure.adb
+    visible: true
+    placeholders:
+      - offset: 77
+        length: 19
+        placeholder_text: "   --  Implement the subtraction here!\n   Result := 0;"
+  - name: tests/test_subtract_procedure.adb
+    visible: false

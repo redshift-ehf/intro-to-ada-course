@@ -1,0 +1,11 @@
+type: edu
+custom_name: "Exercise: States #2"
+files:
+  - name: src/get_state.adb
+    visible: true
+    placeholders:
+      - offset: 60
+        length: 204
+        placeholder_text: "   --  Implement the lookup here!\n   return \"\";"
+  - name: tests/test_get_state.adb
+    visible: false

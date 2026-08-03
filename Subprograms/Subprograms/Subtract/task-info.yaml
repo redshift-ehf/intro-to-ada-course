@@ -1,0 +1,11 @@
+type: edu
+custom_name: "Exercise: Subtract function"
+files:
+  - name: src/subtract.adb
+    visible: true
+    placeholders:
+      - offset: 59
+        length: 16
+        placeholder_text: "   --  Implement the subtraction here!\n   return 0;"
+  - name: tests/test_subtract.adb
+    visible: false
