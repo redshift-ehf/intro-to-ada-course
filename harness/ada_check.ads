@@ -34,6 +34,24 @@ package Ada_Check is
       File     : String  := GNAT.Source_Info.File;
       Line     : Natural := GNAT.Source_Info.Line);
 
+   --  Floating point needs a tolerance rather than `=`, so it gets its own Equal instead of
+   --  sharing one. Added for Temperatures, whose conversions run through -273.15: that literal
+   --  has no exact binary representation, so a round trip correct to every digit the type carries
+   --  still does not land back on the number it started from. Comparing those with `=` would fail
+   --  a right answer, which is the worst thing a course's test can do.
+   --
+   --  The default is a thousandth of a degree. That is far tighter than any wrong formula would
+   --  survive, and loose enough for `digits 6` -- except at the top of the range, where a single
+   --  precision step is already most of it, so the tests near 5504.85 pass a wider Tolerance
+   --  explicitly rather than have every comparison in the course pay for those two.
+   procedure Equal
+     (Name      : String;
+      Actual    : Float;
+      Expected  : Float;
+      Tolerance : Float   := 1.0e-3;
+      File      : String  := GNAT.Source_Info.File;
+      Line      : Natural := GNAT.Source_Info.Line);
+
    function Failures return Natural;
 
    --  Runs a procedure and returns everything it wrote to standard output.

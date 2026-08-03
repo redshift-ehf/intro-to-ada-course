@@ -22,7 +22,8 @@ project Course is
      ("harness",
       "Imperative Language/**",
       "Subprograms/**",
-      "Modular Programming/**");
+      "Modular Programming/**",
+      "Strongly Typed Language/**");
 
    for Object_Dir use "obj";
    for Exec_Dir use "bin";
@@ -39,8 +40,8 @@ project Course is
    --  Declaring these does not cost the per-exercise isolation described above. That comes from
    --  naming one main on the command line, which works whatever this list says; all this changes
    --  is what a bare `gprbuild -P course.gpr` builds. Checked with an unfinished exercise in the
-   --  tree: the bare build succeeds and produces exactly these six, because an exercise is not a
-   --  main and nothing here withs it.
+   --  tree: the bare build succeeds and produces exactly the list below, because an exercise is
+   --  not a main and nothing here withs it.
    for Main use
      ("greet.adb",
       "say_hello.adb",
@@ -53,7 +54,15 @@ project Course is
       "swap.adb",
       "show_renaming.adb",
       "show_week.adb",
-      "show_package_renaming.adb");
+      "show_package_renaming.adb",
+      "show_types.adb",
+      "show_integers.adb",
+      "show_modular.adb",
+      "show_days.adb",
+      "show_floats.adb",
+      "show_distances.adb",
+      "show_derived_types.adb",
+      "show_subtypes.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of

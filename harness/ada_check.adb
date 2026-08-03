@@ -32,6 +32,9 @@ package body Ada_Check is
    function Image (Value : Integer) return String is
      (Ada.Strings.Fixed.Trim (Value'Image, Ada.Strings.Both));
 
+   function Image (Value : Float) return String is
+     (Ada.Strings.Fixed.Trim (Value'Image, Ada.Strings.Both));
+
    function Location (File : String; Line : Natural) return String is
    begin
       if File = "" or else Line = 0 then
@@ -118,6 +121,23 @@ package body Ada_Check is
    begin
       Started (Name, File, Line);
       if Actual /= Expected then
+         Compared (Name, Image (Actual), Image (Expected));
+      end if;
+      Ended (Name);
+   end Equal;
+
+   procedure Equal
+     (Name      : String;
+      Actual    : Float;
+      Expected  : Float;
+      Tolerance : Float   := 1.0e-3;
+      File      : String  := GNAT.Source_Info.File;
+      Line      : Natural := GNAT.Source_Info.Line) is
+   begin
+      Started (Name, File, Line);
+      if abs (Actual - Expected) > Tolerance then
+         --  Reported with the full image rather than the rounded one: when a float assertion
+         --  fails, the digits that differ are usually the ones a shortened image would drop.
          Compared (Name, Image (Actual), Image (Expected));
       end if;
       Ended (Name);

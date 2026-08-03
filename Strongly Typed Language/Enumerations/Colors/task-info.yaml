@@ -1,0 +1,16 @@
+type: edu
+custom_name: "Exercise: Colors"
+files:
+  - name: src/colors.ads
+    visible: true
+  - name: src/colors.adb
+    visible: true
+    placeholders:
+      - offset: 91
+        length: 559
+        placeholder_text: "      --  Return the hexadecimal code for each colour!\n      return 0;"
+      - offset: 1017
+        length: 139
+        placeholder_text: "      --  Return the HTML colour of the same name!\n      return Salmon;"
+  - name: tests/test_colors.adb
+    visible: false

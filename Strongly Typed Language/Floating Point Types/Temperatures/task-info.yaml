@@ -1,0 +1,22 @@
+type: edu
+custom_name: "Exercise: Temperatures"
+files:
+  - name: src/temperatures.ads
+    visible: true
+  - name: src/temperatures.adb
+    visible: true
+    placeholders:
+      - offset: 680
+        length: 86
+        placeholder_text: "      --  A whole number of degrees, clamped into Celsius!\n      return 0.0;"
+      - offset: 984
+        length: 29
+        placeholder_text: "      --  Back to a whole number of degrees!\n      return 0;"
+      - offset: 1101
+        length: 124
+        placeholder_text: "      --  Kelvin to Celsius: subtract 273.15, then clamp!\n      return 0.0;"
+      - offset: 1308
+        length: 120
+        placeholder_text: "      --  Celsius to Kelvin: add 273.15, then clamp!\n      return 0.0;"
+  - name: tests/test_temperatures.adb
+    visible: false

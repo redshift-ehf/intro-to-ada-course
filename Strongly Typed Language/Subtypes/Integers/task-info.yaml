@@ -1,0 +1,16 @@
+type: edu
+custom_name: "Exercise: Integers"
+files:
+  - name: src/integers.ads
+    visible: true
+  - name: src/integers.adb
+    visible: true
+    placeholders:
+      - offset: 536
+        length: 150
+        placeholder_text: "      --  Saturate: under 10 becomes 10, over 50 becomes 50!\n      return D_50'First;"
+      - offset: 760
+        length: 222
+        placeholder_text: "      --  Saturate: under 10 becomes 10, over 50 becomes 50!\n      return S_50'First;"
+  - name: tests/test_integers.adb
+    visible: false
