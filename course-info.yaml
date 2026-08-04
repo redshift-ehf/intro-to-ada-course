@@ -36,6 +36,7 @@ content:
   - Privacy
   - Generics
   - Exceptions
+  - Tasking
 tags:
   - Ada
   - SPARK

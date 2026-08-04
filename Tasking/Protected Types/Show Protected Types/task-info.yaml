@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_protected_types.adb
+    visible: true

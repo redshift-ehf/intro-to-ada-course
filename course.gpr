@@ -32,7 +32,8 @@ project Course is
       "Fixed-Point Types/**",
       "Privacy/**",
       "Generics/**",
-      "Exceptions/**");
+      "Exceptions/**",
+      "Tasking/**");
 
    for Object_Dir use "obj";
    for Exec_Dir use "bin";
@@ -112,7 +113,17 @@ project Course is
       "show_exception_declaration.adb",
       "show_raising.adb",
       "show_handling.adb",
-      "show_predefined_exceptions.adb");
+      "show_predefined_exceptions.adb",
+      "show_simple_task.adb",
+      "show_synchronization.adb",
+      "show_delay.adb",
+      "show_rendezvous.adb",
+      "show_select_loop.adb",
+      "show_cycling_tasks.adb",
+      "show_protected_objects.adb",
+      "show_protected_entries.adb",
+      "show_task_types.adb",
+      "show_protected_types.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of

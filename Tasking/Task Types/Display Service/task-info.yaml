@@ -1,0 +1,13 @@
+type: edu
+custom_name: "Exercise: Display Service"
+files:
+  - name: src/display_service.ads
+    visible: true
+  - name: src/display_service.adb
+    visible: true
+    placeholders:
+      - offset: 118
+        length: 579
+        placeholder_text: "         --  Accept either Display and print inside the rendezvous!\n         select\n            accept Display (Text : String);\n         or\n            accept Display (Value : Integer);\n         or\n            terminate;\n         end select;"
+  - name: tests/test_display_service.adb
+    visible: false

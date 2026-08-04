@@ -1,0 +1,22 @@
+type: edu
+custom_name: "Exercise: Generic Protected Queue"
+files:
+  - name: src/protected_queue.ads
+    visible: true
+  - name: src/protected_queue.adb
+    visible: true
+    placeholders:
+      - offset: 178
+        length: 26
+        placeholder_text: "         --  Is there nothing in it?\n         return False;"
+      - offset: 273
+        length: 33
+        placeholder_text: "         --  Is there no room left?\n         return False;"
+      - offset: 516
+        length: 160
+        placeholder_text: "      --  Wait for room, then add at the back!\n      entry Push (I : Item) when True is\n      begin\n         null;\n      end Push;"
+      - offset: 678
+        length: 162
+        placeholder_text: "      --  Wait for something to be there, then take it from the front!\n      entry Pop (I : out Item) when True is\n      begin\n         I := Items (Front);\n      end Pop;"
+  - name: tests/test_protected_queue.adb
+    visible: false
