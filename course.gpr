@@ -46,7 +46,8 @@ project Course is
       "Interfacing With C/**",
       "Object Oriented Programming/**",
       "Standard Library Containers/**",
-      "Standard Library Dates And Times/**");
+      "Standard Library Dates And Times/**",
+      "Standard Library Strings/**");
 
    for Object_Dir use "obj";
    for Exec_Dir use "bin";
@@ -170,7 +171,15 @@ project Course is
       "show_calendar.adb",
       "show_delay_until_date.adb",
       "show_real_time.adb",
-      "show_benchmarking.adb");
+      "show_benchmarking.adb",
+      "show_find_substring.adb",
+      "show_find_words.adb",
+      "show_adapted_strings.adb",
+      "show_char_array.adb",
+      "show_bounded_string.adb",
+      "show_bounded_string_op.adb",
+      "show_unbounded_string.adb",
+      "show_unbounded_string_op.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of

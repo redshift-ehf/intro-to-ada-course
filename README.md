@@ -84,6 +84,12 @@ is full", and the vector version has none of the three. Both are in the course. 
 name, so the later one takes the chapter qualifier the naming rule provides:
 `Containers_Simple_Todo_List`.
 
+*List of events* is the same arrangement again, between *Dates & Times* and *Strings*: the second
+holds each description in an `Unbounded_String` where the first held an `access String`, and the
+labs say so — "we use the lab on the list of events from the previous chapter as a starting point".
+Dates & Times is first and keeps `List_Of_Events`; the Strings version is
+`Strings_List_Of_Events`.
+
 Nothing is outstanding.
 
 **A first IDE open can delete a new section from `course-info.yaml`, so check `git status` after

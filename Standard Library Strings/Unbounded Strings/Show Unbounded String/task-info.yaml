@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_unbounded_string.adb
+    visible: true

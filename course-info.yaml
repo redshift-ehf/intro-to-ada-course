@@ -42,6 +42,7 @@ content:
   - Object Oriented Programming
   - Standard Library Containers
   - Standard Library Dates And Times
+  - Standard Library Strings
 tags:
   - Ada
   - SPARK

@@ -1,0 +1,22 @@
+type: edu
+custom_name: "Exercise: List Of Events (Unbounded Strings)"
+files:
+  - name: src/strings_list_of_events.ads
+    visible: true
+    placeholders:
+      - offset: 379
+        length: 42
+        placeholder_text: "   --  It should hold a string of any length. This one does not!\n   subtype Event_Item is String (1 .. 8);"
+  - name: src/strings_list_of_events-lists.ads
+    visible: true
+  - name: src/strings_list_of_events-lists.adb
+    visible: true
+    placeholders:
+      - offset: 619
+        length: 128
+        placeholder_text: "      --  The description, as an Event_Item!\n      null;"
+      - offset: 1197
+        length: 108
+        placeholder_text: "            --  The description, as a String!\n            Put_Line (\"    - \");"
+  - name: tests/test_strings_list_of_events.adb
+    visible: false

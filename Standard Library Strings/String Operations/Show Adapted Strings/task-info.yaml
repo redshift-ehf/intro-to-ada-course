@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_adapted_strings.adb
+    visible: true

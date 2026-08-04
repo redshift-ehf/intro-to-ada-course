@@ -1,0 +1,16 @@
+type: edu
+custom_name: "Exercise: Concatenation"
+files:
+  - name: src/concatenation.ads
+    visible: true
+  - name: src/concatenation.adb
+    visible: true
+    placeholders:
+      - offset: 245
+        length: 504
+        placeholder_text: "      --  Each piece, maybe trimmed, maybe with a space after it!\n   begin\n      return Null_Unbounded_String;"
+      - offset: 934
+        length: 194
+        placeholder_text: "      --  The other Concat, then out as a String!\n   begin\n      return \"\";"
+  - name: tests/test_concatenation.adb
+    visible: false
