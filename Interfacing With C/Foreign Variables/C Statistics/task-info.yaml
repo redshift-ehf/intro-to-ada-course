@@ -8,10 +8,14 @@ files:
     placeholders:
       - offset: 397
         length: 25
-        placeholder_text: "      --  The mean of the two. C is waiting on this one!\n      return 0;"
+        placeholder_text: |2-
+                --  The mean of the two. C is waiting on this one!
+                return 0;
       - offset: 468
         length: 22
-        placeholder_text: "      --  Back to nought!\n      null;"
+        placeholder_text: |2-
+                --  Back to nought!
+                null;
   - name: src/summary.c
     visible: true
   - name: tests/test_c_statistics.adb
