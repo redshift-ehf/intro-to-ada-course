@@ -8,6 +8,8 @@ files:
     placeholders:
       - offset: 177
         length: 118
-        placeholder_text: "   --  The header, then one line per element: index, colon, image!\n   null;"
+        placeholder_text: |2-
+             --  The header, then one line per element: index, colon, image!
+             null;
   - name: tests/test_display_array.adb
     visible: false

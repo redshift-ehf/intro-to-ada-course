@@ -8,9 +8,13 @@ files:
     placeholders:
       - offset: 172
         length: 159
-        placeholder_text: "      --  Add it if there is room, and report whether there was!\n      Status := False;"
+        placeholder_text: |2-
+                --  Add it if there is room, and report whether there was!
+                Status := False;
       - offset: 378
         length: 368
-        placeholder_text: "      --  The name, then one line per item that is actually in the list!\n      null;"
+        placeholder_text: |2-
+                --  The name, then one line per item that is actually in the list!
+                null;
   - name: tests/test_generic_list.adb
     visible: false

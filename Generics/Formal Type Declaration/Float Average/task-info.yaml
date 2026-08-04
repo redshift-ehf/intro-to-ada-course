@@ -8,6 +8,9 @@ files:
     placeholders:
       - offset: 57
         length: 351
-        placeholder_text: "begin\n   --  The sum over the count. Mind the empty array!\n   return 0.0;"
+        placeholder_text: |-
+          begin
+             --  The sum over the count. Mind the empty array!
+             return 0.0;
   - name: tests/test_float_average.adb
     visible: false
