@@ -8,6 +8,10 @@ files:
     placeholders:
       - offset: 168
         length: 422
-        placeholder_text: "      --  Take the ID, then the time. Wait until then -- outside the\n      --  rendezvous, so the caller is not held up -- and announce it!\n      accept Start (ID : Natural);\n      accept Event (At_Time : Ada.Real_Time.Time);"
+        placeholder_text: |2-
+                --  Take the ID, then the time. Wait until then -- outside the
+                --  rendezvous, so the caller is not held up -- and announce it!
+                accept Start (ID : Natural);
+                accept Event (At_Time : Ada.Real_Time.Time);
   - name: tests/test_event_manager.adb
     visible: false

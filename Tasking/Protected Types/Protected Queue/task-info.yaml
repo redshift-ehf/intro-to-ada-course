@@ -8,15 +8,29 @@ files:
     placeholders:
       - offset: 178
         length: 26
-        placeholder_text: "         --  Is there nothing in it?\n         return False;"
+        placeholder_text: |2-
+                   --  Is there nothing in it?
+                   return False;
       - offset: 273
         length: 33
-        placeholder_text: "         --  Is there no room left?\n         return False;"
+        placeholder_text: |2-
+                   --  Is there no room left?
+                   return False;
       - offset: 516
         length: 160
-        placeholder_text: "      --  Wait for room, then add at the back!\n      entry Push (I : Item) when True is\n      begin\n         null;\n      end Push;"
+        placeholder_text: |2-
+                --  Wait for room, then add at the back!
+                entry Push (I : Item) when True is
+                begin
+                   null;
+                end Push;
       - offset: 678
         length: 162
-        placeholder_text: "      --  Wait for something to be there, then take it from the front!\n      entry Pop (I : out Item) when True is\n      begin\n         I := Items (Front);\n      end Pop;"
+        placeholder_text: |2-
+                --  Wait for something to be there, then take it from the front!
+                entry Pop (I : out Item) when True is
+                begin
+                   I := Items (Front);
+                end Pop;
   - name: tests/test_protected_queue.adb
     visible: false

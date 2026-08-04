@@ -8,6 +8,14 @@ files:
     placeholders:
       - offset: 118
         length: 579
-        placeholder_text: "         --  Accept either Display and print inside the rendezvous!\n         select\n            accept Display (Text : String);\n         or\n            accept Display (Value : Integer);\n         or\n            terminate;\n         end select;"
+        placeholder_text: |2-
+                   --  Accept either Display and print inside the rendezvous!
+                   select
+                      accept Display (Text : String);
+                   or
+                      accept Display (Value : Integer);
+                   or
+                      terminate;
+                   end select;
   - name: tests/test_display_service.adb
     visible: false
