@@ -8,9 +8,13 @@ files:
     placeholders:
       - offset: 152
         length: 192
-        placeholder_text: "      --  On the heap, then onto the end!\n      null;"
+        placeholder_text: |2-
+                --  On the heap, then onto the end!
+                null;
       - offset: 411
         length: 99
-        placeholder_text: "      --  The heading, then one item per line!\n      null;"
+        placeholder_text: |2-
+                --  The heading, then one item per line!
+                null;
   - name: tests/test_containers_simple_todo_list.adb
     visible: false

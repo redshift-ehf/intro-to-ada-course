@@ -8,9 +8,15 @@ files:
     placeholders:
       - offset: 126
         length: 196
-        placeholder_text: "      --  Every value, once!\n      return S;"
+        placeholder_text: |2-
+                --  Every value, once!
+                return S;
       - offset: 402
         length: 313
-        placeholder_text: "      --  The other Get_Unique first, then copy it out!\n      Nothing : constant Int_Array (1 .. 0) := (1 .. 0 => 0);\n   begin\n      return Nothing;"
+        placeholder_text: |2-
+                --  The other Get_Unique first, then copy it out!
+                Nothing : constant Int_Array (1 .. 0) := (1 .. 0 => 0);
+             begin
+                return Nothing;
   - name: tests/test_list_of_unique_integers.adb
     visible: false
