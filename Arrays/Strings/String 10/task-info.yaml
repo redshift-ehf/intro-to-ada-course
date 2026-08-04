@@ -8,6 +8,9 @@ files:
     placeholders:
       - offset: 131
         length: 416
-        placeholder_text: "   begin\n      --  Copy in as much of S as fits, and leave the rest as spaces!\n      return Result;"
+        placeholder_text: |2-
+             begin
+                --  Copy in as much of S as fits, and leave the rest as spaces!
+                return Result;
   - name: tests/test_string_10.adb
     visible: false

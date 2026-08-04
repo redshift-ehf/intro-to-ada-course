@@ -8,12 +8,22 @@ files:
     placeholders:
       - offset: 107
         length: 157
-        placeholder_text: "      --  Write each product's total into Tot!\n      null;"
+        placeholder_text: |2-
+                --  Write each product's total into Tot!
+                null;
       - offset: 343
         length: 267
-        placeholder_text: "      Result : Currency_Array (P'Range);\n   begin\n      --  One total per product!\n      return Result;"
+        placeholder_text: |2-
+                Result : Currency_Array (P'Range);
+             begin
+                --  One total per product!
+                return Result;
       - offset: 683
         length: 159
-        placeholder_text: "      Sum : Currency := 0.0;\n   begin\n      --  Everything added together!\n      return Sum;"
+        placeholder_text: |2-
+                Sum : Currency := 0.0;
+             begin
+                --  Everything added together!
+                return Sum;
   - name: tests/test_product_info.adb
     visible: false

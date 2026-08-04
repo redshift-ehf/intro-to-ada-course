@@ -35,4 +35,450 @@ additional_files:
   - name: harness/ada_check.adb
   - name: LICENSE
   - name: README.md
+  - name: bin/show_array_renaming
+  - name: bin/test_list_of_names
+  - name: bin/show_simple_bounds
+  - name: bin/show_indexing
+  - name: bin/show_arrays
+  - name: bin/test_constrained_array
+  - name: bin/test_product_info
+  - name: bin/show_array_attributes
+  - name: bin/show_strings
+  - name: bin/show_returning_arrays
+  - name: obj/b__show_simple_bounds.o
+    is_binary: true
+  - name: obj/b__test_list_of_names.adb
+  - name: obj/show_indexing.adb.stdout
+  - name: obj/constrained_array.adb.stdout
+  - name: obj/test_string_10.ali
+  - name: obj/b__test_list_of_names.ads
+  - name: obj/b__show_indexing.ali
+  - name: obj/show_returning_arrays.adb.stderr
+  - name: obj/show_array_renaming.adb.stdout
+  - name: obj/show_strings.bexch
+  - name: obj/show_returning_arrays.bexch
+  - name: obj/test_list_of_names.adb.stdout
+  - name: obj/show_array_renaming.ali
+  - name: obj/test_product_info.adb.stderr
+  - name: obj/b__test_constrained_array.adb
+  - name: obj/show_array_attributes.bexch
+  - name: obj/b__test_product_info.ali
+  - name: obj/b__show_returning_arrays.ads
+  - name: obj/test_string_10.o
+    is_binary: true
+  - name: obj/show_simple_bounds.ali
+  - name: obj/b__test_constrained_array.ads
+  - name: obj/b__show_array_renaming.adb
+  - name: obj/b__show_array_renaming.ads
+  - name: obj/show_simple_bounds.adb.stderr
+  - name: obj/show_arrays.adb.stdout
+  - name: obj/b__show_array_attributes.ads
+  - name: obj/show_arrays.ali
+  - name: obj/test_product_info.o
+    is_binary: true
+  - name: obj/b__show_array_attributes.adb
+  - name: obj/show_array_attributes.o
+    is_binary: true
+  - name: obj/test_constrained_array.adb.stderr
+  - name: obj/show_strings.o
+    is_binary: true
+  - name: obj/show_array_renaming.bexch
+  - name: obj/show_returning_arrays.ali
+  - name: obj/test_constrained_array.bexch
+  - name: obj/show_arrays.o
+    is_binary: true
+  - name: obj/test_product_info.bexch
+  - name: obj/show_indexing.bexch
+  - name: obj/b__show_returning_arrays.ali
+  - name: obj/show_strings.adb.stdout
+  - name: obj/show_returning_arrays.adb.stdout
+  - name: obj/b__show_array_renaming.o
+    is_binary: true
+  - name: obj/list_of_names.adb.stdout
+  - name: obj/b__show_returning_arrays.adb
+  - name: obj/ada_check_capture.txt
+  - name: obj/show_returning_arrays.o
+    is_binary: true
+  - name: obj/product_info.adb.stderr
+  - name: obj/test_product_info.ali
+  - name: obj/show_arrays.bexch
+  - name: obj/show_indexing.adb.stderr
+  - name: obj/b__test_product_info.o
+    is_binary: true
+  - name: obj/b__show_arrays.ads
+  - name: obj/b__show_returning_arrays.o
+    is_binary: true
+  - name: obj/constrained_array.adb.stderr
+  - name: obj/b__show_simple_bounds.ads
+  - name: obj/b__show_simple_bounds.adb
+  - name: obj/show_array_attributes.ali
+  - name: obj/list_of_names.adb.stderr
+  - name: obj/show_simple_bounds.o
+    is_binary: true
+  - name: obj/b__show_indexing.ads
+  - name: obj/show_simple_bounds.bexch
+  - name: obj/test_product_info.adb.stdout
+  - name: obj/b__test_list_of_names.ali
+  - name: obj/test_list_of_names.ali
+  - name: obj/b__test_product_info.ads
+  - name: obj/b__show_indexing.o
+    is_binary: true
+  - name: obj/product_info.adb.stdout
+  - name: obj/show_strings.adb.stderr
+  - name: obj/b__test_product_info.adb
+  - name: obj/b__test_constrained_array.ali
+  - name: obj/test_list_of_names.bexch
+  - name: obj/show_array_attributes.adb.stdout
+  - name: obj/b__show_strings.ads
+  - name: obj/b__test_constrained_array.o
+    is_binary: true
+  - name: obj/b__show_array_attributes.ali
+  - name: obj/b__show_strings.o
+    is_binary: true
+  - name: obj/b__test_list_of_names.o
+    is_binary: true
+  - name: obj/b__show_array_attributes.o
+    is_binary: true
+  - name: obj/test_string_10.adb.stdout
+  - name: obj/show_indexing.ali
+  - name: obj/b__show_array_renaming.ali
+  - name: obj/show_array_renaming.o
+    is_binary: true
+  - name: obj/b__show_arrays.adb
+  - name: obj/test_list_of_names.o
+    is_binary: true
+  - name: obj/test_constrained_array.adb.stdout
+  - name: obj/show_arrays.adb.stderr
+  - name: obj/b__show_arrays.ali
+  - name: obj/b__show_strings.ali
+  - name: obj/show_indexing.o
+    is_binary: true
+  - name: obj/show_simple_bounds.adb.stdout
+  - name: obj/test_constrained_array.o
+    is_binary: true
+  - name: obj/b__show_strings.adb
+  - name: obj/show_array_attributes.adb.stderr
+  - name: obj/test_string_10.adb.stderr
+  - name: obj/show_array_renaming.adb.stderr
+  - name: obj/b__show_indexing.adb
+  - name: obj/show_strings.ali
+  - name: obj/b__show_simple_bounds.ali
+  - name: obj/test_constrained_array.ali
+  - name: obj/b__show_arrays.o
+    is_binary: true
+  - name: obj/test_list_of_names.adb.stderr
+  - name: obj/parity.ali
+  - name: obj/b__compass.adb
+  - name: obj/b__show_unconstrained.ali
+  - name: obj/b__check_direction.adb
+  - name: obj/b__greet.o
+    is_binary: true
+  - name: obj/check_direction.o
+    is_binary: true
+  - name: obj/greet.ali
+  - name: obj/string_10.adb.stdout
+  - name: obj/test_unconstrained_array.ali
+  - name: obj/b__test_greetings.ali
+  - name: obj/unconstrained_array.adb.stdout
+  - name: obj/show_unconstrained.adb.stdout
+  - name: obj/test_say_hello.bexch
+  - name: obj/check_direction.adb.stderr
+  - name: obj/test_classify.bexch
+  - name: obj/check_direction.bexch
+  - name: obj/b__greet.adb
+  - name: obj/greetings.adb.stderr
+  - name: obj/test_unconstrained_array.o
+    is_binary: true
+  - name: obj/b__show_unconstrained.o
+    is_binary: true
+  - name: obj/scope.o
+    is_binary: true
+  - name: obj/b__parity.adb
+  - name: obj/b__test_say_hello.o
+    is_binary: true
+  - name: obj/parity.adb.stderr
+  - name: obj/test_string_10.bexch
+  - name: obj/test_classify.adb.stdout
+  - name: obj/scope.adb.stderr
+  - name: obj/check_direction.ali
+  - name: obj/test_say_hello.adb.stdout
+  - name: obj/test_classify.ali
+  - name: obj/b__test_string_10.adb
+  - name: obj/test_unconstrained_array.adb.stdout
+  - name: obj/b__test_string_10.ads
+  - name: obj/compass.adb.stderr
+  - name: obj/b__test_unconstrained_array.ads
+  - name: obj/show_unconstrained.adb.stderr
+  - name: obj/compass.bexch
+  - name: obj/unconstrained_array.adb.stderr
+  - name: obj/b__test_greetings.adb
+  - name: obj/b__test_classify.o
+    is_binary: true
+  - name: obj/b__test_unconstrained_array.o
+    is_binary: true
+  - name: obj/check_direction.adb.stdout
+  - name: obj/parity.bexch
+  - name: obj/b__compass.o
+    is_binary: true
+  - name: obj/parity.adb.stdout
+  - name: obj/greet.bexch
+  - name: obj/b__check_direction.o
+    is_binary: true
+  - name: obj/scope.ali
+  - name: obj/greet.o
+    is_binary: true
+  - name: obj/test_greetings.adb.stderr
+  - name: obj/b__test_unconstrained_array.ali
+  - name: obj/greet.adb.stderr
+  - name: obj/b__test_greetings.ads
+  - name: obj/show_unconstrained.ali
+  - name: obj/b__test_greetings.o
+    is_binary: true
+  - name: obj/b__test_unconstrained_array.adb
+  - name: obj/b__parity.o
+    is_binary: true
+  - name: obj/b__test_string_10.ali
+  - name: obj/b__compass.ali
+  - name: obj/scope.bexch
+  - name: obj/b__parity.ads
+  - name: obj/test_say_hello.adb.stderr
+  - name: obj/test_classify.o
+    is_binary: true
+  - name: obj/b__compass.ads
+  - name: obj/b__check_direction.ads
+  - name: obj/say_hello.adb.stdout
+  - name: obj/compass.adb.stdout
+  - name: obj/classify.adb.stdout
+  - name: obj/test_say_hello.ali
+  - name: obj/show_unconstrained.bexch
+  - name: obj/b__test_classify.ali
+  - name: obj/test_classify.adb.stderr
+  - name: obj/show_unconstrained.o
+    is_binary: true
+  - name: obj/compass.o
+    is_binary: true
+  - name: obj/parity.o
+    is_binary: true
+  - name: obj/test_greetings.adb.stdout
+  - name: obj/b__parity.ali
+  - name: obj/b__greet.ads
+  - name: obj/test_say_hello.o
+    is_binary: true
+  - name: obj/b__scope.ali
+  - name: obj/b__scope.adb
+  - name: obj/b__check_direction.ali
+  - name: obj/string_10.adb.stderr
+  - name: obj/classify.adb.stderr
+  - name: obj/b__show_unconstrained.ads
+  - name: obj/say_hello.adb.stderr
+  - name: obj/test_greetings.o
+    is_binary: true
+  - name: obj/b__scope.o
+    is_binary: true
+  - name: obj/test_unconstrained_array.bexch
+  - name: obj/scope.adb.stdout
+  - name: obj/b__test_say_hello.ads
+  - name: obj/b__greet.ali
+  - name: obj/compass.ali
+  - name: obj/greet.adb.stdout
+  - name: obj/b__show_unconstrained.adb
+  - name: obj/b__test_classify.adb
+  - name: obj/b__test_say_hello.adb
+  - name: obj/b__test_say_hello.ali
+  - name: obj/b__test_classify.ads
+  - name: obj/test_greetings.bexch
+  - name: obj/b__scope.ads
+  - name: obj/b__test_string_10.o
+    is_binary: true
+  - name: obj/test_greetings.ali
+  - name: obj/test_unconstrained_array.adb.stderr
+  - name: obj/greetings.adb.stdout
+  - name: bin/greet
+  - name: bin/parity
+  - name: bin/test_unconstrained_array
+  - name: bin/test_classify
+  - name: bin/compass
+  - name: bin/scope
+  - name: bin/test_string_10
+  - name: bin/test_say_hello
+  - name: bin/show_unconstrained
+  - name: bin/check_direction
+  - name: bin/test_greetings
+  - name: bin/test_operations
+  - name: bin/show_package_renaming
+  - name: bin/counting
+  - name: bin/test_numbers
+  - name: bin/test_directions
+  - name: bin/show_week
+  - name: bin/test_months
+  - name: obj/test_months.ali
+  - name: obj/show_week.adb.stderr
+  - name: obj/operations.adb.stderr
+  - name: obj/b__counting.ads
+  - name: obj/b__test_months.ads
+  - name: obj/numbers.adb.stderr
+  - name: obj/b__show_package_renaming.ali
+  - name: obj/show_package_renaming.bexch
+  - name: obj/b__test_directions.adb
+  - name: obj/test_operations.ali
+  - name: obj/week.ads.stdout
+  - name: obj/show_week.bexch
+  - name: obj/months.adb.stderr
+  - name: obj/show_package_renaming.adb.stderr
+  - name: obj/test_directions.adb.stdout
+  - name: obj/counting.adb.stderr
+  - name: obj/week_child.adb.stdout
+  - name: obj/show_week.ali
+  - name: obj/b__show_week.ali
+  - name: obj/b__test_operations.adb
+  - name: obj/b__test_operations.ali
+  - name: obj/b__test_numbers.ali
+  - name: obj/b__test_numbers.adb
+  - name: obj/test_operations.adb.stderr
+  - name: obj/b__show_package_renaming.ads
+  - name: obj/b__test_numbers.o
+    is_binary: true
+  - name: obj/week.ali
+  - name: obj/show_package_renaming.adb.stdout
+  - name: obj/test_months.adb.stdout
+  - name: obj/show_week.adb.stdout
+  - name: obj/b__test_operations.o
+    is_binary: true
+  - name: obj/test_numbers.adb.stdout
+  - name: obj/b__show_package_renaming.adb
+  - name: obj/test_operations.bexch
+  - name: obj/b__test_directions.ali
+  - name: obj/test_months.o
+    is_binary: true
+  - name: obj/test_operations.o
+    is_binary: true
+  - name: obj/b__test_operations.ads
+  - name: obj/week_child.o
+    is_binary: true
+  - name: obj/operations-test.adb.stdout
+  - name: obj/numbers.adb.stdout
+  - name: obj/counter.ads.stdout
+  - name: obj/week_child.ads.stdout
+  - name: obj/show_package_renaming.o
+    is_binary: true
+  - name: obj/counting.bexch
+  - name: obj/show_week.o
+    is_binary: true
+  - name: obj/test_months.adb.stderr
+  - name: obj/test_directions.bexch
+  - name: obj/b__test_months.adb
+  - name: obj/b__counting.adb
+  - name: obj/b__show_week.o
+    is_binary: true
+  - name: obj/directions.adb.stderr
+  - name: obj/counter.bexch
+  - name: obj/counting.o
+    is_binary: true
+  - name: obj/counter.adb.stdout
+  - name: obj/b__show_week.adb
+  - name: obj/test_numbers.ali
+  - name: obj/test_months.bexch
+  - name: obj/counting.ali
+  - name: obj/operations-test.adb.stderr
+  - name: obj/week_child.ali
+  - name: obj/counter.o
+    is_binary: true
+  - name: obj/week_child.ads.stderr
+  - name: obj/test_directions.adb.stderr
+  - name: obj/week.o
+    is_binary: true
+  - name: obj/week_child.adb.stderr
+  - name: obj/b__test_directions.ads
+  - name: obj/counting.adb.stdout
+  - name: obj/show_package_renaming.ali
+  - name: obj/months.adb.stdout
+  - name: obj/directions.adb.stdout
+  - name: obj/operations.adb.stdout
+  - name: obj/b__test_months.ali
+  - name: obj/test_numbers.bexch
+  - name: obj/week_child.bexch
+  - name: obj/counter.adb.stderr
+  - name: obj/b__counting.ali
+  - name: obj/counter.ads.stderr
+  - name: obj/counter.ali
+  - name: obj/test_numbers.o
+    is_binary: true
+  - name: obj/test_directions.o
+    is_binary: true
+  - name: obj/b__counting.o
+    is_binary: true
+  - name: obj/test_directions.ali
+  - name: obj/test_operations.adb.stdout
+  - name: obj/b__test_directions.o
+    is_binary: true
+  - name: obj/b__test_months.o
+    is_binary: true
+  - name: obj/week.ads.stderr
+  - name: obj/b__show_package_renaming.o
+    is_binary: true
+  - name: obj/b__show_week.ads
+  - name: obj/week.bexch
+  - name: obj/test_numbers.adb.stderr
+  - name: obj/b__test_numbers.ads
+  - name: obj/test_record_colors.bexch
+  - name: obj/show_records.bexch
+  - name: obj/show_selection.adb.stdout
+  - name: obj/b__test_inventory.o
+    is_binary: true
+  - name: obj/b__show_records.adb
+  - name: obj/show_aggregates.adb.stdout
+  - name: obj/b__show_aggregates.o
+    is_binary: true
+  - name: obj/b__show_aggregates.ads
+  - name: obj/test_inventory.adb.stdout
+  - name: obj/record_colors.adb.stdout
+  - name: obj/b__test_inventory.ali
+  - name: obj/show_aggregates.adb.stderr
+  - name: obj/show_selection.o
+    is_binary: true
+  - name: obj/show_aggregates.o
+    is_binary: true
+  - name: obj/test_inventory.o
+    is_binary: true
+  - name: obj/show_records.adb.stderr
+  - name: obj/show_selection.bexch
+  - name: obj/test_record_colors.adb.stderr
+  - name: obj/show_selection.ali
+  - name: obj/test_inventory.ali
+  - name: obj/b__test_record_colors.ali
+  - name: obj/test_record_colors.o
+    is_binary: true
+  - name: obj/b__test_record_colors.adb
+  - name: obj/inventory.adb.stdout
+  - name: obj/show_aggregates.ali
+  - name: obj/show_records.ali
+  - name: obj/b__show_selection.o
+    is_binary: true
+  - name: obj/record_colors.adb.stderr
+  - name: obj/b__show_selection.adb
+  - name: obj/b__test_inventory.adb
+  - name: obj/b__show_selection.ali
+  - name: obj/b__test_record_colors.ads
+  - name: obj/test_record_colors.adb.stdout
+  - name: obj/test_record_colors.ali
+  - name: obj/b__show_records.ali
+  - name: obj/b__test_record_colors.o
+    is_binary: true
+  - name: obj/inventory.adb.stderr
+  - name: obj/b__test_inventory.ads
+  - name: obj/show_records.adb.stdout
+  - name: obj/test_inventory.bexch
+  - name: obj/show_records.o
+    is_binary: true
+  - name: obj/b__show_selection.ads
+  - name: obj/b__show_aggregates.adb
+  - name: obj/show_aggregates.bexch
+  - name: obj/test_inventory.adb.stderr
+  - name: obj/b__show_records.ads
+  - name: obj/show_selection.adb.stderr
+  - name: obj/b__show_aggregates.ali
+  - name: bin/test_record_colors
+  - name: bin/show_aggregates
+  - name: bin/show_selection
+  - name: bin/test_inventory
 yaml_version: 6

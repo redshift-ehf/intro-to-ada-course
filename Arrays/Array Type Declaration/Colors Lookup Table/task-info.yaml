@@ -6,12 +6,15 @@ files:
     placeholders:
       - offset: 660
         length: 517
-        placeholder_text: "     (others => (0, 0, 0));  --  Fill the table in, one entry per colour!"
+        placeholder_text: "     (others => (0, 0, 0));  --  Fill the table in, one entry\
+      \ per colour!"
   - name: src/colors_lookup_table.adb
     visible: true
     placeholders:
       - offset: 96
         length: 37
-        placeholder_text: "      --  One lookup. No case statement!\n      return (0, 0, 0);"
+        placeholder_text: |2-
+                --  One lookup. No case statement!
+                return (0, 0, 0);
   - name: tests/test_colors_lookup_table.adb
     visible: false

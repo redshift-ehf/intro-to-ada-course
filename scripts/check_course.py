@@ -35,8 +35,48 @@ FILE_ENTRY = re.compile(r"^\s*-\s*name:\s*(\S+)\s*$", re.M)
 OFFSET = re.compile(r"^(?P<indent> *)-\s*offset:\s*(?P<offset>\d+)\s*$")
 LENGTH = re.compile(r"^\s*length:\s*(?P<length>\d+)\s*$")
 BLOCK_TEXT = re.compile(r"^(?P<indent> *)placeholder_text:\s*\|(?P<explicit>\d*)-?\s*$")
-QUOTED_TEXT = re.compile(r'^\s*placeholder_text:\s*"(?P<body>(?:[^"\\]|\\.)*)"\s*$')
+QUOTED_START = re.compile(r'^\s*placeholder_text:\s*"(?P<rest>.*)$')
 ANY_TEXT = re.compile(r"^\s*placeholder_text:")
+
+
+def closes_quote(body: str) -> bool:
+    """Whether this text ends the double-quoted scalar it began.
+
+    A final `"` preceded by an odd number of backslashes is escaped and does not close anything.
+    """
+    if not body.endswith('"'):
+        return False
+    without_quote = body[:-1]
+    trailing_backslashes = len(without_quote) - len(without_quote.rstrip("\\"))
+    return trailing_backslashes % 2 == 0
+
+
+def unescape(body: str) -> str:
+    """The escapes YAML double-quoted scalars use, in one pass.
+
+    One pass rather than a chain of str.replace calls, because that chain is order-dependent and
+    wrong: replacing \\\\n before \\\\\\\\ turns a literal backslash followed by n into a newline.
+    Nothing in the course has hit that yet, which is exactly why it should not be left waiting.
+    """
+    out: list[str] = []
+    index = 0
+    while index < len(body):
+        if body[index] != "\\" or index + 1 >= len(body):
+            out.append(body[index])
+            index += 1
+            continue
+        escape = body[index + 1]
+        if escape not in ESCAPES:
+            raise SystemExit(
+                f"check_course.py does not know the escape \\{escape} in this placeholder_text, "
+                f"so it cannot reproduce the stub a student is given:\n  {body}"
+            )
+        out.append(ESCAPES[escape])
+        index += 2
+    return "".join(out)
+
+
+ESCAPES = {"n": "\n", "t": "\t", '"': '"', "\\": "\\", " ": " ", "0": "\0"}
 
 # Placeholder text that must keep its leading whitespace has to be a quoted scalar, not a block
 # scalar. A block scalar strips the indentation common to its lines, so indenting the content of
@@ -121,14 +161,24 @@ def read_placeholders(lines: list[str], start: int, stop: int) -> list[Placehold
                 index += 1
                 continue
 
-            quoted_match = QUOTED_TEXT.match(line)
+            quoted_match = QUOTED_START.match(line)
             if quoted_match:
-                text = (
-                    quoted_match.group("body")
-                    .replace("\\n", "\n")
-                    .replace('\\"', '"')
-                    .replace("\\\\", "\\")
-                )
+                # A double-quoted scalar, which the IDE may have folded across several lines.
+                # It writes a trailing `\` to escape the line break and indents what follows;
+                # YAML then strips that indentation, and a leading `\ ` puts back a space that
+                # would otherwise be lost to it. Reassembled here rather than rejected, because
+                # the IDE folds any placeholder text past its wrap width and the alternative is
+                # a course that cannot use a long one-line stub.
+                body = quoted_match.group("rest")
+                while not closes_quote(body):
+                    if not body.endswith("\\") or index + 1 >= stop:
+                        raise SystemExit(
+                            f"check_course.py cannot find the end of this placeholder_text, so "
+                            f"it cannot verify the task:\n  {line}"
+                        )
+                    index += 1
+                    body = body[:-1] + lines[index].lstrip()
+                text = unescape(body[:-1])
                 index += 1
                 continue
 

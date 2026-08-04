@@ -8,15 +8,27 @@ files:
     placeholders:
       - offset: 80
         length: 141
-        placeholder_text: "      Value : Integer := 0;\n   begin\n      --  Count down from the array's own length!\n      null;"
+        placeholder_text: |2-
+                Value : Integer := 0;
+             begin
+                --  Count down from the array's own length!
+                null;
       - offset: 290
         length: 200
-        placeholder_text: "      Result : My_Array (1 .. L);\n   begin\n      --  L elements, counting down from I!\n      return Result;"
+        placeholder_text: |2-
+                Result : My_Array (1 .. L);
+             begin
+                --  L elements, counting down from I!
+                return Result;
       - offset: 559
         length: 72
-        placeholder_text: "      --  Double every element!\n      null;"
+        placeholder_text: |2-
+                --  Double every element!
+                null;
       - offset: 837
         length: 198
-        placeholder_text: "      --  Each element less the one before it. The first has none!\n      return Result;"
+        placeholder_text: |2-
+                --  Each element less the one before it. The first has none!
+                return Result;
   - name: tests/test_unconstrained_array.adb
     visible: false
