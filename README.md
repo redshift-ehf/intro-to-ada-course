@@ -102,7 +102,19 @@ labs say so — "we use the lab on the list of events from the previous chapter 
 Dates & Times is first and keeps `List_Of_Events`; the Strings version is
 `Strings_List_Of_Events`.
 
-Nothing is outstanding.
+**One lab item is deliberately not here: the Privacy chapter's *Bonus exercise*.** It is the only
+one with no source code, and the labs say so — "This exercise doesn't contain any source-code. In
+fact, the goal here is to modify previous labs, so that the record declarations are made private."
+There is nothing to put a placeholder in and nothing a test could check, so it cannot become a
+graded task without inventing one.
+
+Its content is not lost, though. It names three earlier labs to go back and privatise — *Colors*,
+*List of Names* and *Price List* — and the Privacy lab already contains a graded version of each,
+which this course has as `Private_Colors`, `Private_List_Of_Names` and `Price_List`. All three
+declare their types private. What is missing is only the "go back and edit your own earlier answer"
+framing, and that is the part a course of separate tasks cannot express.
+
+Everything else is here.
 
 **A first IDE open can delete a new section from `course-info.yaml`, so check `git status` after
 one.** Every open rewrites that file from the course model the IDE built, about three seconds in.
