@@ -667,6 +667,12 @@ def check_structure(root: Path) -> list[str]:
     simply absent from the course the student sees, while this script -- which finds tasks by
     globbing -- checks it and reports ok. That is a task that passes every check and does not
     exist.
+
+    And the mirror of that, which is how it was found: a task directory that IS listed but has no
+    `task-info.yaml`. The student sees it -- JetBrains Academy has a name for it -- and the run
+    loop globs `*/*/*/task-info.yaml`, so it checks nothing. It turned up next door in
+    advanced-ada-course, where twenty listed task directories and six info files produced a
+    cheerful "all 6 task(s) good".
     """
     problems: list[str] = []
     levels = [
@@ -699,6 +705,17 @@ def check_structure(root: Path) -> list[str]:
                 problems.append(
                     f"{parent.name or '.'}/{name} is a {child} directory that {info.name} does "
                     f"not list -- students will never see it, and this script would still check it"
+                )
+
+    #  The other way round: listed, present, and carrying nothing the run loop can find.
+    for lesson_info in sorted(root.glob("*/*/lesson-info.yaml")):
+        for name in content_list(lesson_info) or []:
+            task = lesson_info.parent / name
+            if task.is_dir() and not (task / "task-info.yaml").is_file():
+                where = task.relative_to(root) if task.is_relative_to(root) else task
+                problems.append(
+                    f"'{where}' is listed as a task and has no task-info.yaml -- a student sees "
+                    f"it and this script does not, so it would be shipped unchecked"
                 )
     return problems
 
