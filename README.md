@@ -19,8 +19,10 @@ Every exercise in the *Laboratories* companion is here. The five chapters it has
 Access Types, More About Records, Fixed-Point Types, Interfacing With C, and Files & Streams —
 carry original exercises instead, in the same style; `course-info.yaml` says so in its attribution.
 
-`python3 scripts/check_course.py` builds and runs every one of the 201 from a clean `obj/`, and
-checks each exercise both solved and unsolved. It takes about four minutes.
+`python3 scripts/check_course.py --clean` compiles every one of the 201, runs every test, and
+checks each exercise both solved and unsolved. It takes about four and a half minutes. Without
+`--clean` it inherits whatever `obj/` already holds, which is fine while iterating and is not what
+a verdict should be taken from.
 
 ## Requirements
 

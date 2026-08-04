@@ -16,12 +16,14 @@ and many of them print things no test should be asserting on.
 Run from the course root:
 
     scripts/check_course.py            # everything
+    scripts/check_course.py --clean    # ... from an empty obj/ and bin/, which is the honest one
     scripts/check_course.py --solved   # skip the unsolved half, which is the slow one
 """
 from __future__ import annotations
 
 import argparse
 import re
+import shutil
 import subprocess
 import sys
 from dataclasses import dataclass, field
@@ -566,8 +568,8 @@ def check_additional_files(root: Path) -> list[str]:
 
     Nothing failed while they were merely listed. What failed was Course Preview, which tries to
     read every additional file and stops on the first one missing -- and they go missing the
-    moment anyone runs `rm -rf obj bin`, which this script does on every run. So the symptom
-    appeared far from the cause, in a feature none of the other checks exercise.
+    moment anyone runs `rm -rf obj bin`, which `--clean` does. So the symptom appeared far from
+    the cause, in a feature none of the other checks exercise.
 
     What triggers the sweep is not known, and two confident explanations of it have already been
     wrong. Only the observations are worth recording:
@@ -675,12 +677,23 @@ def main() -> int:
     parser.add_argument("--solved", action="store_true", help="skip the unsolved half")
     parser.add_argument("--structure", action="store_true",
                         help="only the structural checks, which compile nothing and take no time")
+    parser.add_argument("--clean", action="store_true",
+                        help="delete obj/ and bin/ first, so nothing is inherited from a previous run")
     args = parser.parse_args()
 
     root = Path.cwd()
     if not (root / "course.gpr").is_file():
         print("run this from the course root", file=sys.stderr)
         return 2
+
+    #  Not the default, because it costs about a minute and most runs are iterating on one
+    #  chapter. But it is what a verdict should be taken from: a warm obj/ has already answered
+    #  some of the questions this script is asking, and the one time it disagreed with a cold run
+    #  -- a spec that compiles only because its body was compiled first -- the warm answer was the
+    #  wrong one.
+    if args.clean:
+        for derived in ("obj", "bin"):
+            shutil.rmtree(root / derived, ignore_errors=True)
 
     structure = (check_structure(root) + check_mains(root) + check_unit_names(root)
                  + check_additional_files(root))

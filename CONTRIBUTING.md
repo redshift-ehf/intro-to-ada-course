@@ -29,10 +29,14 @@ That second assertion catches the failure mode nothing else does: a placeholder 
 actually remove the answer. Such a task looks correct in every screenshot, passes the solved check,
 and quietly hands the student a completed exercise.
 
-`--solved` skips the slow half when you are iterating.
+`--solved` skips the slow half when you are iterating. `--clean` empties `obj/` and `bin/` first,
+and is what a verdict should be taken from — a warm `obj/` has already answered some of what the
+checker is asking, and the one time a warm run disagreed with a cold one, the warm answer was the
+wrong one.
 
-Theory tasks are compiled but not run. They exist to be read and to have a Run button that works,
-and many print things no test should assert on.
+Theory tasks are compiled but not run — `gprbuild -c`, and the exit status is the whole check. They
+exist to be read and to have a Run button that works, many print things no test should assert on,
+and several are packages with no main to run in the first place.
 
 ## Two things that look like mistakes and are not
 
