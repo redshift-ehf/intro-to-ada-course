@@ -1,0 +1,25 @@
+type: edu
+custom_name: "Exercise: Constrained Array"
+files:
+  - name: src/constrained_array.ads
+    visible: true
+  - name: src/constrained_array.adb
+    visible: true
+    placeholders:
+      - offset: 105
+        length: 105
+        placeholder_text: "      --  Fill the array with 1 .. 10!\n      return Result;"
+      - offset: 279
+        length: 72
+        placeholder_text: "      --  Double every element!\n      null;"
+      - offset: 433
+        length: 25
+        placeholder_text: "      --  The first element -- without writing 1!\n      return 0;"
+      - offset: 543
+        length: 24
+        placeholder_text: "      --  The last element -- without writing 10!\n      return 0;"
+      - offset: 648
+        length: 22
+        placeholder_text: "      --  How many elements -- without counting them!\n      return 0;"
+  - name: tests/test_constrained_array.adb
+    visible: false

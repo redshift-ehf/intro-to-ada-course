@@ -1,0 +1,17 @@
+type: edu
+custom_name: "Exercise: Colors — lookup table"
+files:
+  - name: src/colors_lookup_table.ads
+    visible: true
+    placeholders:
+      - offset: 660
+        length: 517
+        placeholder_text: "     (others => (0, 0, 0));  --  Fill the table in, one entry per colour!"
+  - name: src/colors_lookup_table.adb
+    visible: true
+    placeholders:
+      - offset: 96
+        length: 37
+        placeholder_text: "      --  One lookup. No case statement!\n      return (0, 0, 0);"
+  - name: tests/test_colors_lookup_table.adb
+    visible: false

@@ -1,0 +1,22 @@
+type: edu
+custom_name: "Exercise: Unconstrained Array"
+files:
+  - name: src/unconstrained_array.ads
+    visible: true
+  - name: src/unconstrained_array.adb
+    visible: true
+    placeholders:
+      - offset: 80
+        length: 141
+        placeholder_text: "      Value : Integer := 0;\n   begin\n      --  Count down from the array's own length!\n      null;"
+      - offset: 290
+        length: 200
+        placeholder_text: "      Result : My_Array (1 .. L);\n   begin\n      --  L elements, counting down from I!\n      return Result;"
+      - offset: 559
+        length: 72
+        placeholder_text: "      --  Double every element!\n      null;"
+      - offset: 837
+        length: 198
+        placeholder_text: "      --  Each element less the one before it. The first has none!\n      return Result;"
+  - name: tests/test_unconstrained_array.adb
+    visible: false

@@ -1,0 +1,22 @@
+type: edu
+custom_name: "Exercise: List of Names"
+files:
+  - name: src/list_of_names.ads
+    visible: true
+  - name: src/list_of_names.adb
+    visible: true
+    placeholders:
+      - offset: 831
+        length: 174
+        placeholder_text: "      --  Put the new person after the last valid one, if there is room!\n      null;"
+      - offset: 1082
+        length: 232
+        placeholder_text: "   begin\n      --  Find the person and give back their age!\n      return 0;"
+      - offset: 1402
+        length: 236
+        placeholder_text: "   begin\n      --  Find the person and set their age. Add nobody!\n      null;"
+      - offset: 1692
+        length: 462
+        placeholder_text: "   begin\n      --  The heading, then a name and an age for each valid person!\n      null;"
+  - name: tests/test_list_of_names.adb
+    visible: false

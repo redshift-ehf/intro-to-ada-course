@@ -1,0 +1,19 @@
+type: edu
+custom_name: "Exercise: Product info"
+files:
+  - name: src/product_info.ads
+    visible: true
+  - name: src/product_info.adb
+    visible: true
+    placeholders:
+      - offset: 107
+        length: 157
+        placeholder_text: "      --  Write each product's total into Tot!\n      null;"
+      - offset: 343
+        length: 267
+        placeholder_text: "      Result : Currency_Array (P'Range);\n   begin\n      --  One total per product!\n      return Result;"
+      - offset: 683
+        length: 159
+        placeholder_text: "      Sum : Currency := 0.0;\n   begin\n      --  Everything added together!\n      return Sum;"
+  - name: tests/test_product_info.adb
+    visible: false
