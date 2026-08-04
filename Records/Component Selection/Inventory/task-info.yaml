@@ -8,12 +8,18 @@ files:
     placeholders:
       - offset: 91
         length: 228
-        placeholder_text: "      --  Return the name as it should be printed!\n      return \"\";"
+        placeholder_text: |2-
+                --  Return the name as it should be printed!
+                return "";
       - offset: 434
         length: 320
-        placeholder_text: "      --  Build the item from its three parts!\n      return (Ballpoint_Pen, 0, 0.0);"
+        placeholder_text: |2-
+                --  Build the item from its three parts!
+                return (Ballpoint_Pen, 0, 0.0);
       - offset: 832
         length: 54
-        placeholder_text: "      --  Add this item's total value to Assets!\n      null;"
+        placeholder_text: |2-
+                --  Add this item's total value to Assets!
+                null;
   - name: tests/test_inventory.adb
     visible: false

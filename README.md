@@ -59,14 +59,22 @@ be bought with a `<section>_<lesson>_<task>` prefix, so a student's first line o
 invariant without teaching a style no Ada programmer uses: a collision is now a named failure while
 the author is looking at it, rather than something a mangled name made impossible in advance.
 
-**The first IDE open after adding a section will delete it from `course-info.yaml`.** Write a
-chapter while the IDE is closed and its file cache still predates those directories; the course
-model it builds on open therefore lacks them, and it serialises that model back over the tree about
-three seconds in. Measured: adding two chapters and opening left `content:` naming only the first,
-with the two new `section-info.yaml` files never touched. Quit, `git checkout -- course-info.yaml`,
-open again — the second open sees all of it and rewrites the file to identical content. It happens
-once per chapter and `check_structure` names the dropped sections, so the cost is one restore, not a
-silent loss. Do not resolve it by deleting the chapter directory the file no longer mentions.
+**A first IDE open can delete a new section from `course-info.yaml`, so check `git status` after
+one.** Every open rewrites that file from the course model the IDE built, about three seconds in.
+Twice out of the three chapters added so far, that model did not contain the chapter just written:
+`content:` came back naming everything except it, its `section-info.yaml` was never touched at all,
+and nothing was logged. The third time the same steps produced a byte-identical file and the new
+`section-info.yaml` was touched immediately.
+
+So it is not reliable, and the mechanism is not pinned down. A file cache predating the new
+directories was the obvious candidate and does not survive the evidence: the chapter that came
+through intact is the one whose directories were created with the IDE not running at all, which is
+the case that explanation says should fail hardest.
+
+What is reliable is the check and the repair. `check_structure` names any dropped section, so this
+cannot ship silently; `git checkout -- course-info.yaml`, quit, and open again has produced
+identical content every time. Do not resolve it by deleting the chapter directory that
+`course-info.yaml` no longer mentions.
 
 ### One task
 

@@ -8,9 +8,13 @@ files:
     placeholders:
       - offset: 366
         length: 713
-        placeholder_text: "      --  Return the three channels for each colour!\n      return (0, 0, 0);"
+        placeholder_text: |2-
+                --  Return the three channels for each colour!
+                return (0, 0, 0);
       - offset: 1150
         length: 132
-        placeholder_text: "      --  Build the text from the three components, using Hex!\n      return \"\";"
+        placeholder_text: |2-
+                --  Build the text from the three components, using Hex!
+                return "";
   - name: tests/test_record_colors.adb
     visible: false
