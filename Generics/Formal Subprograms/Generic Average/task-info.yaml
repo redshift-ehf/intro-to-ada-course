@@ -1,0 +1,13 @@
+type: edu
+custom_name: "Exercise: Average of Array of Any Type"
+files:
+  - name: src/generic_average.ads
+    visible: true
+  - name: src/generic_average.adb
+    visible: true
+    placeholders:
+      - offset: 55
+        length: 200
+        placeholder_text: "begin\n   --  Weigh each element with To_Float, then average. Mind the empty\n   --  array!\n   return 0.0;"
+  - name: tests/test_generic_average.adb
+    visible: false

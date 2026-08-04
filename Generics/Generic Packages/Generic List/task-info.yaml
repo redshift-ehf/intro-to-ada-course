@@ -1,0 +1,16 @@
+type: edu
+custom_name: "Exercise: Generic list"
+files:
+  - name: src/generic_list.ads
+    visible: true
+  - name: src/generic_list.adb
+    visible: true
+    placeholders:
+      - offset: 172
+        length: 159
+        placeholder_text: "      --  Add it if there is room, and report whether there was!\n      Status := False;"
+      - offset: 378
+        length: 368
+        placeholder_text: "      --  The name, then one line per item that is actually in the list!\n      null;"
+  - name: tests/test_generic_list.adb
+    visible: false

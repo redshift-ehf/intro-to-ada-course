@@ -30,7 +30,8 @@ project Course is
       "Access Types/**",
       "More About Records/**",
       "Fixed-Point Types/**",
-      "Privacy/**");
+      "Privacy/**",
+      "Generics/**");
 
    for Object_Dir use "obj";
    for Exec_Dir use "bin";
@@ -99,7 +100,14 @@ project Course is
       "show_fixed_versus_float.adb",
       "show_encapsulation.adb",
       "show_private_types.adb",
-      "show_limited_types.adb");
+      "show_limited_types.adb",
+      "show_generics.adb",
+      "show_formal_types.adb",
+      "show_formal_objects.adb",
+      "show_generic_body.adb",
+      "show_instantiation.adb",
+      "show_generic_packages.adb",
+      "show_formal_subprograms.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of

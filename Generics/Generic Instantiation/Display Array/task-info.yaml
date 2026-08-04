@@ -1,0 +1,13 @@
+type: edu
+custom_name: "Exercise: Display Array"
+files:
+  - name: src/display_array.ads
+    visible: true
+  - name: src/display_array.adb
+    visible: true
+    placeholders:
+      - offset: 177
+        length: 118
+        placeholder_text: "   --  The header, then one line per element: index, colon, image!\n   null;"
+  - name: tests/test_display_array.adb
+    visible: false

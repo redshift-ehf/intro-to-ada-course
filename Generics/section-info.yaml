@@ -1,0 +1,8 @@
+content:
+  - Introduction
+  - Formal Type Declaration
+  - Formal Object Declaration
+  - Generic Body Definition
+  - Generic Instantiation
+  - Generic Packages
+  - Formal Subprograms

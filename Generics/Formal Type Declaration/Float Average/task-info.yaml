@@ -1,0 +1,13 @@
+type: edu
+custom_name: "Exercise: Average of Array of Float"
+files:
+  - name: src/float_average.ads
+    visible: true
+  - name: src/float_average.adb
+    visible: true
+    placeholders:
+      - offset: 57
+        length: 351
+        placeholder_text: "begin\n   --  The sum over the count. Mind the empty array!\n   return 0.0;"
+  - name: tests/test_float_average.adb
+    visible: false

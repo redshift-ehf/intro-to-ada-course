@@ -34,6 +34,7 @@ content:
   - More About Records
   - Fixed-Point Types
   - Privacy
+  - Generics
 tags:
   - Ada
   - SPARK
