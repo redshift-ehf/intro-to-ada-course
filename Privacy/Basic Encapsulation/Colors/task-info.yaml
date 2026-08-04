@@ -8,12 +8,18 @@ files:
     placeholders:
       - offset: 1316
         length: 19
-        placeholder_text: "      --  The red channel of a value nobody outside can look into!\n      return 0;"
+        placeholder_text: |2-
+                --  The red channel of a value nobody outside can look into!
+                return 0;
       - offset: 1412
         length: 21
-        placeholder_text: "      --  And the green one!\n      return 0;"
+        placeholder_text: |2-
+                --  And the green one!
+                return 0;
       - offset: 1511
         length: 20
-        placeholder_text: "      --  And the blue!\n      return 0;"
+        placeholder_text: |2-
+                --  And the blue!
+                return 0;
   - name: tests/test_private_colors.adb
     visible: false

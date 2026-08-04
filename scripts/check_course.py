@@ -515,6 +515,67 @@ def task_units(root: Path) -> dict[Path, dict[str, Path]]:
     return tasks
 
 
+def check_additional_files(root: Path) -> list[str]:
+    """`additional_files` must name course content, and nothing the build produced.
+
+    The course editor rebuilds this list by scanning the project, and it counts everything that
+    is not part of a task -- including obj/ and bin/, which a GNAT project puts inside the course
+    directory because that is where gprbuild wants them. It had swept 378 object files, .ali
+    files and executables into course-info.yaml before anyone noticed.
+
+    Nothing failed while they were merely listed. What failed was Course Preview, which tries to
+    read every additional file and stops on the first one missing -- and they go missing the
+    moment anyone runs `rm -rf obj bin`, which this script does on every run. So the symptom
+    appeared far from the cause, in a feature none of the other checks exercise.
+
+    Checked here rather than trusted to .courseignore because whether that file is consulted for
+    this particular scan was never established, and a guard that only works if an assumption
+    holds is not a guard.
+    """
+    info = root / "course-info.yaml"
+    if not info.is_file():
+        return ["course-info.yaml is missing"]
+
+    listed: list[str] = []
+    inside = False
+    for line in info.read_text(encoding="utf-8").split("\n"):
+        if re.match(r"^additional_files:\s*$", line):
+            inside = True
+            continue
+        if inside:
+            entry = re.match(r"^\s+-\s*name:\s*(.+?)\s*$", line)
+            if entry:
+                listed.append(entry.group(1).strip("\"'"))
+            elif line.strip() and not re.match(r"^\s+\w+:", line):
+                break
+
+    problems: list[str] = []
+    for name in listed:
+        first = name.split("/", 1)[0]
+        if first in {"obj", "bin"}:
+            problems.append(
+                f"course-info.yaml lists build output as an additional file: {name}. The course "
+                f"editor scans obj/ and bin/ into that list; delete every such entry, because "
+                f"Course Preview reads them all and fails on the first one that is gone"
+            )
+        elif not (root / name).is_file():
+            problems.append(
+                f"course-info.yaml lists additional file {name}, which does not exist -- Course "
+                f"Preview will refuse to start"
+            )
+    #  Report the sweep once rather than 378 times.
+    swept = [p for p in problems if "build output" in p]
+    if len(swept) > 3:
+        problems = [p for p in problems if p not in swept]
+        problems.insert(
+            0,
+            f"course-info.yaml lists {len(swept)} build-output files as additional files, "
+            f"starting with {listed[0] if listed else '?'} -- the course editor swept obj/ and "
+            f"bin/ into it. Remove them all.",
+        )
+    return problems
+
+
 def check_structure(root: Path) -> list[str]:
     """Every directory listed must exist, and every directory present must be listed.
 
@@ -569,13 +630,15 @@ def main() -> int:
         print("run this from the course root", file=sys.stderr)
         return 2
 
-    structure = check_structure(root) + check_mains(root) + check_unit_names(root)
+    structure = (check_structure(root) + check_mains(root) + check_unit_names(root)
+                 + check_additional_files(root))
     if structure:
         for problem in structure:
             print(f"  STRUCTURE  {problem}", file=sys.stderr)
         return 1
     print("  ok       structure: content lists match directories, `for Main use` matches the\n"
-          "           sources that are runnable programs, and every unit is named for its task")
+          "           sources that are runnable programs, every unit is named for its task, and\n"
+          "           additional_files names course content rather than build output")
 
     failures: list[str] = []
     tasks = [read_task(p) for p in sorted(root.glob("*/*/*/task-info.yaml"))]

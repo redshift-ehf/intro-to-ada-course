@@ -8,12 +8,18 @@ files:
     placeholders:
       - offset: 217
         length: 108
-        placeholder_text: "      --  Add it, if there is room!\n      null;"
+        placeholder_text: |2-
+                --  Add it, if there is room!
+                null;
       - offset: 416
         length: 220
-        placeholder_text: "      --  A price if the index is good, and nothing if it is not!\n      return (Ok => False);"
+        placeholder_text: |2-
+                --  A price if the index is good, and nothing if it is not!
+                return (Ok => False);
       - offset: 696
         length: 130
-        placeholder_text: "      --  The heading, then one price per line!\n      null;"
+        placeholder_text: |2-
+                --  The heading, then one price per line!
+                null;
   - name: tests/test_price_list.adb
     visible: false

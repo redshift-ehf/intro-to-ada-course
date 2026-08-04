@@ -8,12 +8,18 @@ files:
     placeholders:
       - offset: 616
         length: 67
-        placeholder_text: "      --  Build it, working out the direction from the angle!\n      return (Angle_Elem => 0, Direction_Elem => North);"
+        placeholder_text: |2-
+                --  Build it, working out the direction from the angle!
+                return (Angle_Elem => 0, Direction_Elem => North);
       - offset: 772
         length: 26
-        placeholder_text: "      --  The angle it was built from!\n      return 0;"
+        placeholder_text: |2-
+                --  The angle it was built from!
+                return 0;
       - offset: 887
         length: 30
-        placeholder_text: "      --  The direction that goes with it!\n      return North;"
+        placeholder_text: |2-
+                --  The direction that goes with it!
+                return North;
   - name: tests/test_private_directions.adb
     visible: false

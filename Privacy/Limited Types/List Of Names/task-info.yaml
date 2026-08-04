@@ -8,9 +8,14 @@ files:
     placeholders:
       - offset: 668
         length: 475
-        placeholder_text: "      --  Add them at the end, aged nought. Person is limited -- set its\n      --  components, do not assign the whole record!\n      null;"
+        placeholder_text: |2-
+                --  Add them at the end, aged nought. Person is limited -- set its
+                --  components, do not assign the whole record!
+                null;
       - offset: 2183
         length: 26
-        placeholder_text: "      --  How many are valid!\n      return 0;"
+        placeholder_text: |2-
+                --  How many are valid!
+                return 0;
   - name: tests/test_private_list_of_names.adb
     visible: false
