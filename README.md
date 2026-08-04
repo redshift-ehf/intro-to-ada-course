@@ -88,10 +88,10 @@ Nothing is outstanding.
 
 **A first IDE open can delete a new section from `course-info.yaml`, so check `git status` after
 one.** Every open rewrites that file from the course model the IDE built, about three seconds in.
-Twice out of the three chapters added so far, that model did not contain the chapter just written:
-`content:` came back naming everything except it, its `section-info.yaml` was never touched at all,
-and nothing was logged. The third time the same steps produced a byte-identical file and the new
-`section-info.yaml` was touched immediately.
+Three chapters out of the eight watched for it came back with a `content:` naming everything except
+the chapter just written; the new `section-info.yaml` was never touched at all, and nothing was
+logged. The other five produced a byte-identical file and the new `section-info.yaml` was touched
+immediately.
 
 So it is not reliable, and the mechanism is not pinned down. A file cache predating the new
 directories was the obvious candidate and does not survive the evidence: the chapter that came

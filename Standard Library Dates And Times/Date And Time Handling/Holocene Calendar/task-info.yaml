@@ -8,6 +8,8 @@ files:
     placeholders:
       - offset: 102
         length: 110
-        placeholder_text: "      --  Ten thousand years on top of the Gregorian one!\n      return 0;"
+        placeholder_text: |2-
+                --  Ten thousand years on top of the Gregorian one!
+                return 0;
   - name: tests/test_holocene_calendar.adb
     visible: false
