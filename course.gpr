@@ -23,7 +23,8 @@ project Course is
       "Imperative Language/**",
       "Subprograms/**",
       "Modular Programming/**",
-      "Strongly Typed Language/**");
+      "Strongly Typed Language/**",
+      "Records/**");
 
    for Object_Dir use "obj";
    for Exec_Dir use "bin";
@@ -62,7 +63,11 @@ project Course is
       "show_floats.adb",
       "show_distances.adb",
       "show_derived_types.adb",
-      "show_subtypes.adb");
+      "show_subtypes.adb",
+      "show_records.adb",
+      "show_aggregates.adb",
+      "show_selection.adb",
+      "show_component_renaming.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of

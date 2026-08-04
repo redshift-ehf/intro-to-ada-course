@@ -1,0 +1,19 @@
+type: edu
+custom_name: "Exercise: Inventory"
+files:
+  - name: src/inventory.ads
+    visible: true
+  - name: src/inventory.adb
+    visible: true
+    placeholders:
+      - offset: 91
+        length: 228
+        placeholder_text: "      --  Return the name as it should be printed!\n      return \"\";"
+      - offset: 434
+        length: 320
+        placeholder_text: "      --  Build the item from its three parts!\n      return (Ballpoint_Pen, 0, 0.0);"
+      - offset: 832
+        length: 54
+        placeholder_text: "      --  Add this item's total value to Assets!\n      null;"
+  - name: tests/test_inventory.adb
+    visible: false

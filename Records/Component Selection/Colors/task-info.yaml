@@ -1,0 +1,16 @@
+type: edu
+custom_name: "Exercise: Colors"
+files:
+  - name: src/record_colors.ads
+    visible: true
+  - name: src/record_colors.adb
+    visible: true
+    placeholders:
+      - offset: 366
+        length: 713
+        placeholder_text: "      --  Return the three channels for each colour!\n      return (0, 0, 0);"
+      - offset: 1150
+        length: 132
+        placeholder_text: "      --  Build the text from the three components, using Hex!\n      return \"\";"
+  - name: tests/test_record_colors.adb
+    visible: false

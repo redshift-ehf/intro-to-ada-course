@@ -23,6 +23,7 @@ content:
   - Subprograms
   - Modular Programming
   - Strongly Typed Language
+  - Records
 tags:
   - Ada
   - SPARK

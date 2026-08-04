@@ -1,0 +1,19 @@
+type: edu
+custom_name: "Exercise: Directions"
+files:
+  - name: src/directions.ads
+    visible: true
+  - name: src/directions.adb
+    visible: true
+    placeholders:
+      - offset: 134
+        length: 532
+        placeholder_text: "      --  Which direction does this angle fall in?\n      return North;"
+      - offset: 759
+        length: 67
+        placeholder_text: "      --  Build the record from the angle and its direction!\n      return (Angle_Elem => 0, Direction_Elem => North);"
+      - offset: 898
+        length: 128
+        placeholder_text: "      --  Print the angle and its direction!\n      null;"
+  - name: tests/test_directions.adb
+    visible: false
