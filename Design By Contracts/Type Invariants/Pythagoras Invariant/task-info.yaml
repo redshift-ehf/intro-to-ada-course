@@ -6,7 +6,9 @@ files:
     placeholders:
       - offset: 798
         length: 102
-        placeholder_text: "   function Check (T : Right_Triangle) return Boolean is\n     (True);  --  The theorem, as the rule the type always keeps!"
+        placeholder_text: |2-
+             function Check (T : Right_Triangle) return Boolean is
+               (True);  --  The theorem, as the rule the type always keeps!
   - name: src/pythagoras_invariant.adb
     visible: true
   - name: tests/test_pythagoras_invariant.adb
