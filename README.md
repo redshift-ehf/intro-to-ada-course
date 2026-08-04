@@ -94,9 +94,10 @@ logged. The other five produced a byte-identical file and the new `section-info.
 immediately.
 
 So it is not reliable, and the mechanism is not pinned down. A file cache predating the new
-directories was the obvious candidate and does not survive the evidence: the chapter that came
-through intact is the one whose directories were created with the IDE not running at all, which is
-the case that explanation says should fail hardest.
+directories was the obvious candidate and does not survive the evidence: one of the chapters that
+came through intact had its directories created with the IDE not running at all, which is the case
+that explanation says should fail hardest. Nothing since has separated the three failures from the
+five successes — same steps, same order, both outcomes.
 
 What is reliable is the check and the repair. `check_structure` names any dropped section, so this
 cannot ship silently; `git checkout -- course-info.yaml`, quit, and open again has produced
