@@ -70,11 +70,19 @@ forward, and the reason is worth recording because the move is invisible afterwa
 | Simple todo list | More about types | More About Records → Records With Discriminant | access types, discriminants |
 | Price list | More about types | Privacy → Abstract Data Types | decimal fixed-point, variant records |
 
-Both were skipped when More About Types shipped, and the two were owed differently. *Simple todo
-list* appears nowhere else — checked against every lab chapter — so it had no second site and was
-placed by hand, in the chapter that teaches its discriminant. It is the one adapted exercise in a
-chapter otherwise carrying original ones. *Price list* recurs in the Privacy lab under the same
-name, so it was ported once, there, where every one of the four things it needs has been taught.
+Both were skipped when More About Types shipped, and the two were owed differently. *Price list*
+recurs in the Privacy lab under the same name and as the same exercise, so it was ported once,
+there, where every one of the four things it needs has been taught. *Simple todo list* was placed
+by hand instead, in the chapter that teaches its discriminant — it is the one adapted exercise in a
+chapter otherwise carrying original ones.
+
+That second sentence used to say *Simple todo list* appears nowhere else, checked against every lab
+chapter. It does appear again, in *Standard library: Containers*, and the labs say so outright:
+"rewrite that exercise using vectors instead of arrays". So it is a second **exercise**, not a
+second site for the same one — the array version keeps its discriminant, its `Last` and its "list
+is full", and the vector version has none of the three. Both are in the course. They collide by
+name, so the later one takes the chapter qualifier the naming rule provides:
+`Containers_Simple_Todo_List`.
 
 Nothing is outstanding.
 

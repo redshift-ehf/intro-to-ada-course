@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_vector_insert.adb
+    visible: true

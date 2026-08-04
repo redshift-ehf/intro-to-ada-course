@@ -44,7 +44,8 @@ project Course is
       "Tasking/**",
       "Design By Contracts/**",
       "Interfacing With C/**",
-      "Object Oriented Programming/**");
+      "Object Oriented Programming/**",
+      "Standard Library Containers/**");
 
    for Object_Dir use "obj";
    for Exec_Dir use "bin";
@@ -149,7 +150,22 @@ project Course is
       "show_dispatching.adb",
       "show_dot_notation.adb",
       "show_oop_privacy.adb",
-      "show_classwide_access.adb");
+      "show_classwide_access.adb",
+      "show_vector_inst.adb",
+      "show_vector_init.adb",
+      "show_vector_append.adb",
+      "show_vector_first_last.adb",
+      "show_vector_iteration.adb",
+      "show_vector_find.adb",
+      "show_vector_insert.adb",
+      "show_vector_remove.adb",
+      "show_vector_ops.adb",
+      "show_set_init.adb",
+      "show_set_element_ops.adb",
+      "show_set_ops.adb",
+      "show_hashed_map.adb",
+      "show_ordered_map.adb",
+      "show_complexity.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of

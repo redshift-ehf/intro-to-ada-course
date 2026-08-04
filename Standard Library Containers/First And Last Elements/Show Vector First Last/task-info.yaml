@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_vector_first_last.adb
+    visible: true

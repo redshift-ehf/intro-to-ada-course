@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_set_element_ops.adb
+    visible: true

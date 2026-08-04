@@ -1,0 +1,16 @@
+type: edu
+custom_name: "Exercise: List Of Unique Integers"
+files:
+  - name: src/list_of_unique_integers.ads
+    visible: true
+  - name: src/list_of_unique_integers.adb
+    visible: true
+    placeholders:
+      - offset: 126
+        length: 196
+        placeholder_text: "      --  Every value, once!\n      return S;"
+      - offset: 402
+        length: 313
+        placeholder_text: "      --  The other Get_Unique first, then copy it out!\n      Nothing : constant Int_Array (1 .. 0) := (1 .. 0 => 0);\n   begin\n      return Nothing;"
+  - name: tests/test_list_of_unique_integers.adb
+    visible: false
