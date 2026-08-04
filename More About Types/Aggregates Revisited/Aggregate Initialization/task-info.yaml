@@ -1,0 +1,19 @@
+type: edu
+custom_name: "Exercise: Aggregate Initialization"
+files:
+  - name: src/aggregate_initialization.ads
+    visible: true
+  - name: src/aggregate_initialization.adb
+    visible: true
+    placeholders:
+      - offset: 86
+        length: 46
+        placeholder_text: "      --  X and Y set, W and Z left at their defaults. One aggregate!\n      R := (others => <>);"
+      - offset: 200
+        length: 41
+        placeholder_text: "      --  99 for the first five, 100 for the rest. One aggregate!\n      A := (others => 0);"
+      - offset: 309
+        length: 25
+        placeholder_text: "      --  5 everywhere. One aggregate!\n      A := (others => 0);"
+  - name: tests/test_aggregate_initialization.adb
+    visible: false

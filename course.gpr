@@ -25,7 +25,8 @@ project Course is
       "Modular Programming/**",
       "Strongly Typed Language/**",
       "Records/**",
-      "Arrays/**");
+      "Arrays/**",
+      "More About Types/**");
 
    for Object_Dir use "obj";
    for Exec_Dir use "bin";
@@ -77,7 +78,10 @@ project Course is
       "show_strings.adb",
       "show_returning_arrays.adb",
       "show_slices.adb",
-      "show_array_renaming.adb");
+      "show_array_renaming.adb",
+      "show_aggregate_forms.adb",
+      "show_qualified_expressions.adb",
+      "show_character_types.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of

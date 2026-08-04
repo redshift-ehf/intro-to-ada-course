@@ -59,6 +59,21 @@ be bought with a `<section>_<lesson>_<task>` prefix, so a student's first line o
 invariant without teaching a style no Ada programmer uses: a collision is now a named failure while
 the author is looking at it, rather than something a mangled name made impossible in advance.
 
+**An exercise goes where its prerequisites are taught, not where the labs filed it.** The
+*Laboratories* companion is chaptered independently of the course, so some of its exercises need
+material the matching course chapter has not covered. Where that happens the exercise moves
+forward, and the reason is worth recording because the move is invisible afterwards:
+
+| Exercise | Labs chapter | Ported into | Needed |
+|---|---|---|---|
+| Integers | Strongly typed language | Strongly Typed Language → Subtypes | derived types, subtypes |
+| Simple todo list | More about types | *deferred* | access types, discriminants |
+| Price list | More about types | *deferred* | decimal fixed-point, variant records |
+
+The two deferred ones recur in later lab chapters — the same exercise, by the same name, where the
+material has arrived. Port each once, at the second site. **They are outstanding: More About Types
+shipped without them.** If you are adding More About Records or Fixed-Point Types, they are yours.
+
 **A first IDE open can delete a new section from `course-info.yaml`, so check `git status` after
 one.** Every open rewrites that file from the course model the IDE built, about three seconds in.
 Twice out of the three chapters added so far, that model did not contain the chapter just written:

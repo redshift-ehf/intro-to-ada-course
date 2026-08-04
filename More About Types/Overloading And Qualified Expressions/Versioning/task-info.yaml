@@ -1,0 +1,16 @@
+type: edu
+custom_name: "Exercise: Versioning"
+files:
+  - name: src/versioning.ads
+    visible: true
+  - name: src/versioning.adb
+    visible: true
+    placeholders:
+      - offset: 383
+        length: 77
+        placeholder_text: "     (\"\");  --  Major.Minor.Maintenance, with no stray spaces!"
+      - offset: 512
+        length: 48
+        placeholder_text: "     (0.0);  --  Major and Minor as one number!"
+  - name: tests/test_versioning.adb
+    visible: false
