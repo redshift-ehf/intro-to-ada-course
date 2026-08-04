@@ -315,21 +315,32 @@ def build_and_run(main: Path, root: Path, force: bool = False) -> tuple[int, str
     reasoning about someone else's staleness rules is not a fix. This does not depend on them at
     all. The price is recompiling a two-file harness once per exercise; the alternative is a
     verdict that turns on sub-second timing, which is worse than having no checker.
+
+    Output is decoded with errors="replace" rather than text=True, because a test program is not
+    obliged to print valid UTF-8 and a *wrong* one very often does not. An unsolved exercise that
+    returns an uninitialised String prints whatever was in that memory, and strict decoding then
+    raises UnicodeDecodeError out of subprocess -- killing the checker rather than failing the
+    task. That is exactly backwards: garbage output is the strongest possible evidence that an
+    exercise is unsolved, and it must be reportable.
     """
+    def decoded(completed: subprocess.CompletedProcess) -> str:
+        return (completed.stdout.decode("utf-8", errors="replace")
+                + completed.stderr.decode("utf-8", errors="replace"))
+
     build = subprocess.run(
         ["gprbuild", "-p", "-P", "course.gpr", main.name]
         + (["-f"] if force else [])
         + ["-cargs:Ada", "-gnatef"],
-        cwd=root, capture_output=True, text=True,
+        cwd=root, capture_output=True,
     )
     if build.returncode != 0:
-        return build.returncode, build.stdout + build.stderr, False
+        return build.returncode, decoded(build), False
 
     executable = root / "bin" / main.stem
     if not executable.exists():
         return 1, f"{executable} was not produced", False
-    run = subprocess.run([str(executable)], cwd=root, capture_output=True, text=True)
-    return run.returncode, run.stdout + run.stderr, True
+    run = subprocess.run([str(executable)], cwd=root, capture_output=True)
+    return run.returncode, decoded(run), True
 
 
 def invalidate(path: Path, root: Path) -> None:

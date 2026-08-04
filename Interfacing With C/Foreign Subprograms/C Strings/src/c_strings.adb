@@ -29,7 +29,10 @@ package body C_Strings is
    end Compare;
 
    function Upper (S : String) return String is
-      Result : String (S'Range);
+      --  Initialised from S rather than left empty. Every character is overwritten below, so it
+      --  costs nothing here -- and it means an unfinished version of this function returns the
+      --  original text instead of whatever happened to be in that memory.
+      Result : String (S'Range) := S;
    begin
       for I in S'Range loop
          Result (I) := Character'Val (Integer (Toupper (int (Character'Pos (S (I))))));
