@@ -106,16 +106,16 @@ Nothing is outstanding.
 
 **A first IDE open can delete a new section from `course-info.yaml`, so check `git status` after
 one.** Every open rewrites that file from the course model the IDE built, about three seconds in.
-Three chapters out of the ten watched for it came back with a `content:` naming everything except
+Three chapters out of the eleven watched for it came back with a `content:` naming everything except
 the chapter just written; the new `section-info.yaml` was never touched at all, and nothing was
-logged. The other seven produced a byte-identical file and the new `section-info.yaml` was touched
+logged. The other eight produced a byte-identical file and the new `section-info.yaml` was touched
 immediately.
 
 So it is not reliable, and the mechanism is not pinned down. A file cache predating the new
 directories was the obvious candidate and does not survive the evidence: one of the chapters that
 came through intact had its directories created with the IDE not running at all, which is the case
 that explanation says should fail hardest. Nothing since has separated the three failures from the
-seven successes — same steps, same order, both outcomes.
+eight successes — same steps, same order, both outcomes.
 
 What is reliable is the check and the repair. `check_structure` names any dropped section, so this
 cannot ship silently; `git checkout -- course-info.yaml`, quit, and open again has produced

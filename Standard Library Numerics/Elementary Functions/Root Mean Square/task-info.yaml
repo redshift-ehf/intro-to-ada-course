@@ -8,7 +8,9 @@ files:
     placeholders:
       - offset: 204
         length: 277
-        placeholder_text: "      --  Square them, take the mean, take the root!\n      return 0.0;"
+        placeholder_text: |2-
+                --  Square them, take the mean, take the root!
+                return 0.0;
   - name: src/root_mean_square-signals.ads
     visible: true
   - name: src/root_mean_square-signals.adb

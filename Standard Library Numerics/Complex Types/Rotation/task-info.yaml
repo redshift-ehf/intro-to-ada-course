@@ -8,9 +8,17 @@ files:
     placeholders:
       - offset: 126
         length: 515
-        placeholder_text: "      --  One step, then that step over and over!\n      C : constant Complex_Points (1 .. N + 1) := (others => (0.0, 0.0));\n   begin\n      return C;"
+        placeholder_text: |2-
+                --  One step, then that step over and over!
+                C : constant Complex_Points (1 .. N + 1) := (others => (0.0, 0.0));
+             begin
+                return C;
       - offset: 726
         length: 221
-        placeholder_text: "      --  Each point's argument, in degrees!\n      A : constant Angle_Array (C'Range) := (others => 0.0);\n   begin\n      return A;"
+        placeholder_text: |2-
+                --  Each point's argument, in degrees!
+                A : constant Angle_Array (C'Range) := (others => 0.0);
+             begin
+                return A;
   - name: tests/test_rotation.adb
     visible: false
