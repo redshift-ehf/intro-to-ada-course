@@ -8,9 +8,13 @@ files:
     placeholders:
       - offset: 611
         length: 750
-        placeholder_text: "      --  Write every line, then read them back with their numbers!\n      return \"\";"
+        placeholder_text: |2-
+                --  Write every line, then read them back with their numbers!
+                return "";
       - offset: 1530
         length: 273
-        placeholder_text: "      --  One for every line in the file!\n      return 0;"
+        placeholder_text: |2-
+                --  One for every line in the file!
+                return 0;
   - name: tests/test_line_numbers.adb
     visible: false

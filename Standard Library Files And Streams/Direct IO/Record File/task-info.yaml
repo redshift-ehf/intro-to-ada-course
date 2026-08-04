@@ -8,9 +8,13 @@ files:
     placeholders:
       - offset: 459
         length: 396
-        placeholder_text: "      --  Out and straight back in, in order!\n      return Result;"
+        placeholder_text: |2-
+                --  Out and straight back in, in order!
+                return Result;
       - offset: 1271
         length: 619
-        placeholder_text: "      --  All of them out, then one of them again in its own place!\n      return Result;"
+        placeholder_text: |2-
+                --  All of them out, then one of them again in its own place!
+                return Result;
   - name: tests/test_record_file.adb
     visible: false
