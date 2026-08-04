@@ -1,0 +1,17 @@
+type: edu
+custom_name: "Exercise: Root-Mean-Square"
+files:
+  - name: src/root_mean_square.ads
+    visible: true
+  - name: src/root_mean_square.adb
+    visible: true
+    placeholders:
+      - offset: 204
+        length: 277
+        placeholder_text: "      --  Square them, take the mean, take the root!\n      return 0.0;"
+  - name: src/root_mean_square-signals.ads
+    visible: true
+  - name: src/root_mean_square-signals.adb
+    visible: true
+  - name: tests/test_root_mean_square.adb
+    visible: false

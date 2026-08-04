@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_discrete_random.adb
+    visible: true

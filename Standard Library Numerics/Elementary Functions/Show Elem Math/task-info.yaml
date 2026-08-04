@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_elem_math.adb
+    visible: true

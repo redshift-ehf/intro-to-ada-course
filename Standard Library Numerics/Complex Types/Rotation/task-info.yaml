@@ -1,0 +1,16 @@
+type: edu
+custom_name: "Exercise: Rotation"
+files:
+  - name: src/rotation.ads
+    visible: true
+  - name: src/rotation.adb
+    visible: true
+    placeholders:
+      - offset: 126
+        length: 515
+        placeholder_text: "      --  One step, then that step over and over!\n      C : constant Complex_Points (1 .. N + 1) := (others => (0.0, 0.0));\n   begin\n      return C;"
+      - offset: 726
+        length: 221
+        placeholder_text: "      --  Each point's argument, in degrees!\n      A : constant Angle_Array (C'Range) := (others => 0.0);\n   begin\n      return A;"
+  - name: tests/test_rotation.adb
+    visible: false

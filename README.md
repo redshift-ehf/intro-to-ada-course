@@ -10,6 +10,18 @@ for JetBrains IDEs, with exercises adapted from its companion
 > *Introduction to Ada: Laboratories*. This adaptation is released under the same licence — see
 > [LICENSE](LICENSE), which explains why it is not MIT like other courses.
 
+## What it covers
+
+All 22 content chapters of *Introduction to Ada*, in the book's own order: **120 lessons and 201
+tasks**, of which 72 are graded exercises and 129 are runnable examples.
+
+Every exercise in the *Laboratories* companion is here. The five chapters it has no lab for —
+Access Types, More About Records, Fixed-Point Types, Interfacing With C, and Files & Streams —
+carry original exercises instead, in the same style; `course-info.yaml` says so in its attribution.
+
+`python3 scripts/check_course.py` builds and runs every one of the 201 from a clean `obj/`, and
+checks each exercise both solved and unsolved. It takes about four minutes.
+
 ## Requirements
 
 - A JetBrains IDE with the **JetBrains Academy** plugin.

@@ -1,0 +1,16 @@
+type: edu
+custom_name: "Exercise: Decibel Factor"
+files:
+  - name: src/decibel_factor.ads
+    visible: true
+  - name: src/decibel_factor.adb
+    visible: true
+    placeholders:
+      - offset: 175
+        length: 102
+        placeholder_text: "      --  Twenty times the log, base ten!\n      return 0.0;"
+      - offset: 360
+        length: 32
+        placeholder_text: "      --  Ten, to the decibels over twenty!\n      return 0.0;"
+  - name: tests/test_decibel_factor.adb
+    visible: false
