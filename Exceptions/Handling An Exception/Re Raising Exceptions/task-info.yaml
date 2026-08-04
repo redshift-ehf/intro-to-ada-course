@@ -8,6 +8,9 @@ files:
     placeholders:
       - offset: 586
         length: 610
-        placeholder_text: "      --  Report as before, then pass it on: a Constraint_Error unchanged,\n      --  anything else replaced by Another_Exception!\n      null;"
+        placeholder_text: |2-
+                --  Report as before, then pass it on: a Constraint_Error unchanged,
+                --  anything else replaced by Another_Exception!
+                null;
   - name: tests/test_re_raising_exceptions.adb
     visible: false

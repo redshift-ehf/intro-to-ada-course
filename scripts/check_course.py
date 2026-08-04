@@ -528,14 +528,18 @@ def check_additional_files(root: Path) -> list[str]:
     moment anyone runs `rm -rf obj bin`, which this script does on every run. So the symptom
     appeared far from the cause, in a feature none of the other checks exercise.
 
-    .courseignore does not prevent it. That was believed briefly, on a check made a minute after
-    opening the project, which is before the editor writes anything. It sweeps whatever its file
-    watcher saw while it was running and writes on quit -- and since this script rebuilds the
-    whole course, "open the IDE, then validate" is precisely the sequence that fills obj/ and
-    bin/ under a watching editor.
+    What triggers the sweep is not known, and two confident explanations of it have already been
+    wrong. Only the observations are worth recording:
 
-    So this check is not a belt beside a brace. It is the only thing holding the line, and it
-    holds it by refusing to run at all, which is what keeps the state from reaching a commit.
+      *  Before /obj and /bin were added to .courseignore, every commit for five chapters carried
+         the sweep. Since adding them, no commit has.
+      *  It reappeared in the working tree once anyway, 184 entries, and a deliberate attempt to
+         reproduce it -- open the IDE, rebuild the whole course underneath it, quit -- did not.
+
+    So .courseignore helps and cannot be relied on, and this check is what actually holds the
+    line. It holds it by refusing to run, which keeps the state out of a commit whatever put it
+    there. Run it with --structure immediately before committing: it is the cheap half, and the
+    gap it closes is the editor writing between a full validation and the commit that follows.
     """
     info = root / "course-info.yaml"
     if not info.is_file():
@@ -628,6 +632,8 @@ def check_structure(root: Path) -> list[str]:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--solved", action="store_true", help="skip the unsolved half")
+    parser.add_argument("--structure", action="store_true",
+                        help="only the structural checks, which compile nothing and take no time")
     args = parser.parse_args()
 
     root = Path.cwd()
@@ -644,6 +650,11 @@ def main() -> int:
     print("  ok       structure: content lists match directories, `for Main use` matches the\n"
           "           sources that are runnable programs, every unit is named for its task, and\n"
           "           additional_files names course content rather than build output")
+
+    #  The point of --structure is to be runnable in the second before a commit, when a full
+    #  run has already passed and the only worry is what the course editor did since.
+    if args.structure:
+        return 0
 
     failures: list[str] = []
     tasks = [read_task(p) for p in sorted(root.glob("*/*/*/task-info.yaml"))]

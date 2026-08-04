@@ -2,16 +2,18 @@ README.md
 /scripts
 
 #  Build output. gprbuild puts objects in obj/ and executables in bin/, both inside the course
-#  directory because that is where a GNAT project wants them.
+#  directory because that is where a GNAT project wants them. Neither is course content, and the
+#  course editor will otherwise list all of it in course-info.yaml's additional_files -- which
+#  breaks Course Preview, since that reads every additional file and stops at the first one a
+#  `rm -rf obj bin` has removed.
 #
-#  These two lines do NOT stop the course editor sweeping that output into course-info.yaml's
-#  additional_files. That was claimed here once, on a measurement taken a minute after opening
-#  the project -- too early to see it. The editor's file watcher picks up whatever appears while
-#  it is running, and writes the lot on quit; since running scripts/check_course.py rebuilds
-#  everything, opening the IDE and then validating is exactly the sequence that triggers it.
+#  These two lines help and do not settle it. Before them, every commit for five chapters carried
+#  the sweep; since them, none has. It has still come back in the working tree once, and an
+#  attempt to reproduce that on purpose -- open the IDE, rebuild the whole course underneath it,
+#  quit -- did not.
 #
-#  check_additional_files in scripts/check_course.py is the only thing that actually holds the
-#  line. It refuses to run while build output is in that list, so nothing can be committed with
-#  it there. These entries stay because they are correct for the course archive regardless.
+#  So what actually holds the line is check_additional_files in scripts/check_course.py, which
+#  refuses to run while build output is in that list. `scripts/check_course.py --structure` is
+#  the fast form of it, and is worth running in the second before a commit.
 /obj
 /bin

@@ -8,6 +8,8 @@ files:
     placeholders:
       - offset: 94
         length: 150
-        placeholder_text: "      --  Raise for Uninitialized, with a message. Otherwise the name!\n      return \"\";"
+        placeholder_text: |2-
+                --  Raise for Uninitialized, with a message. Otherwise the name!
+                return "";
   - name: tests/test_uninitialized_value.adb
     visible: false
