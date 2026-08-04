@@ -1,0 +1,22 @@
+type: edu
+custom_name: "Exercise: Money"
+files:
+  - name: src/money.ads
+    visible: true
+  - name: src/money.adb
+    visible: true
+    placeholders:
+      - offset: 124
+        length: 19
+        placeholder_text: "      --  Add them!\n      return 0.00;"
+      - offset: 231
+        length: 112
+        placeholder_text: "      --  A price times a quantity!\n      return 0.00;"
+      - offset: 433
+        length: 22
+        placeholder_text: "      --  Divide evenly, keeping whole cents!\n      return 0.00;"
+      - offset: 549
+        length: 40
+        placeholder_text: "      --  Whatever Split could not divide evenly!\n      return 0.00;"
+  - name: tests/test_money.adb
+    visible: false

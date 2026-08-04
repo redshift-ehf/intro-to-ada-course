@@ -32,6 +32,7 @@ content:
   - More About Types
   - Access Types
   - More About Records
+  - Fixed-Point Types
 tags:
   - Ada
   - SPARK

@@ -28,7 +28,8 @@ project Course is
       "Arrays/**",
       "More About Types/**",
       "Access Types/**",
-      "More About Records/**");
+      "More About Records/**",
+      "Fixed-Point Types/**");
 
    for Object_Dir use "obj";
    for Exec_Dir use "bin";
@@ -91,7 +92,10 @@ project Course is
       "show_recursive_types.adb",
       "show_dynamic_records.adb",
       "show_discriminants.adb",
-      "show_variant_records.adb");
+      "show_variant_records.adb",
+      "show_decimal_fixed_point.adb",
+      "show_ordinary_fixed_point.adb",
+      "show_fixed_versus_float.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of

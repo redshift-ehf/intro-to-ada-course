@@ -1,0 +1,19 @@
+type: edu
+custom_name: "Exercise: Volume"
+files:
+  - name: src/volume.ads
+    visible: true
+  - name: src/volume.adb
+    visible: true
+    placeholders:
+      - offset: 80
+        length: 299
+        placeholder_text: "      --  Two gains, one after the other. Mind the conversion!\n      return 0.0;"
+      - offset: 449
+        length: 149
+        placeholder_text: "      --  Halfway between them, without overflowing on the way!\n      return 0.0;"
+      - offset: 672
+        length: 136
+        placeholder_text: "   begin\n      --  Halved, Steps times over!\n      return G;"
+  - name: tests/test_volume.adb
+    visible: false

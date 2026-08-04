@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_decimal_fixed_point.adb
+    visible: true
