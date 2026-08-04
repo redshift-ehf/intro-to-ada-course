@@ -8,15 +8,26 @@ files:
     placeholders:
       - offset: 94
         length: 231
-        placeholder_text: "      --  A new node at the front, pointing at what used to be the head!\n      null;"
+        placeholder_text: |2-
+                --  A new node at the front, pointing at what used to be the head!
+                null;
       - offset: 388
         length: 300
-        placeholder_text: "   begin\n      --  Walk from the head to null, counting as you go!\n      return 0;"
+        placeholder_text: |2-
+             begin
+                --  Walk from the head to null, counting as you go!
+                return 0;
       - offset: 750
         length: 221
-        placeholder_text: "   begin\n      --  Add up every node's Content!\n      return 0;"
+        placeholder_text: |2-
+             begin
+                --  Add up every node's Content!
+                return 0;
       - offset: 1052
         length: 230
-        placeholder_text: "   begin\n      --  Is this value in any node?\n      return False;"
+        placeholder_text: |2-
+             begin
+                --  Is this value in any node?
+                return False;
   - name: tests/test_simple_list.adb
     visible: false

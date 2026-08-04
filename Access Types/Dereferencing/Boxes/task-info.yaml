@@ -8,15 +8,24 @@ files:
     placeholders:
       - offset: 85
         length: 33
-        placeholder_text: "      --  Allocate an Integer holding Value!\n      return new Integer'(0);"
+        placeholder_text: |2-
+                --  Allocate an Integer holding Value!
+                return new Integer'(0);
       - offset: 190
         length: 19
-        placeholder_text: "      --  The Integer the box designates!\n      return 0;"
+        placeholder_text: |2-
+                --  The Integer the box designates!
+                return 0;
       - offset: 283
         length: 21
-        placeholder_text: "      --  Change the Integer, not the box!\n      null;"
+        placeholder_text: |2-
+                --  Change the Integer, not the box!
+                null;
       - offset: 459
         length: 251
-        placeholder_text: "   begin\n      --  Exchange the two Integers, leaving both boxes alone!\n      null;"
+        placeholder_text: |2-
+             begin
+                --  Exchange the two Integers, leaving both boxes alone!
+                null;
   - name: tests/test_boxes.adb
     visible: false
