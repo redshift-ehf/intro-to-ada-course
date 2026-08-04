@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_dereferencing.adb
+    visible: true

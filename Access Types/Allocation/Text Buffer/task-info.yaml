@@ -1,0 +1,22 @@
+type: edu
+custom_name: "Exercise: Text Buffer"
+files:
+  - name: src/text_buffer.ads
+    visible: true
+  - name: src/text_buffer.adb
+    visible: true
+    placeholders:
+      - offset: 88
+        length: 126
+        placeholder_text: "      --  Size characters, every one of them a space!\n      return null;"
+      - offset: 289
+        length: 34
+        placeholder_text: "      --  A buffer holding exactly this content!\n      return null;"
+      - offset: 550
+        length: 205
+        placeholder_text: "      --  Overwrite every character. Mind the null buffer!\n      null;"
+      - offset: 825
+        length: 76
+        placeholder_text: "      --  The characters, or the empty string for a null buffer!\n      return \"\";"
+  - name: tests/test_text_buffer.adb
+    visible: false

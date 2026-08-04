@@ -15,7 +15,11 @@ summary: "<p>An adaptation of AdaCore's <a href=\"https://learn.adacore.com/cour
   >CC BY-SA 4.0</a>. Changes were made throughout: restructured as a JetBrains Academy\
   \ course, examples rewritten to run without keyboard input, and exercises rewritten\
   \ as checkable tasks with automated tests. This adaptation is released under the\
-  \ same licence.</p>"
+  \ same licence.</p> <p><strong>Original exercises.</strong> AdaCore's <em>Laboratories</em>\
+  \ has no chapter for Access Types, More About Records, Fixed-Point Types, Interfacing\
+  \ With C, or Files &amp; Streams. The exercises in those five chapters are original\
+  \ to this course, written in the same style as the adapted ones; everything else\
+  \ is adapted from the Laboratories.</p>"
 programming_language: Plain text
 environment: Ada
 content:
@@ -26,6 +30,7 @@ content:
   - Records
   - Arrays
   - More About Types
+  - Access Types
 tags:
   - Ada
   - SPARK

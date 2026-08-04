@@ -67,12 +67,15 @@ forward, and the reason is worth recording because the move is invisible afterwa
 | Exercise | Labs chapter | Ported into | Needed |
 |---|---|---|---|
 | Integers | Strongly typed language | Strongly Typed Language → Subtypes | derived types, subtypes |
-| Simple todo list | More about types | *deferred* | access types, discriminants |
-| Price list | More about types | *deferred* | decimal fixed-point, variant records |
+| Simple todo list | More about types | **owed by More About Records** | access types, discriminants |
+| Price list | More about types | **owed by Privacy** | decimal fixed-point, variant records |
 
-The two deferred ones recur in later lab chapters — the same exercise, by the same name, where the
-material has arrived. Port each once, at the second site. **They are outstanding: More About Types
-shipped without them.** If you are adding More About Records or Fixed-Point Types, they are yours.
+Both were skipped when More About Types shipped, and the two are owed differently. *Price list*
+recurs in the Privacy lab under the same name, so porting it there covers it once and no work is
+lost by waiting. *Simple todo list* appears nowhere else — checked against every lab chapter — so
+it has no second site and must be placed by hand. More About Records is where its discriminant
+arrives, which makes that chapter the one that owes it, and it will be the only adapted exercise in
+a chapter otherwise carrying original ones.
 
 **A first IDE open can delete a new section from `course-info.yaml`, so check `git status` after
 one.** Every open rewrites that file from the course model the IDE built, about three seconds in.

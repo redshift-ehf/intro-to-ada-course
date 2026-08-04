@@ -26,7 +26,8 @@ project Course is
       "Strongly Typed Language/**",
       "Records/**",
       "Arrays/**",
-      "More About Types/**");
+      "More About Types/**",
+      "Access Types/**");
 
    for Object_Dir use "obj";
    for Exec_Dir use "bin";
@@ -81,7 +82,12 @@ project Course is
       "show_array_renaming.adb",
       "show_aggregate_forms.adb",
       "show_qualified_expressions.adb",
-      "show_character_types.adb");
+      "show_character_types.adb",
+      "show_access_types.adb",
+      "show_allocation.adb",
+      "show_dereferencing.adb",
+      "show_deallocation.adb",
+      "show_recursive_types.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of
