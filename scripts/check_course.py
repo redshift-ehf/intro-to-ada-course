@@ -296,6 +296,45 @@ def read_task(info: Path) -> Task:
     return task
 
 
+def decoded(completed: subprocess.CompletedProcess) -> str:
+    """subprocess output as text, without letting a bad byte kill the run.
+
+    errors="replace" rather than text=True, because a test program is not obliged to print valid
+    UTF-8 and a *wrong* one very often does not. An unsolved exercise that returns an uninitialised
+    String prints whatever was in that memory, and strict decoding then raises UnicodeDecodeError
+    out of subprocess -- killing the checker rather than failing the task. That is exactly
+    backwards: garbage output is the strongest possible evidence that an exercise is unsolved, and
+    it must be reportable.
+    """
+    return (completed.stdout.decode("utf-8", errors="replace")
+            + completed.stderr.decode("utf-8", errors="replace"))
+
+
+def compiles(source: Path, root: Path) -> tuple[bool, str]:
+    """Compile one source and say whether the compiler was happy. Nothing is bound, linked or run.
+
+    `-c` is what makes this usable, and it is the whole point. A theory task is often a package
+    rather than a main -- Show Child Privacy is four of them -- and a full `gprbuild` on a package
+    compiles it and then fails at the *bind* step with "cannot be used as a main program". That is
+    not a defect in the example; it is gprbuild answering a question nobody asked.
+
+    Asking the other way was worse. The check used to grep the combined output for `error:`, which
+    reads the compiler's diagnostics when the build fails and the *program's stdout* when it
+    succeeds. So a theory example that compiled, ran, and printed the word `error:` was reported as
+    "does not compile" -- and one that was a package printed a bind diagnostic containing no
+    `error:` and was reported ok. Both answers happened to come out right in this course, the first
+    by one character of case in show_predefined_exceptions.adb, which prints `Constraint_Error:`.
+
+    Compiling and reading the exit status answers the question that was actually being asked, and
+    it does not depend on what anything printed.
+    """
+    build = subprocess.run(
+        ["gprbuild", "-c", "-p", "-P", "course.gpr", source.name, "-cargs:Ada", "-gnatef"],
+        cwd=root, capture_output=True,
+    )
+    return build.returncode == 0, decoded(build)
+
+
 def build_and_run(main: Path, root: Path, force: bool = False) -> tuple[int, str, bool]:
     """gprbuild one main, then run it.
 
@@ -316,17 +355,8 @@ def build_and_run(main: Path, root: Path, force: bool = False) -> tuple[int, str
     all. The price is recompiling a two-file harness once per exercise; the alternative is a
     verdict that turns on sub-second timing, which is worse than having no checker.
 
-    Output is decoded with errors="replace" rather than text=True, because a test program is not
-    obliged to print valid UTF-8 and a *wrong* one very often does not. An unsolved exercise that
-    returns an uninitialised String prints whatever was in that memory, and strict decoding then
-    raises UnicodeDecodeError out of subprocess -- killing the checker rather than failing the
-    task. That is exactly backwards: garbage output is the strongest possible evidence that an
-    exercise is unsolved, and it must be reportable.
+    Output is decoded by `decoded`, for the reason given there.
     """
-    def decoded(completed: subprocess.CompletedProcess) -> str:
-        return (completed.stdout.decode("utf-8", errors="replace")
-                + completed.stderr.decode("utf-8", errors="replace"))
-
     build = subprocess.run(
         ["gprbuild", "-p", "-P", "course.gpr", main.name]
         + (["-f"] if force else [])
@@ -675,7 +705,16 @@ def main() -> int:
 
     for task in tasks:
         if task.kind == "theory":
+            bodies = {s for s in task.sources if s.suffix == ".adb"}
             for source in task.sources:
+                if source.suffix == ".ads" and source.with_suffix(".adb") in bodies:
+                    # A spec is compiled as part of its body, and `gprbuild -c` on one by itself
+                    # says so: "cannot generate code for file <x>.ads (package spec)". Whether
+                    # that is reached depends on which of the two task-info.yaml happens to list
+                    # first, and on whether obj/ is warm -- so it is skipped rather than ordered
+                    # around. A spec with no body compiles on its own and is not skipped.
+                    print(f"  ok       {task.name} ({source.name}, compiled with its body)")
+                    continue
                 if source.suffix not in {".ads", ".adb"}:
                     # A C source is compiled as part of whatever Ada unit imports it, never on
                     # its own. Naming one on gprbuild's command line makes it a main, and the
@@ -683,10 +722,13 @@ def main() -> int:
                     # task-info.yaml so a student can read them, not so this can build them.
                     print(f"  ok       {task.name} ({source.name}, built with its Ada caller)")
                     continue
-                code, output, _ = build_and_run(source, root)
                 # Theory examples are compiled, not judged: several of AdaCore's illustrate a
-                # runtime failure on purpose. A compile error is still a real defect.
-                if "error:" in output:
+                # runtime failure on purpose, and some tasks are packages with no main at all. A
+                # compile error is still a real defect, and the compiler's exit status is the
+                # whole question -- so nothing here is linked or run. See `compiles` for what
+                # asking the other way cost.
+                ok, output = compiles(source, root)
+                if not ok:
                     failures.append(f"{task.name}: theory example does not compile\n{output}")
                 else:
                     print(f"  ok       {task.name} ({source.name})")
