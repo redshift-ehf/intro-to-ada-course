@@ -1,0 +1,16 @@
+type: edu
+custom_name: "Exercise: Record File"
+files:
+  - name: src/record_file.ads
+    visible: true
+  - name: src/record_file.adb
+    visible: true
+    placeholders:
+      - offset: 459
+        length: 396
+        placeholder_text: "      --  Out and straight back in, in order!\n      return Result;"
+      - offset: 1271
+        length: 619
+        placeholder_text: "      --  All of them out, then one of them again in its own place!\n      return Result;"
+  - name: tests/test_record_file.adb
+    visible: false

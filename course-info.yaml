@@ -43,6 +43,7 @@ content:
   - Standard Library Containers
   - Standard Library Dates And Times
   - Standard Library Strings
+  - Standard Library Files And Streams
 tags:
   - Ada
   - SPARK

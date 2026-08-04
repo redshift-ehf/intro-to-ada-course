@@ -47,7 +47,8 @@ project Course is
       "Object Oriented Programming/**",
       "Standard Library Containers/**",
       "Standard Library Dates And Times/**",
-      "Standard Library Strings/**");
+      "Standard Library Strings/**",
+      "Standard Library Files And Streams/**");
 
    for Object_Dir use "obj";
    for Exec_Dir use "bin";
@@ -179,7 +180,15 @@ project Course is
       "show_bounded_string.adb",
       "show_bounded_string_op.adb",
       "show_unbounded_string.adb",
-      "show_unbounded_string_op.adb");
+      "show_unbounded_string_op.adb",
+      "show_std_text_out.adb",
+      "show_simple_text_file_io.adb",
+      "show_text_file_except.adb",
+      "show_seq_float_io.adb",
+      "show_seq_rec_io.adb",
+      "show_dir_float_io.adb",
+      "show_float_stream.adb",
+      "show_string_stream.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of

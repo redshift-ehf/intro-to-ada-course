@@ -17,3 +17,6 @@ README.md
 #  the fast form of it, and is worth running in the second before a commit.
 /obj
 /bin
+
+#  Same reason as the .gitignore entry: scratch files from the Files & Streams chapter.
+*.tmp

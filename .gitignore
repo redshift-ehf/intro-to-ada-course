@@ -17,3 +17,9 @@ __pycache__/
 
 # JetBrains Junie agent config. Local tooling, not course content.
 .junie/
+
+# Scratch files written by the Files & Streams chapter. Every example and every test
+# deletes its own, so these should never appear -- but a test that dies mid-run leaves one,
+# and a stray file in the course root is what the course editor sweeps into
+# additional_files and breaks Course Preview with.
+*.tmp

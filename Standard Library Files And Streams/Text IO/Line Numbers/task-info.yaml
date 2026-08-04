@@ -1,0 +1,16 @@
+type: edu
+custom_name: "Exercise: Line Numbers"
+files:
+  - name: src/line_numbers.ads
+    visible: true
+  - name: src/line_numbers.adb
+    visible: true
+    placeholders:
+      - offset: 611
+        length: 750
+        placeholder_text: "      --  Write every line, then read them back with their numbers!\n      return \"\";"
+      - offset: 1530
+        length: 273
+        placeholder_text: "      --  One for every line in the file!\n      return 0;"
+  - name: tests/test_line_numbers.adb
+    visible: false

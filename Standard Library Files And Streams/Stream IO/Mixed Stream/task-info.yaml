@@ -1,0 +1,13 @@
+type: edu
+custom_name: "Exercise: Mixed Stream"
+files:
+  - name: src/mixed_stream.ads
+    visible: true
+  - name: src/mixed_stream.adb
+    visible: true
+    placeholders:
+      - offset: 399
+        length: 1038
+        placeholder_text: "      --  Each label and its value, out and back in the same order!\n      return \"\";"
+  - name: tests/test_mixed_stream.adb
+    visible: false

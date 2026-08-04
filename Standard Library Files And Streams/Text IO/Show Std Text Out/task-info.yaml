@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_std_text_out.adb
+    visible: true

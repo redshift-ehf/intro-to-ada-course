@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_dir_float_io.adb
+    visible: true

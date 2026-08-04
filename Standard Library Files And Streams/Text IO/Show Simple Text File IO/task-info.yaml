@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_simple_text_file_io.adb
+    visible: true

@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_seq_float_io.adb
+    visible: true

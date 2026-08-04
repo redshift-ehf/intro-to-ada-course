@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_text_file_except.adb
+    visible: true
