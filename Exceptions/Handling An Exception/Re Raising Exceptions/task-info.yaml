@@ -1,0 +1,13 @@
+type: edu
+custom_name: "Exercise: Re-raising Exceptions"
+files:
+  - name: src/re_raising_exceptions.ads
+    visible: true
+  - name: src/re_raising_exceptions.adb
+    visible: true
+    placeholders:
+      - offset: 586
+        length: 610
+        placeholder_text: "      --  Report as before, then pass it on: a Constraint_Error unchanged,\n      --  anything else replaced by Another_Exception!\n      null;"
+  - name: tests/test_re_raising_exceptions.adb
+    visible: false

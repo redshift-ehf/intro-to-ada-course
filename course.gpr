@@ -31,7 +31,8 @@ project Course is
       "More About Records/**",
       "Fixed-Point Types/**",
       "Privacy/**",
-      "Generics/**");
+      "Generics/**",
+      "Exceptions/**");
 
    for Object_Dir use "obj";
    for Exec_Dir use "bin";
@@ -107,7 +108,11 @@ project Course is
       "show_generic_body.adb",
       "show_instantiation.adb",
       "show_generic_packages.adb",
-      "show_formal_subprograms.adb");
+      "show_formal_subprograms.adb",
+      "show_exception_declaration.adb",
+      "show_raising.adb",
+      "show_handling.adb",
+      "show_predefined_exceptions.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of

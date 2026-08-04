@@ -1,0 +1,13 @@
+type: edu
+custom_name: "Exercise: Numerical Exception"
+files:
+  - name: src/numerical_exception.ads
+    visible: true
+  - name: src/numerical_exception.adb
+    visible: true
+    placeholders:
+      - offset: 761
+        length: 322
+        placeholder_text: "      --  Run the test. Report a Constraint_Error by name, and anything else\n      --  by its message. Let nothing escape!\n      null;"
+  - name: tests/test_numerical_exception.adb
+    visible: false

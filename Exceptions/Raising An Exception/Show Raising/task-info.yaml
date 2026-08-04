@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_raising.adb
+    visible: true

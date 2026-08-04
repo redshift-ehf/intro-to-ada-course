@@ -35,6 +35,7 @@ content:
   - Fixed-Point Types
   - Privacy
   - Generics
+  - Exceptions
 tags:
   - Ada
   - SPARK

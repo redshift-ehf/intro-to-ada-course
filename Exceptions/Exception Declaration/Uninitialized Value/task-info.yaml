@@ -1,0 +1,13 @@
+type: edu
+custom_name: "Exercise: Uninitialized Value"
+files:
+  - name: src/uninitialized_value.ads
+    visible: true
+  - name: src/uninitialized_value.adb
+    visible: true
+    placeholders:
+      - offset: 94
+        length: 150
+        placeholder_text: "      --  Raise for Uninitialized, with a message. Otherwise the name!\n      return \"\";"
+  - name: tests/test_uninitialized_value.adb
+    visible: false
