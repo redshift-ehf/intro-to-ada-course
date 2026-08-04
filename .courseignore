@@ -2,13 +2,16 @@ README.md
 /scripts
 
 #  Build output. gprbuild puts objects in obj/ and executables in bin/, both inside the course
-#  directory because a GNAT project wants them there. Without these two lines the course editor
-#  sweeps all of it into course-info.yaml's additional_files -- which it did for five chapters,
-#  until a Course Preview failed looking for a binary that had since been deleted.
+#  directory because that is where a GNAT project wants them.
 #
-#  Measured after adding them: opened with 921 files in obj/ and 89 in bin/, and additional_files
-#  stayed at its five real entries. check_additional_files in scripts/check_course.py fails the
-#  run if they ever come back anyway, since this file being honoured is not something the course
-#  should depend on silently.
+#  These two lines do NOT stop the course editor sweeping that output into course-info.yaml's
+#  additional_files. That was claimed here once, on a measurement taken a minute after opening
+#  the project -- too early to see it. The editor's file watcher picks up whatever appears while
+#  it is running, and writes the lot on quit; since running scripts/check_course.py rebuilds
+#  everything, opening the IDE and then validating is exactly the sequence that triggers it.
+#
+#  check_additional_files in scripts/check_course.py is the only thing that actually holds the
+#  line. It refuses to run while build output is in that list, so nothing can be committed with
+#  it there. These entries stay because they are correct for the course archive regardless.
 /obj
 /bin

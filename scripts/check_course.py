@@ -528,9 +528,14 @@ def check_additional_files(root: Path) -> list[str]:
     moment anyone runs `rm -rf obj bin`, which this script does on every run. So the symptom
     appeared far from the cause, in a feature none of the other checks exercise.
 
-    Checked here rather than trusted to .courseignore because whether that file is consulted for
-    this particular scan was never established, and a guard that only works if an assumption
-    holds is not a guard.
+    .courseignore does not prevent it. That was believed briefly, on a check made a minute after
+    opening the project, which is before the editor writes anything. It sweeps whatever its file
+    watcher saw while it was running and writes on quit -- and since this script rebuilds the
+    whole course, "open the IDE, then validate" is precisely the sequence that fills obj/ and
+    bin/ under a watching editor.
+
+    So this check is not a belt beside a brace. It is the only thing holding the line, and it
+    holds it by refusing to run at all, which is what keeps the state from reaching a commit.
     """
     info = root / "course-info.yaml"
     if not info.is_file():
