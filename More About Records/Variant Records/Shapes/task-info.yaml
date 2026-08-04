@@ -1,0 +1,19 @@
+type: edu
+custom_name: "Exercise: Shapes"
+files:
+  - name: src/shapes.ads
+    visible: true
+  - name: src/shapes.adb
+    visible: true
+    placeholders:
+      - offset: 98
+        length: 441
+        placeholder_text: "      --  The area of each kind of shape!\n      return 0.0;"
+      - offset: 609
+        length: 173
+        placeholder_text: "      --  The name of each kind!\n      return \"\";"
+      - offset: 857
+        length: 29
+        placeholder_text: "      --  Only one of the three is round!\n      return False;"
+  - name: tests/test_shapes.adb
+    visible: false

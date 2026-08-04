@@ -1,0 +1,16 @@
+type: edu
+custom_name: "Exercise: Simple todo list"
+files:
+  - name: src/simple_todo_list.ads
+    visible: true
+  - name: src/simple_todo_list.adb
+    visible: true
+    placeholders:
+      - offset: 141
+        length: 282
+        placeholder_text: "      --  Add the item, or say the list is full!\n      null;"
+      - offset: 490
+        length: 123
+        placeholder_text: "      --  The heading, then one item per line!\n      null;"
+  - name: tests/test_simple_todo_list.adb
+    visible: false

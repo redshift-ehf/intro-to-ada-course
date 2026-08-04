@@ -1,0 +1,4 @@
+content:
+  - Dynamically Sized Record Types
+  - Records With Discriminant
+  - Variant Records

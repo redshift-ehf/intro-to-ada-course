@@ -27,7 +27,8 @@ project Course is
       "Records/**",
       "Arrays/**",
       "More About Types/**",
-      "Access Types/**");
+      "Access Types/**",
+      "More About Records/**");
 
    for Object_Dir use "obj";
    for Exec_Dir use "bin";
@@ -87,7 +88,10 @@ project Course is
       "show_allocation.adb",
       "show_dereferencing.adb",
       "show_deallocation.adb",
-      "show_recursive_types.adb");
+      "show_recursive_types.adb",
+      "show_dynamic_records.adb",
+      "show_discriminants.adb",
+      "show_variant_records.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of

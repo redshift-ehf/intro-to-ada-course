@@ -1,0 +1,19 @@
+type: edu
+custom_name: "Exercise: Growable Stack"
+files:
+  - name: src/growable_stack.ads
+    visible: true
+  - name: src/growable_stack.adb
+    visible: true
+    placeholders:
+      - offset: 475
+        length: 107
+        placeholder_text: "      --  Put it on top, if there is room!\n      null;"
+      - offset: 666
+        length: 136
+        placeholder_text: "      --  Take the top off, or give back 0!\n      Value := 0;"
+      - offset: 872
+        length: 89
+        placeholder_text: "      --  The top, without removing it!\n      return 0;"
+  - name: tests/test_growable_stack.adb
+    visible: false
