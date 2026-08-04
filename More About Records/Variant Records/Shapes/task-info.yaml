@@ -8,12 +8,18 @@ files:
     placeholders:
       - offset: 98
         length: 441
-        placeholder_text: "      --  The area of each kind of shape!\n      return 0.0;"
+        placeholder_text: |2-
+                --  The area of each kind of shape!
+                return 0.0;
       - offset: 609
         length: 173
-        placeholder_text: "      --  The name of each kind!\n      return \"\";"
+        placeholder_text: |2-
+                --  The name of each kind!
+                return "";
       - offset: 857
         length: 29
-        placeholder_text: "      --  Only one of the three is round!\n      return False;"
+        placeholder_text: |2-
+                --  Only one of the three is round!
+                return False;
   - name: tests/test_shapes.adb
     visible: false

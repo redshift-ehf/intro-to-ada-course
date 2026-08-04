@@ -8,12 +8,18 @@ files:
     placeholders:
       - offset: 475
         length: 107
-        placeholder_text: "      --  Put it on top, if there is room!\n      null;"
+        placeholder_text: |2-
+                --  Put it on top, if there is room!
+                null;
       - offset: 666
         length: 136
-        placeholder_text: "      --  Take the top off, or give back 0!\n      Value := 0;"
+        placeholder_text: |2-
+                --  Take the top off, or give back 0!
+                Value := 0;
       - offset: 872
         length: 89
-        placeholder_text: "      --  The top, without removing it!\n      return 0;"
+        placeholder_text: |2-
+                --  The top, without removing it!
+                return 0;
   - name: tests/test_growable_stack.adb
     visible: false

@@ -8,9 +8,13 @@ files:
     placeholders:
       - offset: 141
         length: 282
-        placeholder_text: "      --  Add the item, or say the list is full!\n      null;"
+        placeholder_text: |2-
+                --  Add the item, or say the list is full!
+                null;
       - offset: 490
         length: 123
-        placeholder_text: "      --  The heading, then one item per line!\n      null;"
+        placeholder_text: |2-
+                --  The heading, then one item per line!
+                null;
   - name: tests/test_simple_todo_list.adb
     visible: false
