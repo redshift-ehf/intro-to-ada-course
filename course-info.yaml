@@ -37,6 +37,7 @@ content:
   - Generics
   - Exceptions
   - Tasking
+  - Design By Contracts
 tags:
   - Ada
   - SPARK

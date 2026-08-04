@@ -1,0 +1,13 @@
+type: edu
+custom_name: "Exercise: Primary Color"
+files:
+  - name: src/primary_color.ads
+    visible: true
+    placeholders:
+      - offset: 501
+        length: 67
+        placeholder_text: "     with Static_Predicate => True;  --  Only the three primaries!"
+  - name: src/primary_color.adb
+    visible: true
+  - name: tests/test_primary_color.adb
+    visible: false

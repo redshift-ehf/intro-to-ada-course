@@ -33,7 +33,8 @@ project Course is
       "Privacy/**",
       "Generics/**",
       "Exceptions/**",
-      "Tasking/**");
+      "Tasking/**",
+      "Design By Contracts/**");
 
    for Object_Dir use "obj";
    for Exec_Dir use "bin";
@@ -123,12 +124,23 @@ project Course is
       "show_protected_objects.adb",
       "show_protected_entries.adb",
       "show_task_types.adb",
-      "show_protected_types.adb");
+      "show_protected_types.adb",
+      "show_preconditions.adb",
+      "show_predicates.adb",
+      "show_type_invariants.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of
       --  reading warnings, and Ada's are unusually good.
-      for Default_Switches ("Ada") use ("-g", "-gnatwa");
+      --
+      --  -gnata: check assertions, which for Ada 2012 means Pre, Post, Static_Predicate,
+      --  Dynamic_Predicate and Type_Invariant as well as pragma Assert. GNAT ignores every one
+      --  of those at run time without it -- measured before this was added: a function with
+      --  `Pre => X mod 2 = 0` accepted 3 and returned 1, in silence. The Design by Contracts
+      --  chapter would have been decorative, and its exercises would have passed while proving
+      --  nothing. It is on for the whole course rather than one chapter because a check that is
+      --  only sometimes enabled is worse than one that is always on or always off.
+      for Default_Switches ("Ada") use ("-g", "-gnatwa", "-gnata");
    end Compiler;
 
 end Course;

@@ -1,0 +1,13 @@
+type: edu
+custom_name: "Exercise: Price Range"
+files:
+  - name: src/price_range.ads
+    visible: true
+    placeholders:
+      - offset: 423
+        length: 44
+        placeholder_text: "     with Dynamic_Predicate => True;  --  A price is never negative!"
+  - name: src/price_range.adb
+    visible: true
+  - name: tests/test_price_range.adb
+    visible: false

@@ -1,0 +1,11 @@
+type: edu
+custom_name: "Exercise: Pythagorean Theorem — Postcondition"
+files:
+  - name: src/pythagoras_postcondition.ads
+    visible: true
+    placeholders:
+      - offset: 516
+        length: 156
+        placeholder_text: "     with Post => True;  --  The theorem, about Init'Result!"
+  - name: tests/test_pythagoras_postcondition.adb
+    visible: false

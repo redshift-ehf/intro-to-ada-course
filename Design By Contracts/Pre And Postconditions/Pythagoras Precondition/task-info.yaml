@@ -1,0 +1,11 @@
+type: edu
+custom_name: "Exercise: Pythagorean Theorem — Precondition"
+files:
+  - name: src/pythagoras_precondition.ads
+    visible: true
+    placeholders:
+      - offset: 471
+        length: 43
+        placeholder_text: "     with Pre => True;  --  The theorem, as the caller's obligation!"
+  - name: tests/test_pythagoras_precondition.adb
+    visible: false

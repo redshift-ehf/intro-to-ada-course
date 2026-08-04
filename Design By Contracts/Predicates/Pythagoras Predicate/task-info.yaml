@@ -1,0 +1,11 @@
+type: edu
+custom_name: "Exercise: Pythagorean Theorem — Predicate"
+files:
+  - name: src/pythagoras_predicate.ads
+    visible: true
+    placeholders:
+      - offset: 449
+        length: 172
+        placeholder_text: "     with Dynamic_Predicate =>\n       --  The theorem: the square on the hypotenuse!\n       True;"
+  - name: tests/test_pythagoras_predicate.adb
+    visible: false
