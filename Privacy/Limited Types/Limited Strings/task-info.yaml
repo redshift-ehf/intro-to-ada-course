@@ -1,0 +1,16 @@
+type: edu
+custom_name: "Exercise: Limited Strings"
+files:
+  - name: src/limited_strings.ads
+    visible: true
+  - name: src/limited_strings.adb
+    visible: true
+    placeholders:
+      - offset: 594
+        length: 313
+        placeholder_text: "   begin\n      --  As much of From as fits, then underscores to the end!\n      null;"
+      - offset: 980
+        length: 223
+        placeholder_text: "   begin\n      --  Equal as far as the shorter one goes!\n      return False;"
+  - name: tests/test_limited_strings.adb
+    visible: false

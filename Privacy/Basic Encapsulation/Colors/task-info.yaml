@@ -1,0 +1,19 @@
+type: edu
+custom_name: "Exercise: Colors, private"
+files:
+  - name: src/private_colors.ads
+    visible: true
+  - name: src/private_colors.adb
+    visible: true
+    placeholders:
+      - offset: 1316
+        length: 19
+        placeholder_text: "      --  The red channel of a value nobody outside can look into!\n      return 0;"
+      - offset: 1412
+        length: 21
+        placeholder_text: "      --  And the green one!\n      return 0;"
+      - offset: 1511
+        length: 20
+        placeholder_text: "      --  And the blue!\n      return 0;"
+  - name: tests/test_private_colors.adb
+    visible: false

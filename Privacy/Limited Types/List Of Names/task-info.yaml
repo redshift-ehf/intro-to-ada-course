@@ -1,0 +1,16 @@
+type: edu
+custom_name: "Exercise: List of Names, limited"
+files:
+  - name: src/private_list_of_names.ads
+    visible: true
+  - name: src/private_list_of_names.adb
+    visible: true
+    placeholders:
+      - offset: 668
+        length: 475
+        placeholder_text: "      --  Add them at the end, aged nought. Person is limited -- set its\n      --  components, do not assign the whole record!\n      null;"
+      - offset: 2183
+        length: 26
+        placeholder_text: "      --  How many are valid!\n      return 0;"
+  - name: tests/test_private_list_of_names.adb
+    visible: false

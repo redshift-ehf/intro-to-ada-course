@@ -1,0 +1,19 @@
+type: edu
+custom_name: "Exercise: Price list"
+files:
+  - name: src/price_list.ads
+    visible: true
+  - name: src/price_list.adb
+    visible: true
+    placeholders:
+      - offset: 217
+        length: 108
+        placeholder_text: "      --  Add it, if there is room!\n      null;"
+      - offset: 416
+        length: 220
+        placeholder_text: "      --  A price if the index is good, and nothing if it is not!\n      return (Ok => False);"
+      - offset: 696
+        length: 130
+        placeholder_text: "      --  The heading, then one price per line!\n      null;"
+  - name: tests/test_price_list.adb
+    visible: false

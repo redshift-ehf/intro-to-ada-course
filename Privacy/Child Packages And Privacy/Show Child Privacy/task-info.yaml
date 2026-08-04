@@ -1,0 +1,10 @@
+type: theory
+files:
+  - name: src/show_child_privacy.ads
+    visible: true
+  - name: src/show_child_privacy.adb
+    visible: true
+  - name: src/show_child_privacy-ops.ads
+    visible: true
+  - name: src/show_child_privacy-ops.adb
+    visible: true
