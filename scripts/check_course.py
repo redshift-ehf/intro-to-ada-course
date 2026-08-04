@@ -36,7 +36,25 @@ OFFSET = re.compile(r"^(?P<indent> *)-\s*offset:\s*(?P<offset>\d+)\s*$")
 LENGTH = re.compile(r"^\s*length:\s*(?P<length>\d+)\s*$")
 BLOCK_TEXT = re.compile(r"^(?P<indent> *)placeholder_text:\s*\|(?P<explicit>\d*)-?\s*$")
 QUOTED_START = re.compile(r'^\s*placeholder_text:\s*"(?P<rest>.*)$')
+SINGLE_START = re.compile(r"^\s*placeholder_text:\s*'(?P<rest>.*)$")
 ANY_TEXT = re.compile(r"^\s*placeholder_text:")
+
+
+def close_single(body: str) -> int | None:
+    """Where a single-quoted scalar ends, or None if it does not end in this text.
+
+    A single-quoted scalar's only escape is `''` for one quote, so finding the end means stepping
+    over those pairs rather than stopping at the first quote it meets.
+    """
+    index = 0
+    while index < len(body):
+        if body[index] != "'":
+            index += 1
+        elif index + 1 < len(body) and body[index + 1] == "'":
+            index += 2
+        else:
+            return index
+    return None
 
 
 def closes_quote(body: str) -> bool:
@@ -179,6 +197,27 @@ def read_placeholders(lines: list[str], start: int, stop: int) -> list[Placehold
                     index += 1
                     body = body[:-1] + lines[index].lstrip()
                 text = unescape(body[:-1])
+                index += 1
+                continue
+
+            single_match = SINGLE_START.match(line)
+            if single_match:
+                # A single-quoted scalar, which is what the IDE writes when the text contains a
+                # double quote -- quoting it the other way is cheaper than escaping. Nothing
+                # inside is an escape except `''`, so no unescaping runs here beyond that.
+                body = single_match.group("rest")
+                end = close_single(body)
+                while end is None:
+                    if index + 1 >= stop:
+                        raise SystemExit(
+                            f"check_course.py cannot find the end of this placeholder_text, so "
+                            f"it cannot verify the task:\n  {line}"
+                        )
+                    index += 1
+                    # A line break inside a single-quoted scalar folds to one space.
+                    body = body + " " + lines[index].strip()
+                    end = close_single(body)
+                text = body[:end].replace("''", "'")
                 index += 1
                 continue
 

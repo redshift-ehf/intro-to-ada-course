@@ -11,6 +11,6 @@ files:
         placeholder_text: "     (\"\");  --  Major.Minor.Maintenance, with no stray spaces!"
       - offset: 512
         length: 48
-        placeholder_text: "     (0.0);  --  Major and Minor as one number!"
+        placeholder_text: '     (0.0);  --  Major and Minor as one number!'
   - name: tests/test_versioning.adb
     visible: false
