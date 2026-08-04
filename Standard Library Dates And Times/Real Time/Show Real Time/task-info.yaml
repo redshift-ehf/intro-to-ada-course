@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_real_time.adb
+    visible: true

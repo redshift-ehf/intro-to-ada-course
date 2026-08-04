@@ -1,0 +1,13 @@
+type: edu
+custom_name: "Exercise: Holocene Calendar"
+files:
+  - name: src/holocene_calendar.ads
+    visible: true
+  - name: src/holocene_calendar.adb
+    visible: true
+    placeholders:
+      - offset: 102
+        length: 110
+        placeholder_text: "      --  Ten thousand years on top of the Gregorian one!\n      return 0;"
+  - name: tests/test_holocene_calendar.adb
+    visible: false

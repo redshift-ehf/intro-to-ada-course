@@ -45,7 +45,8 @@ project Course is
       "Design By Contracts/**",
       "Interfacing With C/**",
       "Object Oriented Programming/**",
-      "Standard Library Containers/**");
+      "Standard Library Containers/**",
+      "Standard Library Dates And Times/**");
 
    for Object_Dir use "obj";
    for Exec_Dir use "bin";
@@ -165,7 +166,11 @@ project Course is
       "show_set_ops.adb",
       "show_hashed_map.adb",
       "show_ordered_map.adb",
-      "show_complexity.adb");
+      "show_complexity.adb",
+      "show_calendar.adb",
+      "show_delay_until_date.adb",
+      "show_real_time.adb",
+      "show_benchmarking.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of

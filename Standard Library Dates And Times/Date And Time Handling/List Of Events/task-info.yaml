@@ -1,0 +1,18 @@
+type: edu
+custom_name: "Exercise: List Of Events"
+files:
+  - name: src/list_of_events.ads
+    visible: true
+  - name: src/list_of_events-lists.ads
+    visible: true
+  - name: src/list_of_events-lists.adb
+    visible: true
+    placeholders:
+      - offset: 327
+        length: 362
+        placeholder_text: "      --  Onto the heap, and into the map under its date!\n      null;"
+      - offset: 1026
+        length: 226
+        placeholder_text: "      --  The heading, then each date and everything on it!\n      Put_Line (\"EVENTS LIST\");"
+  - name: tests/test_list_of_events.adb
+    visible: false
