@@ -8,12 +8,18 @@ files:
     placeholders:
       - offset: 432
         length: 48
-        placeholder_text: "      --  Both components, from one Float!\n      return (F => 0.0, I => 0);"
+        placeholder_text: |2-
+                --  Both components, from one Float!
+                return (F => 0.0, I => 0);
       - offset: 557
         length: 46
-        placeholder_text: "      --  Both components, from one Integer!\n      return (F => 0.0, I => 0);"
+        placeholder_text: |2-
+                --  Both components, from one Integer!
+                return (F => 0.0, I => 0);
       - offset: 678
         length: 335
-        placeholder_text: "      --  Both components, in braces!\n      return \"\";"
+        placeholder_text: |2-
+                --  Both components, in braces!
+                return "";
   - name: tests/test_type_extension.adb
     visible: false

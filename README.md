@@ -123,6 +123,14 @@ Expect the IDE to rewrite what you wrote as `|2-` the first time it opens the ta
 string — verified by the whole suite passing on the rewritten files. Take its version and commit it;
 arguing with it only produces the same diff again on the next open.
 
+**Read the `offset:` lines in that diff before you take it, though.** An open can also write back an
+offset from a model built before you last edited the source. It happened once, to *C Strings*: the
+IDE restored `1171`, byte-identical to the value committed before the edit that moved the span to
+`1444`, and left the length and the text alone. Rendered, that placeholder lands in the middle of a
+comment and the result does not compile. `check_course.py` catches it — building each exercise
+unsolved is exactly the assertion that fails here — but only if you run it, and this arrives looking
+like the harmless reformatting above. So: block scalars are the IDE's to decide, offsets are not.
+
 **A Run button appears on whatever is a runnable program, exercise or not.** Ada's rule for a main
 is a parameterless library-level subprogram, and that is exactly the rule the IDE's gutter marker
 uses — so `for Main use` in `course.gpr` must name every task source that satisfies it, or the

@@ -8,12 +8,20 @@ files:
     placeholders:
       - offset: 750
         length: 96
-        placeholder_text: "   begin\n      --  Ask C how long it is. Mind the NUL!\n      return 0;"
+        placeholder_text: |2-
+             begin
+                --  Ask C how long it is. Mind the NUL!
+                return 0;
       - offset: 924
         length: 139
-        placeholder_text: "   begin\n      --  Let C compare them!\n      return 0;"
+        placeholder_text: |2-
+             begin
+                --  Let C compare them!
+                return 0;
       - offset: 1444
         length: 152
-        placeholder_text: "      --  One character at a time, through C's toupper!\n      return Result;"
+        placeholder_text: |2-
+                --  One character at a time, through C's toupper!
+                return Result;
   - name: tests/test_c_strings.adb
     visible: false

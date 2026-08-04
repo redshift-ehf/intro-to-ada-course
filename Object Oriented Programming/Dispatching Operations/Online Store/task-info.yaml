@@ -8,9 +8,13 @@ files:
     placeholders:
       - offset: 413
         length: 27
-        placeholder_text: "      --  What a full member is called!\n      return \"\";"
+        placeholder_text: |2-
+                --  What a full member is called!
+                return "";
       - offset: 539
         length: 212
-        placeholder_text: "      --  The price, less this member's discount!\n      return P;"
+        placeholder_text: |2-
+                --  The price, less this member's discount!
+                return P;
   - name: tests/test_online_store.adb
     visible: false
