@@ -8,9 +8,15 @@ files:
     placeholders:
       - offset: 245
         length: 504
-        placeholder_text: "      --  Each piece, maybe trimmed, maybe with a space after it!\n   begin\n      return Null_Unbounded_String;"
+        placeholder_text: |2-
+                --  Each piece, maybe trimmed, maybe with a space after it!
+             begin
+                return Null_Unbounded_String;
       - offset: 934
         length: 194
-        placeholder_text: "      --  The other Concat, then out as a String!\n   begin\n      return \"\";"
+        placeholder_text: |2-
+                --  The other Concat, then out as a String!
+             begin
+                return "";
   - name: tests/test_concatenation.adb
     visible: false

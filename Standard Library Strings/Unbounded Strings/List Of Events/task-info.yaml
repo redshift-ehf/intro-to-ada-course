@@ -6,7 +6,9 @@ files:
     placeholders:
       - offset: 379
         length: 42
-        placeholder_text: "   --  It should hold a string of any length. This one does not!\n   subtype Event_Item is String (1 .. 8);"
+        placeholder_text: |2-
+             --  It should hold a string of any length. This one does not!
+             subtype Event_Item is String (1 .. 8);
   - name: src/strings_list_of_events-lists.ads
     visible: true
   - name: src/strings_list_of_events-lists.adb
@@ -14,9 +16,13 @@ files:
     placeholders:
       - offset: 619
         length: 128
-        placeholder_text: "      --  The description, as an Event_Item!\n      null;"
+        placeholder_text: |2-
+                --  The description, as an Event_Item!
+                null;
       - offset: 1197
         length: 108
-        placeholder_text: "            --  The description, as a String!\n            Put_Line (\"    - \");"
+        placeholder_text: |2-
+                      --  The description, as a String!
+                      Put_Line ("    - ");
   - name: tests/test_strings_list_of_events.adb
     visible: false
