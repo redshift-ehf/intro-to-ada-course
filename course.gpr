@@ -43,7 +43,8 @@ project Course is
       "Exceptions/**",
       "Tasking/**",
       "Design By Contracts/**",
-      "Interfacing With C/**");
+      "Interfacing With C/**",
+      "Object Oriented Programming/**");
 
    for Object_Dir use "obj";
    for Exec_Dir use "bin";
@@ -141,7 +142,14 @@ project Course is
       "show_c_types.adb",
       "show_foreign_subprograms.adb",
       "show_foreign_variables.adb",
-      "show_bindings.adb");
+      "show_bindings.adb",
+      "show_extension.adb",
+      "show_tagged_types.adb",
+      "show_classwide_types.adb",
+      "show_dispatching.adb",
+      "show_dot_notation.adb",
+      "show_oop_privacy.adb",
+      "show_classwide_access.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of

@@ -1,0 +1,16 @@
+type: edu
+custom_name: "Exercise: Online Store"
+files:
+  - name: src/online_store.ads
+    visible: true
+  - name: src/online_store.adb
+    visible: true
+    placeholders:
+      - offset: 413
+        length: 27
+        placeholder_text: "      --  What a full member is called!\n      return \"\";"
+      - offset: 539
+        length: 212
+        placeholder_text: "      --  The price, less this member's discount!\n      return P;"
+  - name: tests/test_online_store.adb
+    visible: false

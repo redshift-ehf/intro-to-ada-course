@@ -1,0 +1,4 @@
+type: theory
+files:
+  - name: src/show_oop_privacy.adb
+    visible: true
