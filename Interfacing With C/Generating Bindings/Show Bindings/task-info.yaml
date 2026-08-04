@@ -1,0 +1,6 @@
+type: theory
+files:
+  - name: src/show_bindings.adb
+    visible: true
+  - name: src/bind_helper.c
+    visible: true

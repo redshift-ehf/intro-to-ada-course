@@ -1,0 +1,18 @@
+type: edu
+custom_name: "Exercise: C Statistics"
+files:
+  - name: src/c_statistics.ads
+    visible: true
+  - name: src/c_statistics.adb
+    visible: true
+    placeholders:
+      - offset: 397
+        length: 25
+        placeholder_text: "      --  The mean of the two. C is waiting on this one!\n      return 0;"
+      - offset: 468
+        length: 22
+        placeholder_text: "      --  Back to nought!\n      null;"
+  - name: src/summary.c
+    visible: true
+  - name: tests/test_c_statistics.adb
+    visible: false

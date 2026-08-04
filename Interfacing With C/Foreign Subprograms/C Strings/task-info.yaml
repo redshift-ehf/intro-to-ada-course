@@ -1,0 +1,19 @@
+type: edu
+custom_name: "Exercise: C Strings"
+files:
+  - name: src/c_strings.ads
+    visible: true
+  - name: src/c_strings.adb
+    visible: true
+    placeholders:
+      - offset: 750
+        length: 96
+        placeholder_text: "   begin\n      --  Ask C how long it is. Mind the NUL!\n      return 0;"
+      - offset: 924
+        length: 139
+        placeholder_text: "   begin\n      --  Let C compare them!\n      return 0;"
+      - offset: 1171
+        length: 152
+        placeholder_text: "      --  One character at a time, through C's toupper!\n      return Result;"
+  - name: tests/test_c_strings.adb
+    visible: false

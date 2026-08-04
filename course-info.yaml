@@ -38,6 +38,7 @@ content:
   - Exceptions
   - Tasking
   - Design By Contracts
+  - Interfacing With C
 tags:
   - Ada
   - SPARK

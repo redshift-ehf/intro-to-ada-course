@@ -665,6 +665,13 @@ def main() -> int:
     for task in tasks:
         if task.kind == "theory":
             for source in task.sources:
+                if source.suffix not in {".ads", ".adb"}:
+                    # A C source is compiled as part of whatever Ada unit imports it, never on
+                    # its own. Naming one on gprbuild's command line makes it a main, and the
+                    # link then fails for want of a _main -- measured. They are listed in
+                    # task-info.yaml so a student can read them, not so this can build them.
+                    print(f"  ok       {task.name} ({source.name}, built with its Ada caller)")
+                    continue
                 code, output, _ = build_and_run(source, root)
                 # Theory examples are compiled, not judged: several of AdaCore's illustrate a
                 # runtime failure on purpose. A compile error is still a real defect.

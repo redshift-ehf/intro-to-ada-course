@@ -15,6 +15,14 @@
 --  override it. GPR accepts them; that was measured before this file was written.
 project Course is
 
+   --  C as well as Ada, for the Interfacing With C chapter. Nothing else in the course has a C
+   --  source, and this costs the rest of it nothing -- gprbuild simply finds none to compile.
+   --
+   --  It does mean a C compiler is now required to build the course. That is not a new
+   --  dependency in practice: GNAT *is* GCC, and the Alire toolchain the README recommends
+   --  ships gcc beside gnatmake. Checked before adding this line.
+   for Languages use ("Ada", "C");
+
    --  One entry per section, added as each section lands. gprbuild rejects a directory that does
    --  not exist, so this list cannot drift ahead of the course -- adding a section means adding it
    --  here, and forgetting is a build failure rather than a mystery.
@@ -34,7 +42,8 @@ project Course is
       "Generics/**",
       "Exceptions/**",
       "Tasking/**",
-      "Design By Contracts/**");
+      "Design By Contracts/**",
+      "Interfacing With C/**");
 
    for Object_Dir use "obj";
    for Exec_Dir use "bin";
@@ -127,7 +136,12 @@ project Course is
       "show_protected_types.adb",
       "show_preconditions.adb",
       "show_predicates.adb",
-      "show_type_invariants.adb");
+      "show_type_invariants.adb",
+      "show_multi_language.adb",
+      "show_c_types.adb",
+      "show_foreign_subprograms.adb",
+      "show_foreign_variables.adb",
+      "show_bindings.adb");
 
    package Compiler is
       --  -gnatwa: warn about everything worth warning about. A course should teach the habit of

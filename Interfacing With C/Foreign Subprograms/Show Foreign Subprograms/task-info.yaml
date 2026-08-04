@@ -1,0 +1,6 @@
+type: theory
+files:
+  - name: src/show_foreign_subprograms.adb
+    visible: true
+  - name: src/fs_helper.c
+    visible: true
