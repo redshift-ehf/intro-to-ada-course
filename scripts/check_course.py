@@ -473,6 +473,37 @@ def check_mains(root: Path) -> list[str]:
     return problems
 
 
+def check_source_dirs(root: Path) -> list[str]:
+    """Every section in `content:` must have a `Source_Dirs` entry in course.gpr.
+
+    `Source_Dirs` is maintained by hand, one `"<Section>/**"` per section, and until now nothing
+    checked it -- `check_mains` reads course.gpr but only for `for Main use`. A section added to
+    `course-info.yaml` and forgotten here is not a structural failure and does not say what it is:
+    gprbuild simply cannot see the files, so every task in the chapter fails to build with a
+    complaint about a source that is plainly sitting there. Twenty-two chapters in, that is a bad
+    afternoon waiting to happen; the answer costs eight lines.
+
+    Only this direction. The reverse -- an entry with no section -- gprbuild already rejects
+    outright, because it refuses a project naming a directory that does not exist, which is the
+    property `course.gpr`'s own comment relies on to keep the list from drifting ahead of the
+    course.
+    """
+    gpr = (root / "course.gpr").read_text(encoding="utf-8")
+    block = re.search(r"for\s+Source_Dirs\s+use\s*(.*?);", gpr, re.S | re.I)
+    if not block:
+        return ["course.gpr has no `for Source_Dirs use` -- gprbuild will find no sources at all"]
+
+    #  Entries are "<Section>/**"; compare on the section name, not the glob.
+    listed = {entry.split("/", 1)[0] for entry in re.findall(r'"([^"]+)"', block.group(1))}
+
+    sections = content_list(root / "course-info.yaml") or []
+    return [
+        f"course-info.yaml lists section '{name}', but course.gpr's Source_Dirs has no entry for "
+        f'it -- add "{name}/**", or gprbuild cannot see one file in the chapter'
+        for name in sections if name not in listed
+    ]
+
+
 def check_unit_names(root: Path) -> list[str]:
     """A task's unit ends with its directory name, and every unit in the course is distinct.
 
@@ -695,15 +726,16 @@ def main() -> int:
         for derived in ("obj", "bin"):
             shutil.rmtree(root / derived, ignore_errors=True)
 
-    structure = (check_structure(root) + check_mains(root) + check_unit_names(root)
-                 + check_additional_files(root))
+    structure = (check_structure(root) + check_source_dirs(root) + check_mains(root)
+                 + check_unit_names(root) + check_additional_files(root))
     if structure:
         for problem in structure:
             print(f"  STRUCTURE  {problem}", file=sys.stderr)
         return 1
-    print("  ok       structure: content lists match directories, `for Main use` matches the\n"
-          "           sources that are runnable programs, every unit is named for its task, and\n"
-          "           additional_files names course content rather than build output")
+    print("  ok       structure: content lists match directories, every section has a Source_Dirs\n"
+          "           entry, `for Main use` matches the sources that are runnable programs, every\n"
+          "           unit is named for its task, and additional_files names course content\n"
+          "           rather than build output")
 
     #  The point of --structure is to be runnable in the second before a commit, when a full
     #  run has already passed and the only worry is what the course editor did since.

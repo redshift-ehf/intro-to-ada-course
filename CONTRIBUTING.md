@@ -55,8 +55,9 @@ Each task is a directory with `task-info.yaml`, `task.md`, and `src/`. Exercises
 carry `tests/`; theory tasks (`type: theory`) do not, and should not.
 
 `course.gpr` at the root spans every lesson through `Source_Dirs`, which is what lets the language
-server load the whole course as one project rather than one task at a time. Adding a lesson means
-adding it there too.
+server load the whole course as one project rather than one task at a time. Adding a **section**
+means adding `"<Section>/**"` there too; the checker will tell you if you forget, which it did not
+used to.
 
 `harness/ada_check.adb` is linked by every exercise, so a change to it reaches all of them at once.
 
