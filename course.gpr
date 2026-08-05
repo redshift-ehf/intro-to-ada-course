@@ -69,7 +69,8 @@ project Course is
    --  tree: the bare build succeeds and produces exactly the list below, because an exercise is
    --  not a main and nothing here withs it.
    for Main use
-     ("greet.adb",
+     ("introduction.adb",
+      "greet.adb",
       "say_hello.adb",
       "check_direction.adb",
       "counting.adb",

@@ -1,6 +1,6 @@
 ## Exercise: Hello World
 
-**Goal**: create a "Hello World!" application.
+**Goal**: Create a "Hello World!" application.
 
 **Steps**:
 

@@ -1,13 +1,14 @@
 # Imperative Language
 
-Ada is a multi-paradigm language with support for object orientation and some elements of
-functional programming, but its core is a simple, coherent procedural/imperative language akin to
-C or Pascal.
+Ada is a multi-paradigm language with support for object orientation and some elements of functional programming, but its core is a simple, coherent procedural/imperative language akin to C or Pascal.
 
-> [!NOTE]
-> **In other languages**
->
-> One important distinction between Ada and a language like C is that statements and expressions are very clearly distinguished. In Ada, if you try to use an expression where a statement is required then your program will fail to compile. This rule supports a useful stylistic principle: expressions are intended to deliver values, not to have side effects. It can also prevent some programming errors, such as mistakenly using the equality operator `=` instead of the assignment operation `:=` in an assignment statement.
+<div style="border-left: 4px solid #3592c4; background: rgba(53,146,196,0.12); padding: 8px 12px; margin: 8px 0; border-radius: 4px;">
+
+**In other languages:** 
+
+One important distinction between Ada and a language like C is that statements and expressions are very clearly distinguished. In Ada, if you try to use an expression where a statement is required then your program will fail to compile. This rule supports a useful stylistic principle: expressions are intended to deliver values, not to have side effects. It can also prevent some programming errors, such as mistakenly using the equality operator `=` instead of the assignment operation `:=` in an assignment statement.
+
+</div>
 
 ## Hello world
 
@@ -23,23 +24,28 @@ begin
 end Greet;
 ```
 
-which we'll assume is in the source file `greet.adb`.
+which is in the source file `greet.adb`.
 
-> [!TIP]
-> Press the green **Run** button in the gutter beside the procedure in the source view to compile and run it.
+<div style="border-left: 4px solid #3592c4; background: rgba(53,146,196,0.12); padding: 8px 12px; margin: 8px 0; border-radius: 4px;">
+
+**Tip**
+
+Press the green **Run** button in the gutter beside the procedure in the source view to compile and run it.
+
+</div>
 
 If you compile that source with the GNAT compiler and run the executable, you will get an unsurprising result.
 
-```shell
+```bash
 $ gprbuild greet.adb
 using project file [...]_default.gpr
 Compile
-[Ada]          greet.adb
+   [Ada]          greet.adb
 Bind
-[gprbind]      greet.bexch
-[Ada]          greet.ali
+   [gprbind]      greet.bexch
+   [Ada]          greet.ali
 Link
-[link]         greet.adb
+   [link]         greet.adb
 
 $ ./greet
 Hello, World!
@@ -59,19 +65,10 @@ There are several noteworthy things in the above program:
 --  and we continue on the second line...
 ```
 
-> [!NOTE]
-> **In other languages**
->
-> Procedures are similar to functions in C or C++ that return `void`. We'll see later how to declare functions in Ada.
+<div style="border-left: 4px solid #3592c4; background: rgba(53,146,196,0.12); padding: 8px 12px; margin: 8px 0; border-radius: 4px;">
 
----
+**In other languages:**
 
-<div class="hint">
-The Run button appears beside any subprogram that takes no arguments, which is Ada's rule for a
-main program — a program has to be startable with nothing.
+Procedures are similar to functions in C or C++ that return `void`. We'll see later how to declare functions in Ada.
 
-So some later exercises have a Run button and some do not, and the difference is exactly that rule.
-`Say_Hello` in the next task takes no arguments, so you can run it and watch it print. The one
-after takes a name to greet, which makes it a subprogram rather than a program, and it is checked
-rather than run.
 </div>

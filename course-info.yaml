@@ -4,18 +4,18 @@ language: English
 summary: "<p>An adaptation of AdaCore's <a href=\"https://learn.adacore.com/courses/intro-to-ada/\"\
   >Introduction to Ada</a> for JetBrains IDEs, with the exercises adapted from its\
   \ companion <a href=\"https://learn.adacore.com/labs/intro-to-ada/\">Introduction\
-  \ to Ada: Laboratories</a>.</p> <p>You read a little, then write a little, and the\
-  \ IDE checks your work as you go — the whole course compiles and runs with the same\
-  \ GNAT toolchain you would use for real Ada.</p> <p>Requires the Ada and SPARK plugin,\
-  \ which provides the language server, the build integration and the test runner\
-  \ this course is checked with.</p> <p><strong>Attribution.</strong> Every lesson\
-  \ and exercise in this course is adapted from <em>Introduction to Ada</em> and <em>Introduction\
-  \ to Ada: Laboratories</em> by Raphaël Amiard and Gustavo A. Hoffmann, © 2018–2026\
-  \ AdaCore, used under <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\"\
+  \ to Ada: Laboratories</a>.</p><p></p><p>You read a little, then write a little,\
+  \ and the IDE checks your work as you go — the whole course compiles and runs with\
+  \ the same GNAT toolchain you would use for real Ada.</p> <p>Requires the Ada and\
+  \ SPARK plugin, which provides the language server, the build integration and the\
+  \ test runner this course is checked with.</p><p></p><p><strong>Attribution.</strong>\
+  \ Every lesson and exercise in this course is adapted from <em>Introduction to Ada</em>\
+  \ and <em>Introduction to Ada: Laboratories</em> by Raphaël Amiard and Gustavo A.\
+  \ Hoffmann, © 2018–2026 AdaCore, used under <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\"\
   >CC BY-SA 4.0</a>. Changes were made throughout: restructured as a JetBrains Academy\
   \ course, examples rewritten to run without keyboard input, and exercises rewritten\
   \ as checkable tasks with automated tests. This adaptation is released under the\
-  \ same licence.</p> <p><strong>Original exercises.</strong> AdaCore's <em>Laboratories</em>\
+  \ same licence.</p><p></p><p><strong>Original exercises.</strong> AdaCore's <em>Laboratories</em>\
   \ has no chapter for Access Types, More About Records, Fixed-Point Types, Interfacing\
   \ With C, or Files &amp; Streams. The exercises in those five chapters are original\
   \ to this course, written in the same style as the adapted ones; everything else\
